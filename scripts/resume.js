@@ -6,6 +6,7 @@ var resumeApp = angular.module('resumeApp', []);
 resumeApp.factory('resumeData', [function(){
 	return {
 		name: 'Mike Kozelsky',
+		image: 'images/mike.jpg',
 		tagline: 'A general technologist that enjoys making things on the web',
 		bio: '',
 		skills: [
@@ -33,7 +34,7 @@ resumeApp.factory('resumeData', [function(){
 			{
 					employerName: 'Doolli',
 					employerWebsite: 'http://www.doolli.com/',
-					employerLogo: 'images/logo-large.png',
+					employerLogo: 'images/doolli.png',
 					employerTagline: 'Cloud based data management service',
 					startDate: new Date('7/1/2013'),
 					endDate: null,
@@ -54,7 +55,7 @@ resumeApp.factory('resumeData', [function(){
 			{
 					employerName: 'Harris Local Government',
 					employerWebsite: 'http://www.harrislocalgov.com/',
-					employerLogo: 'images/logo-harris-local-gov.png',
+					employerLogo: 'images/harris-local-gov.png',
 					employerTagline: 'Software company for small municipalities',
 					startDate: new Date('8/1/2012'),
 					endDate: new Date('6/1/2013'),
@@ -78,7 +79,7 @@ resumeApp.factory('resumeData', [function(){
 			{
 				employerName: 'Meritain Health',
 				employerWebsite: 'http://www.meritain.com/',
-				employerLogo: 'images/MeritainHealth.jpg',
+				employerLogo: 'images/meritain-health.jpg',
 				employerTagline: 'A third party health insurance administrator',
 				startDate: new Date('1/1/2007'),
 				endDate: new Date('8/1/2012'),

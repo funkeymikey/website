@@ -7,8 +7,16 @@
 	</head>
 	<body ng-cloak>
 		
-		<h1>{{resumeData.name}}</h1>
-		<div>{{resumeData.tagline}}</div>
+		<div>
+			<div class="column">
+				<img ng-if="resumeData.image" ng-src="{{resumeData.image}}" alt="{{resumeData.name}}" class="photo"/>	
+			</div>
+			<div class="column">
+				<h1>{{resumeData.name}}</h1>
+				<div>{{resumeData.tagline}}</div>
+			</div>
+		</div>
+		<div class="clear"></div>
 
 		<section id="bio" ng-if="resumeData.bio">
 			<h2>Bio</h2>
@@ -38,7 +46,7 @@
 		<section id="workHistory" ng-if="resumeData.workHistory">
 			<h2>Work History</h2>
 			<div class="clear"></div>
-			<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="job">
+			<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="job column">
 				<div ng-if="job.employerLogo" class="employer-logo">
 					<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}} logo" />
 				</div>
