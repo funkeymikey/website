@@ -3,62 +3,92 @@
 <html ng-app="resumeApp" ng-controller="resumeController" >
 	<head>
 		<title ng-bind="resumeData.name"></title>
-		<style>
-			[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-				display: none !important;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
 	</head>
 	<body ng-cloak>
 		
-
 		<h1>{{resumeData.name}}</h1>
-		<h3>{{resumeData.tagline}}</h3>
+		<div>{{resumeData.tagline}}</div>
 
-		<section id="bio">
+		<section id="bio" ng-if="resumeData.bio">
+			<h2>Bio</h2>
+			<p>{{resumeData.bio}}</p>
+		</section>
+
+		<section id="contactInfo" ng-if="resumeData.contactInfo">
+			<h2>Contact Info</h2>
 			<p>
-				{{resumeData.email}}<br />
-				{{resumeData.phone}}<br />
-				{{resumeData.address.number}} {{resumeData.address.street}}<br />
-				{{resumeData.address.city}}, {{resumeData.address.state}} {{resumeData.address.postal}}<br />
+				{{resumeData.contactInfo.email}}<br />
+				{{resumeData.contactInfo.phone}}<br />
+				{{resumeData.contactInfo.address.number}} {{resumeData.contactInfo.address.street}}<br />
+				{{resumeData.contactInfo.address.city}}, {{resumeData.contactInfo.address.state}} {{resumeData.contactInfo.address.postal}}<br />
 			</p>
 		</section>
 
-		<section id="skills">
-		</section>
-
-		<section id="workHistory">
-			<div ng-repeat="job in resumeData.workHistory">
-				<div ng-if="job.employerLogo">
-					<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}} logo"/>
-				</div>
-				<h2><a ng-href="{{job.employerWebsite}}">{{job.employerName}}</a></h2>
-				<div ng-if="job.employerTagline">{{job.employerTagline}}</div>
-				<h3>{{job.startDate | date:'MMMM yyyy'}} &mdash; <span ng-if="job.endDate">{{job.endDate | date:'MMMM yyyy'}}</span><span ng-if="!job.endDate">Present</span></h3>
-				<div ng-repeat="position in job.positions">
-					<h4>{{position.role}}</h4>
-					<h5>{{position.startDate | date:'MMMM yyyy'}} &mdash; <span ng-if="job.endDate">{{position.endDate | date:'MMMM yyyy'}}</span><span ng-if="!job.endDate">Present</span></h5>
-					<ul ng-repeat="responsibility in position.responsibilites">
-						<li>{{responsibility}}</li>
-					</ul>
+		<section id="skills" ng-if="resumeData.skills">
+			<h2>Skills</h2>
+			<div ng-repeat="skill in resumeData.skills">
+				<h3>{{skill.category}}</h3>
+				<div ng-repeat="rating in skill.ratings">
+					{{rating.skill}} &mdash; {{rating.rating}}%
 				</div>
 			</div>
 		</section>
 
-		<section id="hobbies">
+		<section id="workHistory" ng-if="resumeData.workHistory">
+			<h2>Work History</h2>
+			<div class="clear"></div>
+			<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="job">
+				<div ng-if="job.employerLogo" class="employer-logo">
+					<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}} logo" />
+				</div>
+				<h2><a ng-href="{{job.employerWebsite}}">{{job.employerName}}</a></h2>
+				<div ng-if="job.employerTagline">{{job.employerTagline}}</div>
+				{{job.startDate | date:'MMMM yyyy'}} &mdash; <span ng-if="job.endDate">{{job.endDate | date:'MMMM yyyy'}}</span><span ng-if="!job.endDate">Present</span>
+				<ul ng-repeat="position in job.positions" ng-init="positionIndex = $index">
+					<li>
+					<h3>{{position.role}}</h3>
+						({{position.startDate | date:'MM/yyyy'}} to <span ng-if="job.endDate">{{position.endDate | date:'MM/yyyy'}}</span><span ng-if="!job.endDate">Present</span>)
+					
+					<div ng-if="shouldShow(jobIndex)">
+						{{position.team}}
+					</div>
+
+					<div ng-if="position.recognitions && position.recognitions.length > 0">
+						Recognitions
+						<ul ng-repeat="recognition in position.recognitions">
+							<li>{{recognition}}</li>
+						</ul>
+					</div>
+
+					<div ng-if="shouldShow(jobIndex) && position.responsibilities && position.responsibilities.length > 0">
+						Responsibilities
+						<ul ng-repeat="responsibility in position.responsibilities">
+							<li>{{responsibility}}</li>
+						</ul>
+					</div>
+					</li>
+				</ul>
+
+				<button ng-click="toggleMore(jobIndex)">{{shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</button>
+			</div>
+		</section>
+		<div class="clear"></div>
+
+		<section id="hobbies" ng-if="resumeData.hobbies && resumeData.hobbies.length > 0">
+			<h2>Hobbies</h2>
+			{{resumeData.hobbies}}
 		</section>
 
-		<section id="education">
+		<section id="education" ng-if="resumeData.education">
 			<h2>Education</h2>
 			<ul ng-repeat="award in resumeData.education">
-				<li>{{award.type}} from {{award.from}}, {{award.date | date:'MMM yyyy'}}</li>
+				<li>{{award.type}} from {{award.from}}, {{award.date | date:'MMMM yyyy'}}</li>
 			</ul>
 		</section>
 
- 		<hr /> {{resumeData}} <hr />
-
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.5/angular.js"></script>
-		<script src="resume.js"></script>
+		<script src="scripts/angular.min.js"></script>
+		<script src="scripts/resume.js"></script>
 
 	</body>
 </html>
