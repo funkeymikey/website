@@ -68,12 +68,12 @@ section{
 }
 
 .employer-logo{
-	max-width: 250px;
 	height: 150px;
 }
 
 .employer-logo > img{
 	max-height: 150px;
+	max-width: 250px;
 	display:block;
   margin:auto;
 }
