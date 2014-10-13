@@ -26,8 +26,8 @@
 		<section id="contactInfo" ng-if="resumeData.contactInfo">
 			<h2>Contact Info</h2>
 			<p>
-				{{resumeData.contactInfo.email}}<br />
-				{{resumeData.contactInfo.phone}}<br />
+				<span ng-if="resumeData.contactInfo.email"><a ng-href="mailto:{{resumeData.contactInfo.email}}">{{resumeData.contactInfo.email}}</a></span><br />
+				<span ng-if="resumeData.contactInfo.phone"><a ng-href="tel:{{resumeData.contactInfo.phone}}">{{resumeData.contactInfo.phone}}</a></span><br />
 				{{resumeData.contactInfo.address.number}} {{resumeData.contactInfo.address.street}}<br />
 				{{resumeData.contactInfo.address.city}}, {{resumeData.contactInfo.address.state}} {{resumeData.contactInfo.address.postal}}<br />
 			</p>
@@ -35,17 +35,14 @@
 
 		<section id="skills" ng-if="isPopulated(resumeData.skills)">
 			<h2>Skills</h2>
-			<div ng-repeat="skill in resumeData.skills">
-				<h3>{{skill.category}}</h3>
-				<div ng-repeat="rating in skill.ratings">
-					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="rating column" viewbox="0 0 150 150">
-						<path ng-attr-d="{{getArcPathData(rating.percent)}}"></path>
-						<text xmlns="http://www.w3.org/2000/svg" x="40" y="75" font-size="40" class="rating-skill">{{rating.skill}}</text>
-						<text xmlns="http://www.w3.org/2000/svg" x="50" y="110" font-size="20" class="rating-percent">{{rating.percent}}%</text>						
-					</svg>
-				</div>
-				<div class="clear"></div>
+			<div ng-repeat="rating in resumeData.skills">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="rating column" viewbox="0 0 150 150">
+					<path ng-attr-d="{{getArcPathData(rating.percent)}}" style="opacity:{{rating.percent/100}}"></path>
+					<text text-anchor="middle" x="75" y="80" font-size="40" class="rating-skill">{{rating.skill}}</text>
+					<text text-anchor="middle" x="75" y="110" font-size="20" class="rating-percent">{{rating.percent}}%</text>						
+				</svg>
 			</div>
+			<div class="clear"></div>
 		</section>
 
 		<section id="workHistory" ng-if="isPopulated(resumeData.workHistory)">
