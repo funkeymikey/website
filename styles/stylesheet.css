@@ -67,6 +67,22 @@ section{
 	max-height: 400px;
 }
 
+.rating{
+	padding-top: 10px;
+	width: 100px;
+	height: 100px;	
+}
+
+.rating > path {
+	stroke: #70DB70;
+	stroke-width:10px;
+	fill: none;
+}
+
+.rating-skill{
+	font-weight: bold;
+}
+
 .employer-logo{
 	height: 150px;
 }

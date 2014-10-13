@@ -13,9 +13,9 @@ resumeApp.factory('resumeData', [function(){
 			{
 				category: 'Languages',
 				ratings: [
-					{skill: 'C#', rating: 72},
-					{skill: 'Java', rating: 54},
-					{skill: 'JavaScript', rating: 36}
+					{skill: 'C#', percent: 72},
+					{skill: 'Java', percent: 54},
+					{skill: 'JS', percent: 36}
 					]
 			}
 		],
@@ -199,11 +199,11 @@ resumeApp.controller('resumeController', ['$scope', 'resumeData', function($scop
 			showJobDetail.push(jobId);
 		else
 			showJobDetail.splice(index, 1);
-	}
+	};
 
 	$scope.shouldShow = function(jobId){
 		return showJobDetail.indexOf(jobId) !== -1;
-	}
+	};
 
 	$scope.moreOrless = function(jobID){
 		var index = showJobDetail.indexOf(jobId);
@@ -211,12 +211,42 @@ resumeApp.controller('resumeController', ['$scope', 'resumeData', function($scop
 			return 'more';
 		else
 			return 'less';
-	}
+	};
 
 	$scope.isPopulated = function(testArray){
 		if(testArray && testArray.length > 0)
 			return true;
 		return false;
-	}
+	};
+
+	$scope.getArcPathData = function(rating){
+		return getArcPathDataByDegrees(75, 75, 70, ((rating / 100) * 360));
+	};
+
+	function getArcPathDataByDegrees(startX, startY, radius, degrees){
+		//adapted from http://perlgeek.de/blog-en/perl-6/plot-segment-of-a-circle-with-svg.html
+		
+		//figure out starting point in radians
+		var start = 0;
+		var end = degrees * (Math.PI / 180);
+
+		//instead of starting at 3:00, i want to start at 12:00, so rotate everything back by half a PI
+		start = start - Math.PI / 2;
+		end = end - Math.PI / 2;
+
+		//maths
+		var startArcX = radius * Math.cos(start);
+		var startArcY = radius * Math.sin(start);
+		var rotation = 0;
+		var largeArcFlag = (end - start) > Math.PI ? 1 : 0;
+		var sweepFlag = 1;
+		var endArcX = startX + radius * Math.cos(end);
+		var endArcY = startY + radius * Math.sin(end);
+
+		//Move to the center of the circle. move to the start of the arc.  Arc to the endpoint
+		var pathData = 'M ' + startX + ' ' + startY + ' m ' + startArcX + ' ' + startArcY + ' A ' + radius + ' ' + radius + ' ' + rotation + ' ' + largeArcFlag + ' ' + sweepFlag + ' ' + endArcX + ' ' + endArcY;
+
+		return pathData;
+	};
 
 }]);

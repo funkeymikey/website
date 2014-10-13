@@ -38,8 +38,13 @@
 			<div ng-repeat="skill in resumeData.skills">
 				<h3>{{skill.category}}</h3>
 				<div ng-repeat="rating in skill.ratings">
-					{{rating.skill}} &mdash; {{rating.rating}}%
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="rating column" viewbox="0 0 150 150">
+						<path ng-attr-d="{{getArcPathData(rating.percent)}}"></path>
+						<text xmlns="http://www.w3.org/2000/svg" x="40" y="75" font-size="40" class="rating-skill">{{rating.skill}}</text>
+						<text xmlns="http://www.w3.org/2000/svg" x="50" y="110" font-size="20" class="rating-percent">{{rating.percent}}%</text>						
+					</svg>
 				</div>
+				<div class="clear"></div>
 			</div>
 		</section>
 
