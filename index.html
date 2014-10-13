@@ -3,6 +3,8 @@
 <html ng-app="resumeApp" ng-controller="resumeController" >
 	<head>
 		<title ng-bind="resumeData.name"></title>
+		
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
 	</head>
 	<body ng-cloak>
@@ -19,12 +21,12 @@
 		<div class="clear"></div>
 
 		<section id="bio" ng-if="resumeData.bio">
-			<h2>Bio</h2>
+			<h2><i class="fa fa-user"></i>Bio</h2>
 			<p>{{resumeData.bio}}</p>
 		</section>
 
 		<section id="contactInfo" ng-if="resumeData.contactInfo">
-			<h2>Contact Info</h2>
+			<h2><i class="fa fa-paper-plane"></i> Contact Info</h2>
 			<p>
 				<span ng-if="resumeData.contactInfo.email"><a ng-href="mailto:{{resumeData.contactInfo.email}}">{{resumeData.contactInfo.email}}</a></span><br />
 				<span ng-if="resumeData.contactInfo.phone"><a ng-href="tel:{{resumeData.contactInfo.phone}}">{{resumeData.contactInfo.phone}}</a></span><br />
@@ -34,7 +36,7 @@
 		</section>
 
 		<section id="skills" ng-if="isPopulated(resumeData.skills)">
-			<h2>Skills</h2>
+			<h2><i class="fa fa-code"></i> Skills</h2>
 			<div ng-repeat="rating in resumeData.skills">
 				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="rating column" viewbox="0 0 150 150">
 					<path ng-attr-d="{{getArcPathData(rating.percent)}}" style="opacity:{{rating.percent/100}}"></path>
@@ -46,7 +48,7 @@
 		</section>
 
 		<section id="workHistory" ng-if="isPopulated(resumeData.workHistory)">
-			<h2>Work History</h2>
+			<h2><i class="fa fa-briefcase"></i> Work History</h2>
 			<div class="clear"></div>
 			<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="job column">
 				<div ng-if="job.employerLogo" class="employer-logo">
@@ -86,12 +88,16 @@
 		<div class="clear"></div>
 
 		<section id="hobbies" ng-if="isPopulated(resumeData.hobbies)">
-			<h2>Hobbies</h2>
-			{{resumeData.hobbies}}
+			<h2><i class="fa fa-trophy"></i> Hobbies</h2>
+			<div>
+				<div ng-repeat="hobby in resumeData.hobbies" class="hobby">
+					<img ng-src="{{hobby.image}}" alt="hobby.name" /> {{hobby.name}}
+				</div>
+			</div>
 		</section>
 
 		<section id="education" ng-if="isPopulated(resumeData.education)">
-			<h2>Education</h2>
+			<h2><i class="fa fa-graduation-cap"></i> Education</h2>
 			<ul ng-repeat="award in resumeData.education">
 				<li>{{award.type}} from {{award.from}}, {{award.date | date:'MMMM yyyy'}}</li>
 			</ul>

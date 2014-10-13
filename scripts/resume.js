@@ -12,10 +12,11 @@ resumeApp.factory('resumeData', [function(){
 		skills: [
 			{skill: 'C#', percent: 72},
 			{skill: 'Html', percent: 70},
+			{skill: 'Scrum', percent: 61},
 			{skill: 'Java', percent: 54},
 			{skill: 'SQL', percent: 45},
 			{skill: 'JS', percent: 40},
-			{skill: 'CSS', percent: 37}						
+			{skill: 'CSS', percent: 37}			
 		],
 		contactInfo:{
 			email: 'mike.kozelsky@gmail.com',
@@ -177,7 +178,12 @@ resumeApp.factory('resumeData', [function(){
 				]
 			}
 		],
-		hobbies:[],
+		hobbies:[
+			{name: 'buffalo', image: 'images/buffalo.svg'},
+			{name: 'WRX', image: 'images/turbo2.svg'},
+			{name: 'Jeeps', image: 'images/jeep.svg'},
+			{name: 'Adirondacks', image: 'images/mountains.svg'}
+		],
 		education:[
 			{type:"Master of Science", from:"University at Buffalo, Department of Computer Science and Engineering", date: new Date('6/1/2007')},
 			{type:"Bachelor of Science", from:"University at Buffalo, Department of Computer Science and Engineering", date: new Date('6/1/2007')}

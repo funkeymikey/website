@@ -94,11 +94,21 @@ section{
   margin:auto;
 }
 
-.column{
-	float:left;
+.hobby{ 
+	display: inline-block;
 }
 
-.column {
+.hobby + .hobby{
+	padding-left: 20px;
+}
+
+.hobby > img {
+	max-height: 40px;
+	max-width: 40px;
+}
+
+.column{
+	float:left;
 	padding-right:25px;
 }
 
