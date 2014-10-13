@@ -33,7 +33,7 @@
 			</p>
 		</section>
 
-		<section id="skills" ng-if="resumeData.skills">
+		<section id="skills" ng-if="isPopulated(resumeData.skills)">
 			<h2>Skills</h2>
 			<div ng-repeat="skill in resumeData.skills">
 				<h3>{{skill.category}}</h3>
@@ -43,7 +43,7 @@
 			</div>
 		</section>
 
-		<section id="workHistory" ng-if="resumeData.workHistory">
+		<section id="workHistory" ng-if="isPopulated(resumeData.workHistory)">
 			<h2>Work History</h2>
 			<div class="clear"></div>
 			<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="job column">
@@ -62,14 +62,14 @@
 						{{position.team}}
 					</div>
 
-					<div ng-if="position.recognitions && position.recognitions.length > 0">
+					<div ng-if="isPopulated(position.recognitions)">
 						Recognitions
 						<ul ng-repeat="recognition in position.recognitions">
 							<li>{{recognition}}</li>
 						</ul>
 					</div>
 
-					<div ng-if="shouldShow(jobIndex) && position.responsibilities && position.responsibilities.length > 0">
+					<div ng-if="shouldShow(jobIndex) && isPopulated(position.responsibilities)">
 						Responsibilities
 						<ul ng-repeat="responsibility in position.responsibilities">
 							<li>{{responsibility}}</li>
@@ -83,12 +83,12 @@
 		</section>
 		<div class="clear"></div>
 
-		<section id="hobbies" ng-if="resumeData.hobbies && resumeData.hobbies.length > 0">
+		<section id="hobbies" ng-if="isPopulated(resumeData.hobbies)">
 			<h2>Hobbies</h2>
 			{{resumeData.hobbies}}
 		</section>
 
-		<section id="education" ng-if="resumeData.education">
+		<section id="education" ng-if="isPopulated(resumeData.education)">
 			<h2>Education</h2>
 			<ul ng-repeat="award in resumeData.education">
 				<li>{{award.type}} from {{award.from}}, {{award.date | date:'MMMM yyyy'}}</li>

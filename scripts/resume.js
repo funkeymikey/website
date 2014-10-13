@@ -213,4 +213,10 @@ resumeApp.controller('resumeController', ['$scope', 'resumeData', function($scop
 			return 'less';
 	}
 
+	$scope.isPopulated = function(testArray){
+		if(testArray && testArray.length > 0)
+			return true;
+		return false;
+	}
+
 }]);
