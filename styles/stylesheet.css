@@ -68,19 +68,24 @@ section + section {
 	fill: none;
 }
 
-.rating-skill{
+.rating-skill {
 	font-weight: bold;
 }
 
-.job{
+.job {
 	padding-top: 20px;
 }
 
-.employer-logo{
+.employer-logo {
 	height: 150px;
 }
 
-.interest{
+.employer-logo > img {
+	margin: 0 auto;
+	max-height: 150px;
+}
+
+.interest {
 	height: calc(40px + 1rem);
 }
 
