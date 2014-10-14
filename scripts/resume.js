@@ -19,7 +19,7 @@ resumeApp.factory('resumeData', [function(){
 			{skill: 'CSS', percent: 37}			
 		],
 		about: {
-			bio: null,
+			bio: 'I have been professtionally developing with web technologies since 2007, mostly with the microsoft stack and .net / c#.  I am currently working with a java codebase on top of mysql and a few other odds and ends.  Recents interests include fiddling with angularjs, mentoring other developers with different experiences, and utilizing SCRUM so that my team operates better.',
 			contact: {
 				email: 'mike.kozelsky@gmail.com',
 				phone: '585-746-4926',

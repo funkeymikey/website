@@ -54,12 +54,26 @@ ul{
 	list-style: disc outside;
 }
 
-h1 { display: inline-block; font-size: 2rem; font-weight: bold;}
-h2 { display: inline-block; font-size: 1.5rem; font-weight: bold;}
-h3 { display: inline-block; font-size: 1rem; font-weight: bold;}
+h1 { display: inline-block; font-size: 3.5rem; font-weight: bold; }
+h2 { display: inline-block; font-size: 2rem; font-weight: bold;}
+h3 { display: inline-block; font-size: 1.3rem; font-weight: bold;}
+h4 { display: inline-block; font-size: 1rem; font-weight: bold;}
 
 section + section { 
-	padding-top: 25px;
+	padding-top: 50px;
+}
+
+.contact{
+	margin-top: 2rem;
+}
+
+div > h2 {
+	padding: 1rem;
+}
+
+.bio{
+	padding: 1rem;
+	background-color: #ddd;
 }
 
 .rating > path {
@@ -74,6 +88,12 @@ section + section {
 
 .job {
 	padding-top: 20px;
+}
+
+.showMore{
+	padding-top: 1rem;
+	display:block;
+	font-size: smaller;
 }
 
 .employer-logo {

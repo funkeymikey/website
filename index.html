@@ -19,29 +19,34 @@
 			<div class="col-md-6 text-right">
 				<h1>{{resumeData.name}}</h1>
 				<div>{{resumeData.tagline}}</div>
+				<div class="contact">
+					<div class="row">
+						<h2 class="col-md-12">Contact <i class="fa fa-paper-plane"></i></h2>
+					</div>
+					<div class="row">
+						<p class="col-md-12">
+							<span ng-if="resumeData.about.contact.email"><a ng-href="mailto:{{resumeData.about.contact.email}}">{{resumeData.about.contact.email}}</a></span><br />
+							<span ng-if="resumeData.about.contact.phone"><a ng-href="tel:{{resumeData.about.contact.phone}}">{{resumeData.about.contact.phone}}</a></span><br />
+							{{resumeData.about.contact.address.number}} {{resumeData.about.contact.address.street}}<br />
+							{{resumeData.about.contact.address.city}}, {{resumeData.about.contact.address.state}} {{resumeData.about.contact.address.postal}}<br />
+						</p>
+					</div>
+				</div>
 			</div>
 		</section>
- 
 
-		<section id="about" ng-if="resumeData.about">
+
+		<section id="bio">
 			<div class="row">
 				<h2 class="col-md-3"><i class="fa fa-user"></i> About</h2>
 			</div>
-			<div class="row" ng-if="resumeData.about.bio">
-				<p clas="col-md-6">
-					{{resumeData.about.bio}}
-				</p>
-			</div>
-			<div class="row" ng-if="resumeData.about.contact">
-				<p class="col-md-6">
-					<span ng-if="resumeData.about.contact.email"><a ng-href="mailto:{{resumeData.about.contact.email}}">{{resumeData.about.contact.email}}</a></span><br />
-					<span ng-if="resumeData.about.contact.phone"><a ng-href="tel:{{resumeData.about.contact.phone}}">{{resumeData.about.contact.phone}}</a></span><br />
-					{{resumeData.about.contact.address.number}} {{resumeData.about.contact.address.street}}<br />
-					{{resumeData.about.contact.address.city}}, {{resumeData.about.contact.address.state}} {{resumeData.about.contact.address.postal}}<br />
-				</p>
+			<div class="row">
+				<div class="bio col-md-12" ng-if="resumeData.about.bio">
+					<p>{{resumeData.about.bio}}</p>
+				</div>
 			</div>
 		</section>
-
+ 
 
 		<section id="skills" ng-if="isPopulated(resumeData.skills)">
 			<div class="row">
@@ -66,15 +71,17 @@
 			</div>
 			<div class="row">
 				<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="job col-md-4 col-sm-6">
-					<div class="employer-logo">
-						<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}}" class="img-responsive" />
-					</div>
-					<h2><a ng-href="{{job.employerWebsite}}">{{job.employerName}}</a></h2>
+					<a ng-href="{{job.employerWebsite}}">
+						<div class="employer-logo">
+							<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}}" class="img-responsive" />
+						</div>
+						<h3>{{job.employerName}}</h3>
+					</a>
 					<div ng-if="job.employerTagline">{{job.employerTagline}}</div>
 					{{job.startDate | date:'MMMM yyyy'}} &mdash; <span ng-if="job.endDate">{{job.endDate | date:'MMMM yyyy'}}</span><span ng-if="!job.endDate">Present</span>
 					<ul ng-repeat="position in job.positions" ng-init="positionIndex = $index">
 						<li>
-						<h3>{{position.role}}</h3>
+						<h4>{{position.role}}</h4>
 							({{position.startDate | date:'MM/yyyy'}} to <span ng-if="job.endDate">{{position.endDate | date:'MM/yyyy'}}</span><span ng-if="!job.endDate">Present</span>)
 						
 						<div ng-if="shouldShow(jobIndex)">
@@ -96,7 +103,7 @@
 						</div>
 						</li>
 					</ul>
-					<button ng-click="toggleMore(jobIndex)">{{shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</button>
+					<a class="showMore" href ng-click="toggleMore(jobIndex)"><i class="fa fa-chevron-down" ng-class="{ 'fa-rotate-180' : shouldShow(jobIndex) }"></i> {{shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</a>	
 				</div>
 			</div>
 		</section>
@@ -107,8 +114,8 @@
 				<h2 class="col-md-3"><i class="fa fa-binoculars"></i> Interests</h2>
 			</div>
 			<div class="row">
-				<div ng-repeat="interest in resumeData.interests" class="interest col-md-2 col-sm-3 col-xs-6">
-					<img ng-src="{{interest.image}}" alt="interest.name"/> {{interest.name}}
+				<div ng-repeat="interest in resumeData.interests" class="interest col-md-2 col-sm-3 col-xs-6 text-center">
+					<img ng-src="{{interest.image}}" alt="interest.name" class="center-block"/> {{interest.name}}
 				</div>
 			</div>
 		</section>
