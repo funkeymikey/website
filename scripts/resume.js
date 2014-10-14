@@ -7,26 +7,29 @@ resumeApp.factory('resumeData', [function(){
 	return {
 		name: 'Mike Kozelsky',
 		image: 'images/mike.jpg',
-		tagline: 'A general technologist that enjoys making things on the web',
-		bio: '',
+		tagline: 'A general technologist that enjoys making things on the web',		
 		skills: [
 			{skill: 'C#', percent: 72},
 			{skill: 'Html', percent: 70},
-			{skill: 'Scrum', percent: 61},
+			{skill: 'Scrum', percent: 64},
+			{skill: 'REST', percent: 61},
 			{skill: 'Java', percent: 54},
 			{skill: 'SQL', percent: 45},
 			{skill: 'JS', percent: 40},
 			{skill: 'CSS', percent: 37}			
 		],
-		contactInfo:{
-			email: 'mike.kozelsky@gmail.com',
-			phone: '585-746-4926',
-			address: {
-				number: '101',
-				street: 'Shoshone Street',
-				city: 'Buffalo',
-				state: 'New York',
-				postal: '14214'
+		about: {
+			bio: null,
+			contact: {
+				email: 'mike.kozelsky@gmail.com',
+				phone: '585-746-4926',
+				address: {
+					number: '101',
+					street: 'Shoshone Street',
+					city: 'Buffalo',
+					state: 'New York',
+					postal: '14214'
+				}
 			}
 		},
 		workHistory: [

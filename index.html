@@ -21,24 +21,28 @@
 				<div>{{resumeData.tagline}}</div>
 			</div>
 		</section>
-<!-- 
-		<section id="contactInfo" ng-if="resumeData.contactInfo">
-			<h2><i class="fa fa-paper-plane"></i> Contact Info</h2>
-			<p>
-				<span ng-if="resumeData.contactInfo.email"><a ng-href="mailto:{{resumeData.contactInfo.email}}">{{resumeData.contactInfo.email}}</a></span><br />
-				<span ng-if="resumeData.contactInfo.phone"><a ng-href="tel:{{resumeData.contactInfo.phone}}">{{resumeData.contactInfo.phone}}</a></span><br />
-				{{resumeData.contactInfo.address.number}} {{resumeData.contactInfo.address.street}}<br />
-				{{resumeData.contactInfo.address.city}}, {{resumeData.contactInfo.address.state}} {{resumeData.contactInfo.address.postal}}<br />
-			</p>
+ 
+
+		<section id="about" ng-if="resumeData.about">
+			<div class="row">
+				<h2 class="col-md-3"><i class="fa fa-user"></i> About</h2>
+			</div>
+			<div class="row" ng-if="resumeData.about.bio">
+				<p clas="col-md-6">
+					{{resumeData.about.bio}}
+				</p>
+			</div>
+			<div class="row" ng-if="resumeData.about.contact">
+				<p class="col-md-6">
+					<span ng-if="resumeData.about.contact.email"><a ng-href="mailto:{{resumeData.about.contact.email}}">{{resumeData.about.contact.email}}</a></span><br />
+					<span ng-if="resumeData.about.contact.phone"><a ng-href="tel:{{resumeData.about.contact.phone}}">{{resumeData.about.contact.phone}}</a></span><br />
+					{{resumeData.about.contact.address.number}} {{resumeData.about.contact.address.street}}<br />
+					{{resumeData.about.contact.address.city}}, {{resumeData.about.contact.address.state}} {{resumeData.about.contact.address.postal}}<br />
+				</p>
+			</div>
 		</section>
 
-		<section id="bio" ng-if="resumeData.bio">
-			<h2><i class="fa fa-user"></i>Bio</h2>
-			<p>{{resumeData.bio}}</p>
-		</section>
 
-		
-	-->
 		<section id="skills" ng-if="isPopulated(resumeData.skills)">
 			<div class="row">
 				<h2 class="col-md-3"><i class="fa fa-code"></i> Skills</h2>
@@ -48,7 +52,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="rating" viewbox="0 0 150 150">
 						<path ng-attr-d="{{getArcPathData(rating.percent)}}" style="opacity:{{rating.percent/100}}"></path>
 						<text text-anchor="middle" x="75" y="80" font-size="40" class="rating-skill">{{rating.skill}}</text>
-						<text text-anchor="middle" x="75" y="110" font-size="20" class="rating-percent">{{rating.percent}}%</text>						
+						<text text-anchor="middle" x="75" y="110" font-size="25" class="rating-percent">{{rating.percent}}%</text>						
 					</svg>
 				</div>
 			</div>
