@@ -178,11 +178,13 @@ resumeApp.factory('resumeData', [function(){
 				]
 			}
 		],
-		hobbies:[
-			{name: 'buffalo', image: 'images/buffalo.svg'},
-			{name: 'WRX', image: 'images/turbo2.svg'},
+		interests:[
+			{name: 'buffalo, ny', image: 'images/buffalo.svg'},
+			{name: 'WRXs', image: 'images/subaru.svg'},
 			{name: 'Jeeps', image: 'images/jeep.svg'},
-			{name: 'Adirondacks', image: 'images/mountains.svg'}
+			{name: 'Adirondacks', image: 'images/mountains.svg'},
+			{name: 'Biking', image: 'images/bike.svg'},
+			{name: 'Snowboarding', image: 'images/snowboard.svg'}
 		],
 		education:[
 			{type:"Master of Science", from:"University at Buffalo, Department of Computer Science and Engineering", date: new Date('6/1/2007')},

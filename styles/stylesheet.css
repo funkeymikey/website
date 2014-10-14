@@ -11,7 +11,7 @@
   font-style: normal;
 }
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp, section, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -23,7 +23,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-ol {
+ol, ul{
 	list-style: none;
 }
 blockquote, q {
@@ -58,19 +58,8 @@ h1 { display: inline-block; font-size: 2rem; font-weight: bold;}
 h2 { display: inline-block; font-size: 1.5rem; font-weight: bold;}
 h3 { display: inline-block; font-size: 1rem; font-weight: bold;}
 
-section{
-	margin-top: 50px;
-}
-
-.photo{
-	max-width: 400px;
-	max-height: 400px;
-}
-
-.rating{
-	padding-top: 10px;
-	width: 100px;
-	height: 100px;	
+section + section { 
+	padding-top: 25px;
 }
 
 .rating > path {
@@ -83,41 +72,20 @@ section{
 	font-weight: bold;
 }
 
+.job{
+	padding-top: 20px;
+}
+
 .employer-logo{
 	height: 150px;
 }
 
-.employer-logo > img{
-	max-height: 150px;
-	max-width: 250px;
-	display:block;
-  margin:auto;
+.interest{
+	height: calc(40px + 1rem);
 }
 
-.hobby{ 
-	display: inline-block;
-}
-
-.hobby + .hobby{
-	padding-left: 20px;
-}
-
-.hobby > img {
-	max-height: 40px;
-	max-width: 40px;
-}
-
-.column{
-	float:left;
-	padding-right:25px;
-}
-
-.job{
-	width: 25em;
-	min-height: 20rem;
-	padding-top: 20px;
-}
-
-.clear{
-	clear:both;
+.interest > img {
+	display: block;
+	height: 40px;
+	max-width: 50px;
 }

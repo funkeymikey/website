@@ -3,28 +3,25 @@
 <html ng-app="resumeApp" ng-controller="resumeController" >
 	<head>
 		<title ng-bind="resumeData.name"></title>
-		
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="styles/stylesheet.css" />
 	</head>
-	<body ng-cloak>
+	<body ng-cloak class="container">
 		
-		<div>
-			<div class="column">
-				<img ng-if="resumeData.image" ng-src="{{resumeData.image}}" alt="{{resumeData.name}}" class="photo"/>	
+		<section id="intro" class="row">
+			<div class="col-md-6">
+				<img ng-if="resumeData.image" ng-src="{{resumeData.image}}" alt="{{resumeData.name}}" class="img-responsive"/>	
 			</div>
-			<div class="column">
+			<div class="col-md-6 text-right">
 				<h1>{{resumeData.name}}</h1>
 				<div>{{resumeData.tagline}}</div>
 			</div>
-		</div>
-		<div class="clear"></div>
-
-		<section id="bio" ng-if="resumeData.bio">
-			<h2><i class="fa fa-user"></i>Bio</h2>
-			<p>{{resumeData.bio}}</p>
 		</section>
-
+<!-- 
 		<section id="contactInfo" ng-if="resumeData.contactInfo">
 			<h2><i class="fa fa-paper-plane"></i> Contact Info</h2>
 			<p>
@@ -35,69 +32,87 @@
 			</p>
 		</section>
 
-		<section id="skills" ng-if="isPopulated(resumeData.skills)">
-			<h2><i class="fa fa-code"></i> Skills</h2>
-			<div ng-repeat="rating in resumeData.skills">
-				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="rating column" viewbox="0 0 150 150">
-					<path ng-attr-d="{{getArcPathData(rating.percent)}}" style="opacity:{{rating.percent/100}}"></path>
-					<text text-anchor="middle" x="75" y="80" font-size="40" class="rating-skill">{{rating.skill}}</text>
-					<text text-anchor="middle" x="75" y="110" font-size="20" class="rating-percent">{{rating.percent}}%</text>						
-				</svg>
-			</div>
-			<div class="clear"></div>
+		<section id="bio" ng-if="resumeData.bio">
+			<h2><i class="fa fa-user"></i>Bio</h2>
+			<p>{{resumeData.bio}}</p>
 		</section>
+
+		
+	-->
+		<section id="skills" ng-if="isPopulated(resumeData.skills)">
+			<div class="row">
+				<h2 class="col-md-3"><i class="fa fa-code"></i> Skills</h2>
+			</div>
+			<div class="row">
+				<div ng-repeat="rating in resumeData.skills" class="col-lg-1 col-md-2 col-sm-3 col-xs-4">
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="rating" viewbox="0 0 150 150">
+						<path ng-attr-d="{{getArcPathData(rating.percent)}}" style="opacity:{{rating.percent/100}}"></path>
+						<text text-anchor="middle" x="75" y="80" font-size="40" class="rating-skill">{{rating.skill}}</text>
+						<text text-anchor="middle" x="75" y="110" font-size="20" class="rating-percent">{{rating.percent}}%</text>						
+					</svg>
+				</div>
+			</div>
+		</section>
+
+		
 
 		<section id="workHistory" ng-if="isPopulated(resumeData.workHistory)">
-			<h2><i class="fa fa-briefcase"></i> Work History</h2>
-			<div class="clear"></div>
-			<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="job column">
-				<div ng-if="job.employerLogo" class="employer-logo">
-					<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}} logo" />
+			<div class="row">
+				<h2 class="col-md-3"><i class="fa fa-briefcase"></i> Work History</h2>
+			</div>
+			<div class="row">
+				<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="job col-md-4 col-sm-6">
+					<div class="employer-logo">
+						<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}}" class="img-responsive" />
+					</div>
+					<h2><a ng-href="{{job.employerWebsite}}">{{job.employerName}}</a></h2>
+					<div ng-if="job.employerTagline">{{job.employerTagline}}</div>
+					{{job.startDate | date:'MMMM yyyy'}} &mdash; <span ng-if="job.endDate">{{job.endDate | date:'MMMM yyyy'}}</span><span ng-if="!job.endDate">Present</span>
+					<ul ng-repeat="position in job.positions" ng-init="positionIndex = $index">
+						<li>
+						<h3>{{position.role}}</h3>
+							({{position.startDate | date:'MM/yyyy'}} to <span ng-if="job.endDate">{{position.endDate | date:'MM/yyyy'}}</span><span ng-if="!job.endDate">Present</span>)
+						
+						<div ng-if="shouldShow(jobIndex)">
+							{{position.team}}
+						</div>
+
+						<div ng-if="isPopulated(position.recognitions)">
+							Recognitions
+							<ul ng-repeat="recognition in position.recognitions">
+								<li>{{recognition}}</li>
+							</ul>
+						</div>
+
+						<div ng-if="shouldShow(jobIndex) && isPopulated(position.responsibilities)">
+							Responsibilities
+							<ul ng-repeat="responsibility in position.responsibilities">
+								<li>{{responsibility}}</li>
+							</ul>
+						</div>
+						</li>
+					</ul>
+					<button ng-click="toggleMore(jobIndex)">{{shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</button>
 				</div>
-				<h2><a ng-href="{{job.employerWebsite}}">{{job.employerName}}</a></h2>
-				<div ng-if="job.employerTagline">{{job.employerTagline}}</div>
-				{{job.startDate | date:'MMMM yyyy'}} &mdash; <span ng-if="job.endDate">{{job.endDate | date:'MMMM yyyy'}}</span><span ng-if="!job.endDate">Present</span>
-				<ul ng-repeat="position in job.positions" ng-init="positionIndex = $index">
-					<li>
-					<h3>{{position.role}}</h3>
-						({{position.startDate | date:'MM/yyyy'}} to <span ng-if="job.endDate">{{position.endDate | date:'MM/yyyy'}}</span><span ng-if="!job.endDate">Present</span>)
-					
-					<div ng-if="shouldShow(jobIndex)">
-						{{position.team}}
-					</div>
-
-					<div ng-if="isPopulated(position.recognitions)">
-						Recognitions
-						<ul ng-repeat="recognition in position.recognitions">
-							<li>{{recognition}}</li>
-						</ul>
-					</div>
-
-					<div ng-if="shouldShow(jobIndex) && isPopulated(position.responsibilities)">
-						Responsibilities
-						<ul ng-repeat="responsibility in position.responsibilities">
-							<li>{{responsibility}}</li>
-						</ul>
-					</div>
-					</li>
-				</ul>
-
-				<button ng-click="toggleMore(jobIndex)">{{shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</button>
 			</div>
 		</section>
-		<div class="clear"></div>
 
-		<section id="hobbies" ng-if="isPopulated(resumeData.hobbies)">
-			<h2><i class="fa fa-trophy"></i> Hobbies</h2>
-			<div>
-				<div ng-repeat="hobby in resumeData.hobbies" class="hobby">
-					<img ng-src="{{hobby.image}}" alt="hobby.name" /> {{hobby.name}}
+	
+		<section id="interests" ng-if="isPopulated(resumeData.interests)">
+			<div class="row">
+				<h2 class="col-md-3"><i class="fa fa-binoculars"></i> Interests</h2>
+			</div>
+			<div class="row">
+				<div ng-repeat="interest in resumeData.interests" class="interest col-md-2 col-sm-3 col-xs-6">
+					<img ng-src="{{interest.image}}" alt="interest.name"/> {{interest.name}}
 				</div>
 			</div>
 		</section>
 
 		<section id="education" ng-if="isPopulated(resumeData.education)">
-			<h2><i class="fa fa-graduation-cap"></i> Education</h2>
+			<div class="row">
+				<h2 class="col-md-3"><i class="fa fa-graduation-cap"></i> Education</h2>
+			</div>
 			<ul ng-repeat="award in resumeData.education">
 				<li>{{award.type}} from {{award.from}}, {{award.date | date:'MMMM yyyy'}}</li>
 			</ul>
