@@ -77,8 +77,8 @@
 				<div class="row">
 					<h2 class="col-md-3"><i class="fa fa-briefcase"></i> Work History</h2>
 				</div>
-				<div class="row content">
-					<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="job col-md-4 col-sm-6">
+				<div class="row">
+					<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="content col-md-4 col-sm-6">
 						<a ng-href="{{job.employerWebsite}}">
 							<div class="employer-logo">
 								<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}}" class="img-responsive" />
