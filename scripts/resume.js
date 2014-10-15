@@ -7,7 +7,7 @@ resumeApp.factory('resumeData', [function(){
 	return {
 		name: 'mike kozelsky',
 		image: 'images/mike.jpg',
-		tagline: 'a general technologist that enjoys making things on the web',		
+		tagline: 'A general technologist that enjoys making things on the web',		
 		skills: [
 			{skill: 'C#', percent: 72},
 			{skill: 'Html', percent: 70},
@@ -19,7 +19,7 @@ resumeApp.factory('resumeData', [function(){
 			{skill: 'CSS', percent: 37}			
 		],
 		about: {
-			bio: 'I have been professtionally developing with web technologies since 2007, mostly with the microsoft stack and .NET / C#.  I am currently working with a Java codebase on top of MySQL and a few other odds and ends.  Recents interests include fiddling with AngularJS, mentoring other developers with different experiences, and utilizing SCRUM so that my team operates better.',
+			bio: 'I have been professionally developing with web technologies since 2007, mostly with the Microsoft stack and .NET / C#.  More recently, i have been  working with a Java codebase on top of MySQL and a few other odds and ends.  Recents interests include fiddling with AngularJS, mentoring other developers with different experiences, and utilizing SCRUM so that my team operates better.',
 			contact: {
 				email: 'mike.kozelsky@gmail.com',
 				phone: '585-746-4926',
