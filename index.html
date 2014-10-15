@@ -43,7 +43,7 @@
 		<section id="bio" ng-if="resumeData.about.bio">
 			<div class="container">
 				<div class="row">
-					<h2 class="col-md-3"><i class="fa fa-user"></i> About</h2>
+					<h2 class="col-md-12"><i class="fa fa-user"></i> About</h2>
 				</div>
 				<div class="row">
 					<div class="content fore-text col-md-12">
@@ -57,7 +57,7 @@
 		<section id="skills" ng-if="isPopulated(resumeData.skills)">
 			<div class="container">
 				<div class="row">
-					<h2 class="col-md-3"><i class="fa fa-code"></i> Skills</h2>
+					<h2 class="col-md-12"><i class="fa fa-code"></i> Skills</h2>
 				</div>
 				<div class="row">
 					<div ng-repeat="rating in resumeData.skills" class="content col-lg-1 col-md-2 col-sm-3 col-xs-4">
@@ -75,7 +75,7 @@
 		<section id="workHistory" ng-if="isPopulated(resumeData.workHistory)">
 			<div class="container">
 				<div class="row">
-					<h2 class="col-md-3"><i class="fa fa-briefcase"></i> Work History</h2>
+					<h2 class="col-md-12"><i class="fa fa-briefcase"></i> Work History</h2>
 				</div>
 				<div class="row">
 					<div ng-repeat="job in resumeData.workHistory" ng-init="jobIndex = $index" class="content col-md-4 col-sm-6">
@@ -121,7 +121,7 @@
 		<section id="interests" ng-if="isPopulated(resumeData.interests)">
 			<div class="container">
 				<div class="row">
-					<h2 class="col-md-3"><i class="fa fa-binoculars"></i> Interests</h2>
+					<h2 class="col-md-12"><i class="fa fa-binoculars"></i> Interests</h2>
 				</div>
 				<div class="row">
 					<div ng-repeat="interest in resumeData.interests" class="content col-md-2 col-sm-3 col-xs-6 text-center">
@@ -138,7 +138,7 @@
 		<section id="education" ng-if="isPopulated(resumeData.education)">
 			<div class="container">
 				<div class="row">
-					<h2 class="col-md-3"><i class="fa fa-graduation-cap"></i> Education</h2>
+					<h2 class="col-md-12"><i class="fa fa-graduation-cap"></i> Education</h2>
 				</div>
 				<div class="content">
 					<ul ng-repeat="award in resumeData.education">
