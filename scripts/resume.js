@@ -19,7 +19,7 @@ resumeApp.factory('resumeData', [function(){
 			{skill: 'CSS', percent: 37}			
 		],
 		about: {
-			bio: 'I have been professtionally developing with web technologies since 2007, mostly with the microsoft stack and .net / c#.  I am currently working with a java codebase on top of mysql and a few other odds and ends.  Recents interests include fiddling with angularjs, mentoring other developers with different experiences, and utilizing SCRUM so that my team operates better.',
+			bio: 'I have been professtionally developing with web technologies since 2007, mostly with the microsoft stack and .NET / C#.  I am currently working with a Java codebase on top of MySQL and a few other odds and ends.  Recents interests include fiddling with AngularJS, mentoring other developers with different experiences, and utilizing SCRUM so that my team operates better.',
 			contact: {
 				email: 'mike.kozelsky@gmail.com',
 				phone: '585-746-4926',
@@ -48,7 +48,7 @@ resumeApp.factory('resumeData', [function(){
 						responsibilities: [
 							'Added new functionality and bug fixes to the java based backend API.',
 							'Implemented an external facing RESTful API to be used by third party developers.',
-							'Served in a scrummaster capacity and led the team to adopt a fairly strict adherence to SCRUM'
+							'Served in a scrummaster capacity and led the team to adopt a relatively strict adherence to SCRUM'
 						],
 						recognitions: []
 					}
@@ -182,7 +182,7 @@ resumeApp.factory('resumeData', [function(){
 			}
 		],
 		interests:[
-			{name: 'buffalo, ny', image: 'images/buffalo.svg'},
+			{name: 'Buffalo, NY', image: 'images/buffalo.svg'},
 			{name: 'WRXs', image: 'images/subaru.svg'},
 			{name: 'Jeeps', image: 'images/jeep.svg'},
 			{name: 'Adirondacks', image: 'images/mountains.svg'},
