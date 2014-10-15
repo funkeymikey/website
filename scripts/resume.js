@@ -5,7 +5,7 @@ var resumeApp = angular.module('resumeApp', []);
 
 resumeApp.factory('resumeData', [function(){
 	return {
-		name: 'Mike Kozelsky',
+		name: 'mike kozelsky',
 		image: 'images/mike.jpg',
 		tagline: 'A general technologist that enjoys making things on the web',		
 		skills: [

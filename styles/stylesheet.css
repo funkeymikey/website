@@ -1,3 +1,9 @@
+/*
+	yellow: #FFEEC5
+	green: #95B7C0
+	red: FFCDC5 or F19E91
+*/
+
 @font-face {
   font-family: 'Open Sans';
   src: url('OpenSans-Regular-webfont.woff') format('woff');
@@ -41,7 +47,6 @@ table {
 
 body{
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-	margin: 10px;
 	line-height: 1.2;
 }
 
@@ -59,21 +64,21 @@ h2 { display: inline-block; font-size: 2rem; font-weight: bold;}
 h3 { display: inline-block; font-size: 1.3rem; font-weight: bold;}
 h4 { display: inline-block; font-size: 1rem; font-weight: bold;}
 
-section + section { 
-	padding-top: 50px;
+section { 
+	padding: 50px 0;
 }
 
-.contact{
-	margin-top: 2rem;
+.content {
+	margin-top: 25px;
 }
 
-div > h2 {
+.runner{
+	background-color: #95B7C0 ;
+}
+
+.fore-text{
 	padding: 1rem;
-}
-
-.bio{
-	padding: 1rem;
-	background-color: #ddd;
+	background-color: #FFEEC5;
 }
 
 .rating > path {
@@ -86,11 +91,7 @@ div > h2 {
 	font-weight: bold;
 }
 
-.job {
-	padding-top: 20px;
-}
-
-.showMore{
+.show-more{
 	padding-top: 1rem;
 	display:block;
 	font-size: smaller;
@@ -106,11 +107,15 @@ div > h2 {
 }
 
 .interest {
-	height: calc(40px + 1rem);
+	height: calc(50px + 1rem);
 }
 
 .interest > img {
 	display: block;
-	height: 40px;
+	height: 50px;
 	max-width: 50px;
+}
+
+.with-padding{
+	padding: 0 25px;
 }
