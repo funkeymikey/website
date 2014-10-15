@@ -93,6 +93,10 @@ figure > img {
 	background-color: #FFEEC5;
 }
 
+.rating{
+	max-width: 100%
+}
+
 .rating > path {
 	stroke: #196419;
 	stroke-width:10px;
