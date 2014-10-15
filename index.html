@@ -63,8 +63,8 @@
 					<div ng-repeat="rating in resumeData.skills" class="content col-lg-1 col-md-2 col-sm-3 col-xs-4">
 						<svg class="rating" viewbox="0 0 150 150" width="150" height="150">
 							<path ng-attr-d="{{getArcPathData(rating.percent)}}" ng-attr-style="opacity:{{rating.percent/100}}"></path>
-							<text text-anchor="middle" x="75" y="80" font-size="40" class="rating-skill">{{rating.skill}}</text>
-							<text text-anchor="middle" x="75" y="110" font-size="25" class="rating-percent">{{rating.percent}}%</text>						
+							<text text-anchor="middle" x="75" y="80" font-size="40">{{rating.skill}}</text>
+							<text text-anchor="middle" x="75" y="110" font-size="25">{{rating.percent}}%</text>						
 						</svg>
 					</div>
 				</div>
@@ -124,11 +124,11 @@
 					<h2 class="col-md-3"><i class="fa fa-binoculars"></i> Interests</h2>
 				</div>
 				<div class="row">
-					<div ng-repeat="interest in resumeData.interests" class="content interest col-md-2 col-sm-3 col-xs-6 text-center">
-						<figure class="center-block">
+					<div ng-repeat="interest in resumeData.interests" class="content col-md-2 col-sm-3 col-xs-6 text-center">
+						<figure class="icon center-block">
 			        <img ng-src="{{interest.image}}" alt="{{interest.name}}">
-				    </figure>				    
-				    <span class="center-block">{{interest.name}}</span>
+				    </figure>
+				    {{interest.name}}
 					</div>
 				</div>
 			</div>
