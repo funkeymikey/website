@@ -9,13 +9,13 @@ resumeApp.factory('resumeData', [function(){
 		image: 'images/mike.jpg',
 		tagline: 'A general technologist that enjoys making things on the web',		
 		skills: [
-			{skill: 'C#', percent: 72},
-			{skill: 'Html', percent: 70},
-			{skill: 'Scrum', percent: 64},
-			{skill: 'REST', percent: 61},
-			{skill: 'Java', percent: 54},
-			{skill: 'SQL', percent: 45},
-			{skill: 'JS', percent: 40},
+			// {skill: 'C#', percent: 72},
+			// {skill: 'Html', percent: 70},
+			// {skill: 'Scrum', percent: 64},
+			// {skill: 'REST', percent: 61},
+			// {skill: 'Java', percent: 54},
+			// {skill: 'SQL', percent: 45},
+			// {skill: 'JS', percent: 40},
 			{skill: 'CSS', percent: 37}			
 		],
 		about: {
