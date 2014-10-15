@@ -121,10 +121,14 @@ section {
 
 .employer-logo {
 	height: 150px;
+	line-height: 150px;
+	text-align: center;
 }
 .employer-logo > img {
-	margin: 0 auto;
 	max-height: 150px;
+	max-width: 100%;
+	vertical-align: middle;
+	display: inline-block;
 }
 
 .show-more{
