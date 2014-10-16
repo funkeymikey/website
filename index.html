@@ -151,8 +151,13 @@
 		</section>
 
 
-		<section id="footer" class="runner">
-			<p class="with-padding">&copy; {{resumeData.name}}</p>
+		<section id="footer" class="runner clearfix">
+			<p class="left with-padding">&copy; {{resumeData.name}}</p>
+			<p class="right with-padding">
+				<span ng-repeat="link in resumeData.links" class="link" >
+					<a href ng-href="{{link.url}}">{{link.name}}</a>
+				</span>
+			</p>
 		</section>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>

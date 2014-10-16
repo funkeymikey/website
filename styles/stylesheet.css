@@ -1,10 +1,3 @@
-/*
-	yellow: #FFEEC5
-	teal: #95B7C0
-	red: FFCDC5 or F19E91
-	green: 196419
-*/
-
 @font-face {
   font-family: 'Open Sans';
   src: url('OpenSans-Regular-webfont.woff') format('woff');
@@ -100,6 +93,9 @@ section {
 	padding: 0 25px;
 }
 
+.right{ float: right; }
+.left{ float: left; }
+
 .rating{
 	width: 100%;
   display: block;
@@ -150,4 +146,12 @@ section {
 
 .icon > img{	
 	max-height: 50px;
+}
+
+.link::before {
+	content: " | ";
+}
+
+.link:first-of-type::before {
+	content: " ";
 }

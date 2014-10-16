@@ -7,7 +7,10 @@ resumeApp.factory('resumeData', [function(){
 	return {
 		name: 'mike kozelsky',
 		image: 'images/mike.jpg',
-		tagline: 'A general technologist that enjoys making things on the web',		
+		tagline: 'A general technologist that enjoys making things on the web',
+		links:[
+			{name:'blog', url:'http://blog.mikekozelsky.com'}
+		],
 		skills: [
 			{skill: 'C#', percent: 72},
 			{skill: 'Html', percent: 70},
