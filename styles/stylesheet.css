@@ -72,7 +72,7 @@ h2 { display: inline-block; font-size: 2rem; font-weight: bold;}
 h3 { display: inline-block; font-size: 1.3rem; font-weight: bold;}
 h4 { display: inline-block; font-size: 1rem; font-weight: bold;}
 
-section { 
+section, header, footer{ 
 	padding: 50px 0;
 }
 
@@ -80,7 +80,7 @@ section {
 	margin-top: 25px;
 }
 
-.runner{
+header, footer{
 	background-color: #dd9966;
 }
 
