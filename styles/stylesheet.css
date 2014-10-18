@@ -158,7 +158,9 @@ header, footer{
 
 
 pre {
-	background-color:#ccc;
+	background-color:#eee;
+	border-width: 1px;
+	border-color: #ccc;
 	padding: 1rem;
 	margin: 0 auto;
 }
