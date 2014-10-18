@@ -155,3 +155,10 @@ header, footer{
 .link:first-of-type::before {
 	content: " ";
 }
+
+
+pre {
+	background-color:#ccc;
+	padding: 1rem;
+	margin: 0 auto;
+}
