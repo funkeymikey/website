@@ -209,26 +209,18 @@ function ResumeController () {
 
 function UtilsController () {
 
-	var showJobDetail = [];
+	var showMoreIds = [];
 
-	this.toggleMore = function(jobId){
-		var index = showJobDetail.indexOf(jobId);
+	this.toggleMore = function(someId){
+		var index = showMoreIds.indexOf(someId);
 		if(index === -1)
-			showJobDetail.push(jobId);
+			showMoreIds.push(someId);
 		else
-			showJobDetail.splice(index, 1);
+			showMoreIds.splice(index, 1);
 	};
 
-	this.shouldShow = function(jobId){
-		return showJobDetail.indexOf(jobId) !== -1;
-	};
-
-	this.moreOrless = function(jobID){
-		var index = showJobDetail.indexOf(jobId);
-		if(index === -1)
-			return 'more';
-		else
-			return 'less';
+	this.shouldShow = function(someId){
+		return showMoreIds.indexOf(someId) !== -1;
 	};
 
 	this.isPopulated = function(testArray){
