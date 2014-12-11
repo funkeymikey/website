@@ -143,7 +143,7 @@
 				</div>
 				<div class="content">
 					<ul ng-repeat="award in resume.education">
-						<li>{{award.type}} from {{award.from}}, {{award.date | date:'MMMM yyyy'}}</li>
+						<li>{{award.type}}<span ng-if="award.from"> from {{award.from}}</span>, {{award.date | date:'MMMM yyyy'}}</li>
 					</ul>
 				</div>
 			</div>

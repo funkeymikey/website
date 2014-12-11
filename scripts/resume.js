@@ -11,7 +11,7 @@ function ResumeController () {
       {name:'blog', url:'http://blog.mikekozelsky.com'}
     ],
     skills: [
-      {skill: 'C#', percent: 72},
+      {skill: 'C#', percent: 73},
       {skill: 'Html', percent: 70},
       {skill: 'Scrum', percent: 64},
       {skill: 'REST', percent: 61},
@@ -191,8 +191,9 @@ function ResumeController () {
       {name: 'Snowboarding', image: 'images/snowboard.svg'}
     ],
     education:[
-      {type:"Master of Science", from:"University at Buffalo, Department of Computer Science and Engineering", date: new Date('6/1/2007')},
-      {type:"Bachelor of Science", from:"University at Buffalo, Department of Computer Science and Engineering", date: new Date('6/1/2007')}
+      {type:'Certified ScrumMaster', date: new Date('12/1/2014')},
+      {type:'Master of Science', from:'University at Buffalo, Department of Computer Science and Engineering', date: new Date('6/1/2007')},
+      {type:'Bachelor of Science', from:'University at Buffalo, Department of Computer Science and Engineering', date: new Date('6/1/2007')}
     ]
   };
 
