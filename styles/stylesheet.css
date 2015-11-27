@@ -89,8 +89,16 @@ header, footer{
 	background-color: #ccdddd;
 }
 
+.full-width{
+	width:100%;
+}
+
 .with-padding{
 	padding: 0 25px;
+}
+
+.with-vertical-padding {
+	padding:20px 0;
 }
 
 .right{ float: right; }
