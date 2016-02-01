@@ -25,11 +25,8 @@ function ResumeController () {
       contact: {
         email: 'mike.kozelsky@gmail.com',
         address: {
-          number: '101',
-          street: 'Shoshone Street',
           city: 'Buffalo',
-          state: 'New York',
-          postal: '14214'
+          state: 'New York'
         }
       }
     },
