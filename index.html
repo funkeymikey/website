@@ -47,7 +47,7 @@
 				</div>
 				<div class="row">
 					<div class="content fore-text col-md-12">
-						<p>{{resume.about.bio}}</p>
+						<p ng-bind-html="resume.about.bio"></p>
 					</div>
 				</div>
 			</div>
@@ -59,7 +59,7 @@
 					<h2 class="col-md-12"><i class="fa fa-code"></i> Skills</h2>
 				</div>
 				<div class="row">
-					<div ng-repeat="rating in resume.skills" class="content col-lg-1 col-md-2 col-sm-3 col-xs-4">
+					<div ng-repeat="rating in resume.skills | orderBy:'-percent'" class="content col-md-2 col-sm-3 col-xs-4">
 						<div class="rating">
 						<svg viewbox="0 0 150 150" width="150" height="150">
 							<path ng-attr-d="{{utils.getArcPathData(rating.percent)}}" ng-attr-style="opacity:{{rating.percent/100}}"></path>
@@ -160,6 +160,7 @@
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-sanitize.js"></script>
 		<script src="scripts/resume.js"></script>
 
 		<script>
