@@ -45,12 +45,13 @@ function ResumeController () {
             startDate: new Date('7/1/2013'),
             endDate: new Date('1/1/2016'),
             responsibilities: [
-              'Added new functionality and bug fixes to the java based backend API.',
+              'Added new functionality and bug fixes to the existing business logic built in Java and MySql.',
+              'Refactored and improved the architecture of the code base including achieving over 90% automated test coverage',
               'Implemented an external facing RESTful API to be used by third party developers.',
-              'Served in a scrummaster capacity and led the team to adopt a relatively strict adherence to SCRUM'
+              'Served in a ScrumMaster capacity and led the team to adopt a relatively strict adherence to SCRUM',
+              'Wore many hats as needed including Business Analyst, Quality Assurance, and Sales Engineer'          
             ],
-            recognitions: [],
-            description:''
+            recognitions: []
           }
         ]
       },
@@ -67,7 +68,7 @@ function ResumeController () {
             startDate: new Date('8/1/2012'),
             endDate: new Date('6/1/2013'),
             responsibilities: [
-              'Led the implementation of feature based / Agile development, highly influenced by the Scrum methodology.  Served in a scrum master role.',
+              'Led the implementation of feature based / Agile development, highly influenced by the Scrum methodology.  Served in a ScrumMaster role.',
               'Inspected and recommend various technologies and frameworks for use - for example, decided AngularJS was a JavaScript framework that fit well with our team\'s skills and roles, as well as being able to solve the business needs.',
               'Started the groundwork for an Operational Data Store, to manage the environment of diverse transactional systems that front end applications need to integrate with.',
               'Mentored, code reviewed, and instructed new developers - as well as experienced developers new to .NET and SQL.',
