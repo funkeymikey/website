@@ -5,6 +5,7 @@ function ResumeController () {
   var resumeData = 
   {
     name: 'mike kozelsky',
+    firstName: 'Mike',
     image: 'images/mike.jpg',
     tagline: 'A software generalist that loves every part of making good software.',
     links:[
@@ -22,7 +23,7 @@ function ResumeController () {
       {skill: 'ng-js', percent: 16}  
     ],
     about: {
-      bio: "<p>I have been professionally developing with web technologies since 2007.  The first six years of my career were mostly with the Microsoft stack and .NET / C#.  Since then, i have been  working with a Java codebase on top of MySQL with a few other odds and ends.</p>  <p>My passions involve: <ol><li>Creating something that people actually want</li><li>Improving things that don't work as well as they should (either a code base or organizational process)</li><li>Spending time mentoring and growing other developers</li></ol></p><p>To this end, some of my proudest accomplishments have been: <ol><li>Wearing an analyst hat, talked to customers to figure out what they want, and then actually built something that solves their problems, and basked in their happiness</li><li>Implemented SCRUM on a great team that didn't have a good SDLC, and then watched the productivity soar</li><li>Laid the groundwork for a training program for all new hires to go through that helps people get in the right frame of mind for the company</li></ol></p>",
+      bio: "<p>Mike loves creating software that makes people's life better.  After starting his career in large companies, he wanted to make more of an impact and now has years of experience working in startups.  He loves doing things that don't scale and then growing the company from scrappy to enterprise.  Improving company processes, refactoring code, and learning from users are among the most satisfying part of the job.  By far, his favorite role is when he gets to help mentor other developers.</p><p>In his free time, he's rarely on a computer. He's usually outside biking; or hiking in the Adirondack Mountains with his wife and dog. He's also really good at eating cookies.</p>",
       contact: {
         email: 'mike.kozelsky@gmail.com',
         address: {
@@ -198,6 +199,7 @@ function ResumeController () {
   };
 
 	this.name =  resumeData.name;
+  this.firstName =  resumeData.firstName;
 	this.image = resumeData.image;
 	this.tagline = resumeData.tagline;
 	this.links = resumeData.links;

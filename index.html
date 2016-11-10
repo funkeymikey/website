@@ -32,29 +32,10 @@
 		</div>
 	</header>
 
-	<!--<section id="contact" class="hidden-sm hidden-md hidden-lg">
-		<div class="container">
-			<div class="row">
-				<h2 class="col-xs-12">Contact <i class="fa fa-paper-plane"></i></h2>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<p class="card fore-text">
-					<span ng-if="resume.about.contact.email"><a ng-href="mailto:{{resume.about.contact.email}}">{{resume.about.contact.email}}<br /></a></span>
-					<span ng-if="resume.about.contact.phone"><a ng-href="tel:{{resume.about.contact.phone}}">{{resume.about.contact.phone}}</a><br /></span>
-					<span ng-if="resume.about.contact.address.number">{{resume.about.contact.address.number}} </span><span ng-if="resume.about.contact.address.street">{{resume.about.contact.address.street}}<br /></span>
-					<span ng-if="resume.about.contact.address.city">{{resume.about.contact.address.city}}, </span><span ng-if="resume.about.contact.address.state">{{resume.about.contact.address.state}} </span>
-					<span ng-if="resume.about.contact.address.postal">{{resume.about.contact.address.postal}}<br /></span>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>-->
-
 	<section id="bio" ng-if="resume.about.bio">
 		<div class="container">
 			<div class="row">
-				<h2 class="col-md-12"><i class="fa fa-user"></i> About</h2>
+				<h2 class="col-md-12"><i class="fa fa-user"></i> About {{resume.firstName}}</h2>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 hidden-md-down">
