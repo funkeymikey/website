@@ -6,7 +6,7 @@ function ResumeController () {
   {
     name: 'mike kozelsky',
     image: 'images/mike.jpg',
-    tagline: 'A web technologist that enjoys making and improving things',
+    tagline: 'A software generalist that loves every part of making good software.',
     links:[
       {name:'blog', url:'http://blog.mikekozelsky.com'}
     ],
