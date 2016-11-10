@@ -80,7 +80,11 @@ h2 { display: inline-block; font-size: 2rem; font-weight: bold;}
 h3 { display: inline-block; font-size: 1.3rem; font-weight: bold;}
 h4 { display: inline-block; font-size: 1rem; font-weight: bold;}
 
-section, header, footer{ 
+header {
+	padding: 20px 0;
+}
+
+section, footer { 
 	padding: 50px 0;
 }
 
