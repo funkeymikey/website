@@ -25,7 +25,7 @@ resumeApp.controller('ResumeCtrl', [
         { skill: 'ng-js', percent: 26 }
       ],
       about: {
-        bio: "<p>Mike loves creating software that makes people's life better.  After starting his career in large companies, he wanted to make more of an impact and now has years of experience working in startups.  He loves doing things that don't scale and then growing the company from scrappy to enterprise.  Improving company processes, refactoring code, and learning from users are among the most satisfying part of the job.  By far, his favorite role is when he gets to help mentor other developers.</p><p>In his free time, he's rarely on a computer. He's usually outside biking; or hiking in the Adirondack Mountains with his wife and dog. He's also really good at eating cookies.</p>",
+        bio: "<p>Mike loves creating software that makes people's life better.  After starting his career in large companies, he wanted to make more of an impact and now has years of experience working in startups.  He loves doing things that don't scale at first &mdash; then proving out, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving company processes, refactoring code, and learning from users are among the most satisfying part of the job.  By far, his favorite role is when he gets to help mentor other developers.</p><p>In his free time, he's rarely on a computer. He's usually outside biking; or hiking in the Adirondack Mountains with his wife and dog. He's also really good at eating cookies.</p>",
         contact: {
           email: 'mike.kozelsky@gmail.com',
           address: {
