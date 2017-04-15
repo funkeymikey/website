@@ -18,7 +18,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	color: #111;
+	color: #333;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -227,7 +227,7 @@ pre {
 
 .card .job-detail {	
 	position: relative;
-	min-height:250px;
+	min-height:275px;
 	overflow-y: hidden;
 }
 
@@ -237,6 +237,6 @@ pre {
   height:30px;    
   position:absolute;
   left:0;
-  top:220px;
+  top:245px;
   background:linear-gradient(transparent, white);
 }
