@@ -23,9 +23,9 @@
 				<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
 					<h1>{{resume.name}}</h1>
 					<div>{{resume.tagline}}</div>
-						<span ng-if="resume.about.contact.email"><a ng-href="mailto:{{resume.about.contact.email}}"><small>{{resume.about.contact.email}}</small><br /></a></span>
-						<span ng-if="resume.about.contact.address.city"><small>{{resume.about.contact.address.city}}, </small></span><span ng-if="resume.about.contact.address.state"><small>{{resume.about.contact.address.state}}</small></span>
-						<span ng-if="resume.about.contact.address.postal"><small>{{resume.about.contact.address.postal}}</small><br /></span>
+					<span ng-if="resume.about.contact.email"><a ng-href="mailto:{{resume.about.contact.email}}"><small>{{resume.about.contact.email}}</small><br /></a></span>
+					<span ng-if="resume.about.contact.address.city"><small>{{resume.about.contact.address.city}}, </small></span><span ng-if="resume.about.contact.address.state"><small>{{resume.about.contact.address.state}}</small></span>
+					<span ng-if="resume.about.contact.address.postal"><small>{{resume.about.contact.address.postal}}</small><br /></span>
 					</small>
 				</div>
 			</div>
@@ -72,45 +72,57 @@
 			<div class="row">
 				<h2 class="col-md-12"><i class="fa fa-briefcase"></i> Work History</h2>
 			</div>
-			<div class="row">
-				<div ng-repeat="job in resume.workHistory" ng-init="jobIndex = $index" class="content col-md-4 col-sm-6">
-					<a ng-href="{{job.employerWebsite}}">
-						<div class="employer-logo">
-							<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}}" />
+			<div class="row match-my-cols">
+				<div ng-repeat="job in resume.workHistory" ng-init="jobIndex = $index" class="content col-md-6 col-xs-12">
+
+					<div class="card card-white">
+						<a ng-href="{{job.employerWebsite}}">
+							<div class="employer-logo">
+								<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}}" />
+							</div>
+						</a>
+						<div class="card-content">
+							<h3>{{job.employerName}}</h3>
+							<p>
+								<span ng-if="job.employerTagline">{{job.employerTagline}}</span><br /> {{job.startDate | date:'MMMM yyyy'}} &mdash;
+								<span ng-if="job.endDate">{{job.endDate | date:'MMMM yyyy'}}</span><span ng-if="!job.endDate">Present</span>
+							</p>
+							<div 
+								ng-style="{'max-height': utils.shouldShow(jobIndex) ? 'inherit' : '250px'}"
+								ng-class="{'job-detail':!utils.shouldShow(jobIndex)}"
+								ng-attr-id="{{'jobDetail' + jobIndex}}">
+								<ul ng-repeat="position in job.positions" ng-init="positionIndex = $index">
+									<li>
+										<h4>{{position.role}}</h4>
+										({{position.startDate | date:'MM/yyyy'}} to <span ng-if="job.endDate">{{position.endDate | date:'MM/yyyy'}}</span>
+										<span ng-if="!job.endDate">Present</span>)
+
+										<div>
+											{{position.team}}
+										</div>
+
+										<div ng-if="utils.isPopulated(position.recognitions)">
+											Recognitions
+											<ul ng-repeat="recognition in position.recognitions">
+												<li>{{recognition}}</li>
+											</ul>
+										</div>
+
+										<div ng-if="utils.isPopulated(position.responsibilities)">
+											Responsibilities
+											<ul ng-repeat="responsibility in position.responsibilities">
+												<li>{{responsibility}}</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="show-more">
+							<a ng-show="utils.isOverflowing(jobIndex)" href ng-click="utils.toggleMore(jobIndex)"><i class="fa fa-chevron-down" ng-class="{ 'fa-rotate-180' : utils.shouldShow(jobIndex) }"></i> {{utils.shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</a>
+							</div>
 						</div>
-						<h3>{{job.employerName}}</h3>
-					</a>
-					<div ng-if="job.employerTagline">{{job.employerTagline}}</div>
-					{{job.startDate | date:'MMMM yyyy'}} &mdash; <span ng-if="job.endDate">{{job.endDate | date:'MMMM yyyy'}}</span>
-					<span
-						ng-if="!job.endDate">Present</span>
-						<ul ng-repeat="position in job.positions" ng-init="positionIndex = $index">
-							<li>
-								<h4>{{position.role}}</h4>
-								({{position.startDate | date:'MM/yyyy'}} to <span ng-if="job.endDate">{{position.endDate | date:'MM/yyyy'}}</span>
-								<span
-									ng-if="!job.endDate">Present</span>)
 
-									<div ng-if="utils.shouldShow(jobIndex)">
-										{{position.team}}
-									</div>
-
-									<div ng-if="utils.isPopulated(position.recognitions)">
-										Recognitions
-										<ul ng-repeat="recognition in position.recognitions">
-											<li>{{recognition}}</li>
-										</ul>
-									</div>
-
-									<div ng-if="utils.shouldShow(jobIndex) && utils.isPopulated(position.responsibilities)">
-										Responsibilities
-										<ul ng-repeat="responsibility in position.responsibilities">
-											<li>{{responsibility}}</li>
-										</ul>
-									</div>
-							</li>
-						</ul>
-						<a class="show-more" href ng-click="utils.toggleMore(jobIndex)"><i class="fa fa-chevron-down" ng-class="{ 'fa-rotate-180' : utils.shouldShow(jobIndex) }"></i> {{utils.shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -162,13 +174,15 @@
 	<script src="scripts/resume.js"></script>
 
 	<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-		  ga('create', 'UA-48724111-1', 'auto');
-		  ga('send', 'pageview');
-		</script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-48724111-1', 'auto');
+		ga('send', 'pageview');
+	</script>
 
 </body>
 
