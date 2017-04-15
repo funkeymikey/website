@@ -52,7 +52,8 @@ resumeApp.controller('ResumeCtrl', [
                 'Create annual budgets, manage asset inventory, and handle technology purchasing.',
                 'Continually strived for best practices during development including continual refactoring and testing with over 90% coverage on automated back-end tests.',
                 'Work with marketing team and co-founders to craft branding and messaging.',
-                'Participated in sales and marketing efforts, and business operations.',
+                'Conversations with the rest of the group about managing expectations between their desires and realistic goals and timelines.',
+                'Participated in sales and marketing efforts, as well as business operations.',
                 'A whole lot of thinking about company vision, possible product diversification, and asking "what can we do better?"'
               ],
               recognitions: []
