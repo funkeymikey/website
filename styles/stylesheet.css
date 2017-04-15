@@ -166,9 +166,10 @@ small {
 }
 .employer-logo > img {
 	max-height: 150px;
-	max-width: 100%;
+	max-width: 90%;
 	vertical-align: middle;
 	display: inline-block;
+	border-radius: 5px;
 }
 
 .show-more{
@@ -214,13 +215,18 @@ pre {
 	border: none;
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 	overflow: hidden;
-	/*margin-bottom: 30px;*/
 	transition: all 200ms;
+	
+}
+
+.item {
+	margin-bottom: 30px;
 }
 
 .card.card-white{
 	background-color:#fff;
 }
+
 .card-content{
 	padding: 15px;
 }
