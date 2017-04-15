@@ -42,10 +42,11 @@ function ResumeController() {
             role: 'CTO and Co-Founder',
             startDate: new Date('2/1/2016'),
             responsibilities: [
-              'Propose, build, and maintain full technology stack.',
+              'Propose, build, test, and maintain full technology stack.',
               'Own all technology and architecture decisions behind the product.',
               'Manage and work with the design team to create a professional application from scratch.',
               'Create annual budgets, manage asset inventory, and handle technology purchasing.',
+              'Continually strived for best practices during development including continual refactoring and testing with over 90% coverage on automated back-end tests.',
               'Work with marketing team and co-founders to craft branding and messaging.',
               'Participated in sales and marketing efforts, and business operations.',
               'A whole lot of thinking about company vision, possible product diversification, and asking "what can we do better?"'
@@ -68,7 +69,7 @@ function ResumeController() {
             endDate: new Date('1/1/2016'),
             responsibilities: [
               'Added new functionality and bug fixes to the existing business logic built in Java and MySql.',
-              'Refactored and improved the architecture of the code base including achieving over 90% automated test coverage.',
+              'Refactored and improved the architecture of the code base including achieving over 90% automated back-end  test coverage.',
               'Implemented an external facing RESTful API to be used by third party developers.',
               'Served in a ScrumMaster capacity and led the team to adopt a relatively strict adherence to SCRUM.',
               'Wore many hats as needed including Business Analyst, Quality Assurance, and Sales Engineer.'
