@@ -6,7 +6,9 @@ function ResumeController() {
     firstName: 'Mike',
     image: 'images/mike.jpg',
     tagline: 'A software generalist that loves every part of making good software.',
-    links: [{ name: 'blog', url: 'http://blog.mikekozelsky.com' }],
+    links: [
+      // { name: 'blog', url: 'http://blog.mikekozelsky.com' }
+      ],
     skills: [
       { skill: 'C#', percent: 71 },
       { skill: 'Html', percent: 70 },

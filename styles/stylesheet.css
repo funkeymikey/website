@@ -85,8 +85,12 @@ header {
 	padding: 20px 0;
 }
 
-section, footer { 
+section { 
 	padding: 50px 0;
+}
+
+footer {
+	padding: 25px 0;
 }
 
 p + p{
