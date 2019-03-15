@@ -27,7 +27,7 @@ resumeApp.controller('ResumeCtrl', [
       ],
       about: {
         bio:
-          "<p>Mike loves creating software that makes people's life better.  After starting his career in large companies, he wanted to make more of an impact and now has years of experience working in the fast-paced environments of startups.  He loves doing things that don't scale at first &mdash; then proving out, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving company processes, refactoring code, and talking directly to users are among the most satisfying part of the job.  By far, his favorite role is when he gets to mentor other developers and watch them succeed.</p><p>In his free time, he's rarely on a computer. He's usually at the zoo or museum with his kids &mdash; but if it's nice out, he's probably enjoying a park, or biking, or hiking in the Adirondack Mountains. He's also really good at eating cookies.</p>",
+          "<p>Mike loves creating software that makes people's life better.  After starting his career in large companies, he wanted to make more of an impact and now has years of experience working in the fast-paced environments of startups.  He loves doing things that don't scale at first &mdash; then proving out, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving company processes, refactoring code, and talking directly to users are among the most satisfying parts of the job.  By far, his favorite role is when he gets to mentor other developers and watch them succeed.</p><p>In his free time, he's rarely on a computer. He's usually at the zoo or museum with his kids &mdash; but if it's nice out, he's probably enjoying a park, or biking, or hiking in the Adirondack Mountains. He's also really good at eating cookies.</p>",
         contact: {
           email: 'mike.kozelsky@gmail.com',
           address: {
@@ -50,7 +50,7 @@ resumeApp.controller('ResumeCtrl', [
               responsibilities: [
                 'Strategized the goals and purpose of the new Student Assessment team.',
                 'Add features and functionality to the products in the Student Assessment product line.',
-                'Participate in interviews and mentor new hires.',
+                'Participate in interviews, make hiring recommendations, and mentor new hires.',
                 'Set up the continuous deployment and release management workflows.',
                 'Deploy and monitor cloud hosted Software As A Service applications (what some would consider devops).',
                 'Review costs and assets on cloud provider, eliminate and reduce costs where applicable.',
@@ -102,7 +102,7 @@ resumeApp.controller('ResumeCtrl', [
               responsibilities: [
                 'Added new functionality and bug fixes to the existing business logic built in Java and MySql.',
                 'Refactored and improved the architecture of the code base including achieving over 90% automated back-end test coverage.',
-                'Participate in developer interviews.',
+                'Participate in developer interviews and make hiring recommendations.',
                 'Implemented an external facing RESTful API to be used by third party developers via OAuth.',
                 'Served in a ScrumMaster capacity and led the team to adopt a relatively strict adherence to SCRUM.',
                 'Wore many hats as needed including Business Analyst, Quality Assurance, and Sales Engineer.'
