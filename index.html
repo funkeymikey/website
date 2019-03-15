@@ -82,11 +82,14 @@
 				<div masonry>
 					<div class="item col-sm-6 col-xs-12" ng-repeat="job in resume.workHistory" ng-init="jobIndex = $index">
 						<div class="card card-white">
-							<a ng-href="{{job.employerWebsite}}">
+							<a ng-if="job.employerWebsite" ng-href="{{job.employerWebsite}}">
 								<div class="employer-logo">
 									<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}}" />
 								</div>
 							</a>
+							<div ng-if="!job.employerWebsite"class="employer-logo">
+								<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}}" />
+							</div>
 							<div class="card-content">
 								<h3>{{job.employerName}}</h3>
 								<p>

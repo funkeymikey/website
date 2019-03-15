@@ -14,18 +14,20 @@ resumeApp.controller('ResumeCtrl', [
       links: [],
       // [{ name: 'blog', url: 'http://blog.mikekozelsky.com' }],
       skills: [
-        { skill: 'C#', percent: 71 },
-        { skill: 'Html', percent: 70 },
-        { skill: 'Scrum', percent: 76 },
-        { skill: 'REST', percent: 61 },
+        { skill: 'C#', percent: 74 },
+        { skill: 'Html', percent: 72 },
+        { skill: 'Scrum', percent: 68 },
+        { skill: 'REST', percent: 65 },
+        { skill: 'Azure', percent: 61 },
         { skill: 'Java', percent: 59 },
         { skill: 'SQL', percent: 45 },
         { skill: 'JS', percent: 44 },
-        { skill: 'CSS', percent: 37 },
+        { skill: 'CSS', percent: 39 },
         { skill: 'ng-js', percent: 26 }
       ],
       about: {
-        bio: "<p>Mike loves creating software that makes people's life better.  After starting his career in large companies, he wanted to make more of an impact and now has years of experience working in startups.  He loves doing things that don't scale at first &mdash; then proving out, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving company processes, refactoring code, and learning from users are among the most satisfying part of the job.  By far, his favorite role is when he gets to help mentor other developers.</p><p>In his free time, he's rarely on a computer. He's usually outside biking; or hiking in the Adirondack Mountains with his wife and dog. He's also really good at eating cookies.</p>",
+        bio:
+          "<p>Mike loves creating software that makes people's life better.  After starting his career in large companies, he wanted to make more of an impact and now has years of experience working in the fast-paced environments of startups.  He loves doing things that don't scale at first &mdash; then proving out, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving company processes, refactoring code, and talking directly to users are among the most satisfying part of the job.  By far, his favorite role is when he gets to mentor other developers and watch them succeed.</p><p>In his free time, he's rarely on a computer. He's usually at the zoo or museum with his kids &mdash; but if it's nice out, he's probably enjoying a park, or biking, or hiking in the Adirondack Mountains. He's also really good at eating cookies.</p>",
         contact: {
           email: 'mike.kozelsky@gmail.com',
           address: {
@@ -36,17 +38,43 @@ resumeApp.controller('ResumeCtrl', [
       },
       workHistory: [
         {
+          employerName: 'Campus Labs',
+          employerWebsite: 'https://www.campuslabs.com/',
+          employerLogo: 'images/campuslabs.png',
+          employerTagline: 'Software for Higher Education',
+          startDate: new Date('5/7/2017'),
+          positions: [
+            {
+              role: 'Developer',
+              startDate: new Date('5/7/2017'),
+              responsibilities: [
+                'Strategized the goals and purpose of the new Student Assessment team.',
+                'Add features and functionality to the products in the Student Assessment product line.',
+                'Participate in interviews and mentor new hires.',
+                'Set up the continuous deployment and release management workflows.',
+                'Deploy and monitor cloud hosted Software As A Service applications (what some would consider devops).',
+                'Review costs and assets on cloud provider, eliminate and reduce costs where applicable.',
+                'Jump in to an existing code base to provide immediate value during crunch time.',
+                'Problem solve, trouble shoot, and analyze the first ever Campus Labs product, which is over a decade old and full of complexity.',
+              ],
+              recognitions: []
+            }
+          ]
+        },
+        {
           employerName: 'Fanbassador',
-          employerWebsite: 'http://www.fanbassador.com/',
           employerLogo: 'images/fanbassador.jpg',
           employerTagline: 'Fan Demanded Touring Decisions',
           startDate: new Date('2/1/2016'),
+          endDate: new Date('12/31/2017'),
           positions: [
             {
               role: 'CTO and Co-Founder',
               startDate: new Date('2/1/2016'),
+              endDate: new Date('12/31/2017'),
               responsibilities: [
                 'Propose, build, test, and maintain full technology stack.',
+                'Interview and hire a small technical team.',
                 'Own all technology and architecture decisions behind the product.',
                 'Manage and work with the design team to create a professional application from scratch.',
                 'Create annual budgets, manage asset inventory, and handle technology purchasing.',
@@ -62,7 +90,6 @@ resumeApp.controller('ResumeCtrl', [
         },
         {
           employerName: 'Doolli',
-          employerWebsite: 'http://www.doolli.com/',
           employerLogo: 'images/doolli.png',
           employerTagline: 'Cloud based data management service',
           startDate: new Date('7/1/2013'),
@@ -74,8 +101,9 @@ resumeApp.controller('ResumeCtrl', [
               endDate: new Date('1/1/2016'),
               responsibilities: [
                 'Added new functionality and bug fixes to the existing business logic built in Java and MySql.',
-                'Refactored and improved the architecture of the code base including achieving over 90% automated back-end  test coverage.',
-                'Implemented an external facing RESTful API to be used by third party developers.',
+                'Refactored and improved the architecture of the code base including achieving over 90% automated back-end test coverage.',
+                'Participate in developer interviews.',
+                'Implemented an external facing RESTful API to be used by third party developers via OAuth.',
                 'Served in a ScrumMaster capacity and led the team to adopt a relatively strict adherence to SCRUM.',
                 'Wore many hats as needed including Business Analyst, Quality Assurance, and Sales Engineer.'
               ],
@@ -227,13 +255,10 @@ resumeApp.controller('ResumeCtrl', [
       if (index === -1) showMoreIds.push(someId);
       else showMoreIds.splice(index, 1);
 
-      $timeout(
-        function() {
-          $('[masonry]').masonry('reloadItems');
-          $('[masonry').masonry();
-        },
-        100
-      );
+      $timeout(function() {
+        $('[masonry]').masonry('reloadItems');
+        $('[masonry').masonry();
+      }, 100);
     };
 
     $scope.shouldShow = function(someId) {
@@ -254,7 +279,7 @@ resumeApp.controller('ResumeCtrl', [
     };
 
     $scope.getArcPathData = function(rating) {
-      return getArcPathDataByDegrees(75, 75, 70, rating / 100 * 360);
+      return getArcPathDataByDegrees(75, 75, 70, (rating / 100) * 360);
     };
 
     function getArcPathDataByDegrees(startX, startY, radius, degrees) {
@@ -296,13 +321,10 @@ resumeApp.directive('masonry', [
             return elem[0].children.length;
           },
           function(newVal) {
-            $timeout(
-              function() {
-                elem.masonry('reloadItems');
-                elem.masonry();
-              },
-              100
-            );
+            $timeout(function() {
+              elem.masonry('reloadItems');
+              elem.masonry();
+            }, 100);
           }
         );
 
