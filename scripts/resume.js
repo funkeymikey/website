@@ -18,7 +18,7 @@ resumeApp.controller('ResumeCtrl', [
         { skill: 'Html', percent: 72 },
         { skill: 'Scrum', percent: 68 },
         { skill: 'REST', percent: 65 },
-        { skill: 'Azure', percent: 61 },
+        { skill: 'Azure', percent: 64 },
         { skill: 'Java', percent: 59 },
         { skill: 'SQL', percent: 45 },
         { skill: 'JS', percent: 44 },
@@ -27,7 +27,7 @@ resumeApp.controller('ResumeCtrl', [
       ],
       about: {
         bio:
-          "<p>Mike loves creating software that makes people's life better.  After starting his career in large companies, he wanted to make more of an impact and now has years of experience working in the fast-paced environments of startups.  He loves doing things that don't scale at first &mdash; then proving out, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving company processes, refactoring code, and talking directly to users are among the most satisfying parts of the job.  By far, his favorite role is when he gets to mentor other developers and watch them succeed.</p><p>In his free time, he's rarely on a computer. He's usually at the zoo or museum with his kids &mdash; but if it's nice out, he's probably enjoying a park, or biking, or hiking in the Adirondack Mountains. He's also really good at eating cookies.</p>",
+          "<p>Mike loves creating software that makes people's life better.  After starting his career in large companies, he has worked in the fast-paced environments of startups and everything in between.  He loves doing things that don't scale at first &mdash; then proving out, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving company processes, solving people's actual problems, and talking directly to users are among the most satisfying parts of the job.  By far, his favorite role is when he gets to mentor other developers and watch them succeed.</p><p>In his free time, he's rarely on a computer. He's usually at the zoo or museum with his kids &mdash; but if it's nice out, he's probably enjoying a park, or biking, or hiking in the Adirondack Mountains. His favorite NP complete problem is finding the most efficient way to load the dishwasher.  He's also really good at eating cookies.</p>",
         contact: {
           email: 'mike.kozelsky@gmail.com',
           address: {
@@ -56,6 +56,9 @@ resumeApp.controller('ResumeCtrl', [
                 'Review costs and assets on cloud provider, eliminate and reduce costs where applicable.',
                 'Jump in to an existing code base to provide immediate value during crunch time.',
                 'Problem solve, trouble shoot, and analyze the first ever Campus Labs product, which is over a decade old and full of complexity.',
+                'Coordinate our involvement with the student shadow program through InfoTech Niagara.',
+                'Implement processes to communicate priorities, short term tasks, long term goals, and how they all fit together.',
+                'Using those long term goals, prioritizing work to find most effective way to deliver value.'
               ],
               recognitions: []
             }
