@@ -15,14 +15,16 @@ resumeApp.controller('ResumeCtrl', [
       // [{ name: 'blog', url: 'http://blog.mikekozelsky.com' }],
       skills: [
         { skill: 'C#', percent: 74 },
-        { skill: 'Html', percent: 72 },
-        { skill: 'Scrum', percent: 68 },
+        { skill: 'Agile', percent: 75 },
         { skill: 'REST', percent: 65 },
         { skill: 'Azure', percent: 64 },
+        { skill: 'Html', percent: 62 },
         { skill: 'Java', percent: 59 },
+        { skill: 'Python', percent: 51},
         { skill: 'SQL', percent: 45 },
-        { skill: 'JS', percent: 44 },
+        { skill: 'JS', percent: 41 },
         { skill: 'CSS', percent: 39 },
+        { skill: 'GCP', percent: 32 },
         { skill: 'ng-js', percent: 26 }
       ],
       about: {
@@ -38,15 +40,56 @@ resumeApp.controller('ResumeCtrl', [
       },
       workHistory: [
         {
+          employerName: 'FanAI',
+          employerWebsite: 'https://www.fan.ai/',
+          employerLogo: 'images/fanai.png',
+          employerTagline: 'Sports sponsorship analysis',
+          startDate: new Date('6/14/2021'),
+          positions: [
+            {
+              role: 'Developer',
+              startDate: new Date('6/14/2021'),
+              responsibilities: [
+                'Contributed to a back end API written in Python, built on top of FastAPI.',
+                'Built end to end tests of said api using Tox',
+                'Managed infrastructure in Google Cloud using Terraform.',
+                'Performed data loading and analysis in Big Query.',
+                'Architected a data ingestion workflow built on top of message queues and serverless functions.',
+                'Helped the team prioritize and define work.',
+                'Implemented vertical slicing during feature development to increase agility and deliver value quicker.',
+                'Managed Postgres database and versioning with SQLAlchemy and Alembic.',
+                'Assisted with Big Data analysis using Pandas.',
+                'Implemented a Continuous Integration / Continuous Delivery pipeline using Google Cloud Build',
+              ],
+              recognitions: [],
+              technologies: [
+                'Python',
+                'SQLAlchemy',
+                'BigQuery', 
+                'Alembic',
+                'FastAPI',
+                'Tox',
+                'Terraform',
+                'Google Cloud Platform',
+                'Google Cloud Functions',
+                'Google Pub/Sub',
+                'Google Cloud Build',
+              ]
+            }
+          ]
+        },
+        {
           employerName: 'Campus Labs',
           employerWebsite: 'https://www.campuslabs.com/',
           employerLogo: 'images/campuslabs.png',
           employerTagline: 'Software for Higher Education',
           startDate: new Date('5/7/2017'),
+          endDate: new Date('06/01/2021'),
           positions: [
             {
               role: 'Developer',
               startDate: new Date('5/7/2017'),
+              endDate: new Date('06/01/2021'),
               responsibilities: [
                 'Strategized the goals and purpose of the new Student Assessment team.',
                 'Add features and functionality to the products in the Student Assessment product line.',
