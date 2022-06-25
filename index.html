@@ -62,7 +62,7 @@
 					<div class="rating">
 						<svg viewbox="0 0 150 150" width="150" height="150">
 							<path ng-attr-d="{{getArcPathData(rating.percent)}}" ng-attr-style="opacity:{{rating.percent/100}}"></path>
-							<text text-anchor="middle" x="75" y="80" font-size="40">{{rating.skill}}</text>
+							<text text-anchor="middle" x="75" y="80" font-size="30">{{rating.skill}}</text>
 							<text text-anchor="middle" x="75" y="110" font-size="25">{{rating.percent}}%</text>
 						</svg>
 					</div>
@@ -108,17 +108,24 @@
 												{{position.team}}
 											</div>
 
-											<div ng-if="isPopulated(position.recognitions)">
+											<div ng-if="isPopulated(position.recognitions)" class="position-list">
 												Recognitions
 												<ul ng-repeat="recognition in position.recognitions">
 													<li>{{recognition}}</li>
 												</ul>
 											</div>
 
-											<div ng-if="isPopulated(position.responsibilities)">
+											<div ng-if="isPopulated(position.responsibilities)" class="position-list">
 												Responsibilities
 												<ul ng-repeat="responsibility in position.responsibilities">
 													<li>{{responsibility}}</li>
+												</ul>
+											</div>
+
+											<div ng-if="isPopulated(position.technologies)" class="position-list">
+												Technologies used
+												<ul ng-repeat="technology in position.technologies | orderBy">
+													<li>{{technology}}</li>
 												</ul>
 											</div>
 										</li>
@@ -182,7 +189,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-sanitize.js"></script>
-	<script src="scripts/resume.js?t=2022.06.24"></script>
+	<script src="scripts/resume.js?t=2022.06.25"></script>
 
 	<script>
 		(function (i, s, o, g, r, a, m) {

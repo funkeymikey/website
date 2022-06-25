@@ -16,7 +16,6 @@ resumeApp.controller('ResumeCtrl', [
       skills: [
         { skill: 'C#', percent: 74 },
         { skill: 'Agile', percent: 75 },
-        { skill: 'REST', percent: 65 },
         { skill: 'Azure', percent: 64 },
         { skill: 'Html', percent: 62 },
         { skill: 'Java', percent: 59 },
@@ -25,7 +24,8 @@ resumeApp.controller('ResumeCtrl', [
         { skill: 'JS', percent: 41 },
         { skill: 'CSS', percent: 39 },
         { skill: 'GCP', percent: 32 },
-        { skill: 'ng-js', percent: 26 }
+        { skill: 'Angular', percent: 26 },
+        { skill: 'ng-js', percent: 26 },
       ],
       about: {
         bio:
@@ -74,7 +74,8 @@ resumeApp.controller('ResumeCtrl', [
                 'Google Cloud Functions',
                 'Google Pub/Sub',
                 'Google Cloud Build',
-              ]
+                'Shortcut.com'
+              ],
             }
           ]
         },
@@ -103,7 +104,21 @@ resumeApp.controller('ResumeCtrl', [
                 'Implement processes to communicate priorities, short term tasks, long term goals, and how they all fit together.',
                 'Using those long term goals, prioritizing work to find most effective way to deliver value.'
               ],
-              recognitions: []
+              recognitions: [],
+              technologies: [
+                '.NET Core',
+                'Sql Server',
+                'Entity Framework', 
+                'Entity Framework Migrations',
+                'Asp .NET Core',
+                'Automated Testing',
+                'Azure RM Powershell',
+                'Azure',
+                'Azure Functions',
+                'Blob Storage',
+                'Azure Service Bus',
+                'Azure Dev Ops', 
+              ],
             }
           ]
         },
