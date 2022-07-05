@@ -334,7 +334,7 @@ resumeApp.controller('ResumeCtrl', [
     $scope.isOverflowing = function(jobIndex) {
       var el = document.getElementById('jobDetail' + jobIndex);
 
-      var isOverflowing = el.clientHeight < el.scrollHeight;
+      var isOverflowing = el.clientHeight <= el.scrollHeight;
 
       return isOverflowing;
     };

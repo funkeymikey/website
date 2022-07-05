@@ -96,7 +96,7 @@
 									<span ng-if="job.employerTagline">{{job.employerTagline}}</span><br /> {{job.startDate | date:'MMMM yyyy'}} &mdash;
 									<span ng-if="job.endDate">{{job.endDate | date:'MMMM yyyy'}}</span><span ng-if="!job.endDate">Present</span>
 								</p>
-								<div ng-style="{'max-height': shouldShow(jobIndex) ? 'inherit' : '275px'}" ng-class="{'job-detail':!shouldShow(jobIndex)}"
+								<div ng-style="{'max-height': shouldShow(jobIndex) ? 'inherit' : '15rem'}" ng-class="{'job-detail':!shouldShow(jobIndex)}"
 								 ng-attr-id="{{'jobDetail' + jobIndex}}">
 									<ul ng-repeat="position in job.positions" ng-init="positionIndex = $index">
 										<li>
