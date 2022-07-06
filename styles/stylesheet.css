@@ -93,7 +93,7 @@ section h2 {
 	padding: 25px 0;
 }
 
-section + section h2 {
+section + section .container {
 	border-top: #333 solid 1px;
 }
 

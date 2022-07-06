@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="styles/stylesheet.css" />
+	<link rel="stylesheet" href="styles/print.css" media="print" />
 </head>
 
 <body ng-cloak>
@@ -87,7 +88,7 @@
 									<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}}" />
 								</div>
 							</a>
-							<div ng-if="!job.employerWebsite"class="employer-logo">
+							<div ng-if="!job.employerWebsite" class="employer-logo">
 								<img ng-src="{{job.employerLogo}}" alt="{{job.employerName}}" />
 							</div>
 							<div class="card-content">
@@ -179,8 +180,8 @@
 		<p class="left with-padding">&copy; {{resume.name}}</p>
 		<p class="right with-padding">
 			<span ng-repeat="link in resume.links" class="link">
-					<a href ng-href="{{link.url}}">{{link.name}}</a>
-				</span>
+				<a href ng-href="{{link.url}}">{{link.name}}</a>
+			</span>
 		</p>
 	</footer>
 
@@ -189,7 +190,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-sanitize.js"></script>
-	<script src="scripts/resume.js?t=2022.07.05"></script>
+	<script src="scripts/resume.js?t=2022.07.06"></script>
 
 	<script>
 		(function (i, s, o, g, r, a, m) {
