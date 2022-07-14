@@ -25,12 +25,16 @@
 				<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
 					<h1>{{resume.name}}</h1>
 					<div>{{resume.tagline}}</div>
-					<span ng-if="resume.about.contact.email"><a ng-href="mailto:{{resume.about.contact.email}}"><small>{{resume.about.contact.email}}</small><br /></a></span>
+					<span ng-if="resume.about.contact.email"><a
+							ng-href="mailto:{{resume.about.contact.email}}"><small>{{resume.about.contact.email}}</small><br /></a></span>
 					<div ng-if="resume.about.contact.address">
 						<small>
 							<i class="fa fa-map-marker"></i>
-							<span ng-if="resume.about.contact.address.city">{{resume.about.contact.address.city}}, </span><span ng-if="resume.about.contact.address.state">{{resume.about.contact.address.state}}</span>
-							<span ng-if="resume.about.contact.address.postal">{{resume.about.contact.address.postal}}</span>
+							<span ng-if="resume.about.contact.address.city">{{resume.about.contact.address.city}},
+							</span><span
+								ng-if="resume.about.contact.address.state">{{resume.about.contact.address.state}}</span>
+							<span
+								ng-if="resume.about.contact.address.postal">{{resume.about.contact.address.postal}}</span>
 						</small>
 					</div>
 				</div>
@@ -59,10 +63,12 @@
 				<h2 class="col-md-12"><i class="fa fa-code"></i> Skills</h2>
 			</div>
 			<div class="row">
-				<div ng-repeat="rating in resume.skills | orderBy:'-percent'" class="content col-md-2 col-sm-3 col-xs-4">
+				<div ng-repeat="rating in resume.skills | orderBy:'-percent'"
+					class="content col-md-2 col-sm-3 col-xs-4">
 					<div class="rating">
 						<svg viewbox="0 0 150 150" width="150" height="150">
-							<path ng-attr-d="{{getArcPathData(rating.percent)}}" ng-attr-style="opacity:{{rating.percent/100}}"></path>
+							<path ng-attr-d="{{getArcPathData(rating.percent)}}"
+								ng-attr-style="opacity:{{rating.percent/100}}"></path>
 							<text text-anchor="middle" x="75" y="80" font-size="30">{{rating.skill}}</text>
 							<text text-anchor="middle" x="75" y="110" font-size="25">{{rating.percent}}%</text>
 						</svg>
@@ -81,7 +87,8 @@
 			</div>
 			<div class="row">
 				<div masonry>
-					<div class="item col-sm-6 col-xs-12" ng-repeat="job in resume.workHistory" ng-init="jobIndex = $index">
+					<div class="item col-sm-6 col-xs-12" ng-repeat="job in resume.workHistory"
+						ng-init="jobIndex = $index">
 						<div class="card card-white">
 							<a ng-if="job.employerWebsite" ng-href="{{job.employerWebsite}}">
 								<div class="employer-logo">
@@ -94,15 +101,19 @@
 							<div class="card-content">
 								<h3>{{job.employerName}}</h3>
 								<p>
-									<span ng-if="job.employerTagline">{{job.employerTagline}}</span><br /> {{job.startDate | date:'MMMM yyyy'}} &mdash;
-									<span ng-if="job.endDate">{{job.endDate | date:'MMMM yyyy'}}</span><span ng-if="!job.endDate">Present</span>
+									<span ng-if="job.employerTagline">{{job.employerTagline}}</span><br />
+									{{job.startDate | date:'MMMM yyyy'}} &mdash;
+									<span ng-if="job.endDate">{{job.endDate | date:'MMMM yyyy'}}</span><span
+										ng-if="!job.endDate">Present</span>
 								</p>
-								<div ng-style="{'max-height': shouldShow(jobIndex) ? 'inherit' : '15rem'}" ng-class="{'job-detail':!shouldShow(jobIndex)}"
-								 ng-attr-id="{{'jobDetail' + jobIndex}}">
+								<div ng-style="{'max-height': shouldShow(jobIndex) ? 'inherit' : '15rem'}"
+									ng-class="{'job-detail':!shouldShow(jobIndex)}"
+									ng-attr-id="{{'jobDetail' + jobIndex}}">
 									<ul ng-repeat="position in job.positions" ng-init="positionIndex = $index">
 										<li>
 											<h4>{{position.role}}</h4>
-											({{position.startDate | date:'MM/yyyy'}} to <span ng-if="job.endDate">{{position.endDate | date:'MM/yyyy'}}</span>
+											({{position.startDate | date:'MM/yyyy'}} to <span
+												ng-if="job.endDate">{{position.endDate | date:'MM/yyyy'}}</span>
 											<span ng-if="!job.endDate">Present</span>)
 
 											<div>
@@ -134,7 +145,10 @@
 
 								</div>
 								<div class="show-more">
-									<a ng-show="isOverflowing(jobIndex)" href ng-click="toggleMore(jobIndex)"><i class="fa fa-chevron-down" ng-class="{ 'fa-rotate-180' : shouldShow(jobIndex) }"></i> {{shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</a>
+									<a ng-show="isOverflowing(jobIndex)" href ng-click="toggleMore(jobIndex)"><i
+											class="fa fa-chevron-down"
+											ng-class="{ 'fa-rotate-180' : shouldShow(jobIndex) }"></i>
+										{{shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</a>
 								</div>
 							</div>
 						</div>
@@ -169,7 +183,8 @@
 			</div>
 			<div class="content">
 				<ul ng-repeat="award in resume.education">
-					<li>{{award.type}}<span ng-if="award.from"> from {{award.from}}</span>, {{award.date | date:'MMMM yyyy'}}</li>
+					<li>{{award.type}}<span ng-if="award.from"> from {{award.from}}</span>, {{award.date | date:'MMMM
+						yyyy'}}</li>
 				</ul>
 			</div>
 		</div>
@@ -190,7 +205,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-sanitize.js"></script>
-	<script src="scripts/resume.js?t=2022.07.06"></script>
+	<script src="scripts/resume.js?t=2022.07.14"></script>
 
 	<script>
 		(function (i, s, o, g, r, a, m) {
