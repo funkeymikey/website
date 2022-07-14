@@ -5,12 +5,12 @@ var resumeApp = angular.module('resumeApp', ['ngSanitize']);
 resumeApp.controller('ResumeCtrl', [
   '$scope',
   '$timeout',
-  function($scope, $timeout) {
+  function ($scope, $timeout) {
     $scope.resume = {
       name: 'mike kozelsky',
       firstName: 'Mike',
       image: 'images/mike.jpg',
-      tagline: 'A software generalist that loves every part of making good software.',
+      tagline: 'A software leader that loves every part of making good software.',
       links: [],
       // [{ name: 'blog', url: 'http://blog.mikekozelsky.com' }],
       skills: [
@@ -19,7 +19,7 @@ resumeApp.controller('ResumeCtrl', [
         { skill: 'Azure', percent: 64 },
         { skill: 'Html', percent: 62 },
         { skill: 'Java', percent: 59 },
-        { skill: 'Python', percent: 51},
+        { skill: 'Python', percent: 51 },
         { skill: 'SQL', percent: 45 },
         { skill: 'JS', percent: 41 },
         { skill: 'CSS', percent: 39 },
@@ -29,7 +29,7 @@ resumeApp.controller('ResumeCtrl', [
       ],
       about: {
         bio:
-          "<p>Mike loves creating software that makes people's life better.  After starting his career in large companies, he has worked in the fast-paced environments of startups and everything in between.  He loves doing things that don't scale at first &mdash; then proving out, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving company processes, solving people's actual problems, and talking directly to users are among the most satisfying parts of the job.  By far, his favorite role is when he gets to mentor other developers and watch them succeed.</p><p>In his free time, he's rarely on a computer. He's usually at the zoo or museum with his kids &mdash; but if it's nice out, he's probably enjoying a park, or biking, or hiking in the Adirondack Mountains. His favorite NP complete problem is finding the most efficient way to load the dishwasher.  He's also really good at eating cookies.</p>",
+          "<p>Mike loves enabling teams to create software that makes people's life better.  After starting his career in large companies, he has worked in the fast-paced environments of startups and everything in between.  He loves doing things that don't scale at first &mdash; then proving out, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving company processes, solving people's actual problems, and talking directly to users are among the most satisfying parts of the job.  By far, his favorite role is when he gets to mentor other developers and watch them succeed.</p><p>In his free time, he's rarely on a computer. He's usually at the zoo or museum with his kids &mdash; but if it's nice out, he's probably enjoying a park, or biking, or hiking in the Adirondack Mountains. His favorite NP complete problem is finding the most efficient way to load the dishwasher.  He's also really good at eating cookies.</p>",
         contact: {
           email: 'mike.kozelsky@gmail.com',
           address: {
@@ -65,7 +65,7 @@ resumeApp.controller('ResumeCtrl', [
               technologies: [
                 'Python',
                 'SQLAlchemy',
-                'BigQuery', 
+                'BigQuery',
                 'Alembic',
                 'FastAPI',
                 'Tox',
@@ -108,7 +108,7 @@ resumeApp.controller('ResumeCtrl', [
               technologies: [
                 '.NET Core',
                 'Sql Server',
-                'Entity Framework', 
+                'Entity Framework',
                 'Entity Framework Migrations',
                 'Asp .NET Core',
                 'Automated Testing',
@@ -117,7 +117,7 @@ resumeApp.controller('ResumeCtrl', [
                 'Azure Functions',
                 'Blob Storage',
                 'Azure Service Bus',
-                'Azure Dev Ops', 
+                'Azure Dev Ops',
               ],
             }
           ]
@@ -311,27 +311,27 @@ resumeApp.controller('ResumeCtrl', [
 
     var showMoreIds = [];
 
-    $scope.toggleMore = function(someId) {
+    $scope.toggleMore = function (someId) {
       var index = showMoreIds.indexOf(someId);
       if (index === -1) showMoreIds.push(someId);
       else showMoreIds.splice(index, 1);
 
-      $timeout(function() {
+      $timeout(function () {
         $('[masonry]').masonry('reloadItems');
         $('[masonry').masonry();
       }, 100);
     };
 
-    $scope.shouldShow = function(someId) {
+    $scope.shouldShow = function (someId) {
       return showMoreIds.indexOf(someId) !== -1;
     };
 
-    $scope.isPopulated = function(testArray) {
+    $scope.isPopulated = function (testArray) {
       if (testArray && testArray.length > 0) return true;
       return false;
     };
 
-    $scope.isOverflowing = function(jobIndex) {
+    $scope.isOverflowing = function (jobIndex) {
       var el = document.getElementById('jobDetail' + jobIndex);
 
       var isOverflowing = el.clientHeight <= el.scrollHeight;
@@ -339,7 +339,7 @@ resumeApp.controller('ResumeCtrl', [
       return isOverflowing;
     };
 
-    $scope.getArcPathData = function(rating) {
+    $scope.getArcPathData = function (rating) {
       return getArcPathDataByDegrees(75, 75, 70, (rating / 100) * 360);
     };
 
@@ -373,16 +373,16 @@ resumeApp.controller('ResumeCtrl', [
 
 resumeApp.directive('masonry', [
   '$timeout',
-  function($timeout) {
+  function ($timeout) {
     return {
       restrict: 'AC',
-      link: function(scope, elem, attrs) {
+      link: function (scope, elem, attrs) {
         scope.$watch(
-          function() {
+          function () {
             return elem[0].children.length;
           },
-          function(newVal) {
-            $timeout(function() {
+          function (newVal) {
+            $timeout(function () {
               elem.masonry('reloadItems');
               elem.masonry();
             }, 100);
