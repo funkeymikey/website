@@ -10,7 +10,7 @@ resumeApp.controller('ResumeCtrl', [
       name: 'mike kozelsky',
       firstName: 'Mike',
       image: 'images/mike.jpg',
-      tagline: 'A software leader that loves every part of making good software.',
+      tagline: 'A hands-on leader that loves every part of making good software.',
       links: [],
       // [{ name: 'blog', url: 'http://blog.mikekozelsky.com' }],
       skills: [
@@ -29,7 +29,7 @@ resumeApp.controller('ResumeCtrl', [
       ],
       about: {
         bio:
-          "<p>Mike loves enabling teams to create software that makes people's life better.  After starting his career in large companies, he has worked in the fast-paced environments of startups and everything in between.  He loves doing things that don't scale at first &mdash; then proving out, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving company processes, solving people's actual problems, and talking directly to users are among the most satisfying parts of the job.  By far, his favorite role is when he gets to mentor other developers and watch them succeed.</p><p>In his free time, he's rarely on a computer. He's usually at the zoo or museum with his kids &mdash; but if it's nice out, he's probably enjoying a park, or biking, or hiking in the Adirondack Mountains. His favorite NP complete problem is finding the most efficient way to load the dishwasher.  He's also really good at eating cookies.</p>",
+          "<p>Mike loves enabling teams to create software that makes people's life better.  After starting his career in large companies, he has worked in the fast-paced environments of startups and everything in between.  He loves doing small slices of work &mdash; then proving out, learning from users, refining, and automating until things grow from a scrappy proof of concept to an enterprise grade product.  Improving how a development team gets work done, solving people's actual problems, and talking directly to users are among the most satisfying parts of the job.  By far, his favorite role is when he gets to mentor other developers and watch them grow.</p><p>In his free time, he's rarely on a computer. He's usually at the zoo or museum with his kids &mdash; but if it's nice out, he's probably enjoying a park, or biking, or hiking in the Adirondack Mountains. His favorite NP complete problem is finding the most efficient way to load the dishwasher.  He's also really good at eating cookies.</p>",
         contact: {
           email: 'mike.kozelsky@gmail.com',
           address: {
