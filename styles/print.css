@@ -52,6 +52,20 @@ div[masonry] {
 	left: inherit !important;
 	top: inherit !important;
 	width: 100% !important;
+	margin-bottom: 15px !important;
+}
+
+.item .card-content {
+	padding: 0;
+}
+
+.item h3 {
+	display: none;
+}
+
+.job-detail {
+
+	min-height: inherit !important;
 }
 
 /* get rid of the faded text above show more */

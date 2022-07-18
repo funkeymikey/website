@@ -304,13 +304,13 @@ small {
 }
 
 .employer-logo {
-	height: 150px;
-	line-height: 150px;
+	height: 125px;
+	line-height: 125px;
 	text-align: center;
 }
 
 .employer-logo>img {
-	max-height: 150px;
+	max-height: 125px;
 	max-width: 90%;
 	vertical-align: middle;
 	display: inline-block;
