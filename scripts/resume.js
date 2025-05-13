@@ -68,8 +68,9 @@ resumeApp.controller("ResumeCtrl", [
               role: "Engineering Manager",
               startDate: new Date("9/05/2022"),
               responsibilities: [
-                "Spearheaded a successful product launch that grew to 1,000+ monthly users directly generating $2M in revenue.",
-                "Brought a sprawling contractor-built jobs platform in-house and evolved into a focused tool that processed over 500,000 jobs and increased internal productivity 3x.",
+                "Spearheaded a successful product launch that grew to 1,000+ monthly users directly generating $2M in incremental revenue.",
+                "Built a jobs platform that processed over 500,000 jobs and increased recruiter productivity 3x.",
+                "Took a product that couldn't launch due to too many features and provided direction and focus to launch within 9 weeks of joining.",
                 "Experienced recruiters joining the company praised our tooling to be the best in the industry.",
                 "Created a lightweight, goal-aligned agile SDLC tailored to our team; helped set team culture to embrace iterative improvement.",
                 "Led UX Process Improvements by introducing wireframing-first then just-in-time design to embrace collaboration and reduce rework.",
