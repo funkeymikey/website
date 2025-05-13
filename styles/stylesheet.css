@@ -151,7 +151,7 @@ table {
 
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  line-height: 1.2;
+  line-height: 1.5;
   background-color: #fbfbfb;
 }
 
@@ -394,7 +394,7 @@ pre {
 }
 
 #coreCompetencies .card {
-  height: 150px;
+  height: 175px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
