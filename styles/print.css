@@ -1,77 +1,102 @@
+body {
+  line-height: 1.2;
+  font-size: 75%;
+}
+
+section,
+section h2 {
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: 1.5rem;
+  margin: 5px 0;
+}
+
 /* resize some medium content to look like it does on large screen */
 .col-md-2 {
-	width: 16.66666667%;
+  width: 16.66666667%;
 }
 
 .col-md-4 {
-	width: 25%;
+  width: 25%;
 }
 
 .col-md-8 {
-	width: 75%;
+  width: 75%;
 }
-
 
 /*logo looks weird centered, put it back on left*/
 .employer-logo {
-	text-align: left;
-	height: inherit !important;
-	line-height: inherit !important;
+  text-align: left;
+  height: inherit !important;
+  line-height: inherit !important;
 }
 
 /*keep these reasonable size*/
-.employer-logo>img {
-	max-height: 80px !important;
+.employer-logo > img {
+  max-height: 80px !important;
 }
 
 /*don't print the show more toggle */
 .show-more {
-	display: none;
+  display: none;
 }
 
 /*always expand every job */
 .job-detail {
-	max-height: inherit !important;
+  max-height: inherit !important;
 }
 
 /* hide the url */
 a[href]:after {
-	display: none;
+  display: none;
 }
 
 /* undo masonry magic */
 div[masonry] {
-	position: inherit !important;
-	height: inherit !important;
+  position: inherit !important;
+  height: inherit !important;
 }
 
 .item {
-	display: inherit !important;
-	float: inherit !important;
-	position: inherit !important;
-	left: inherit !important;
-	top: inherit !important;
-	width: 100% !important;
-	margin-bottom: 15px !important;
+  display: inherit !important;
+  float: inherit !important;
+  position: inherit !important;
+  left: inherit !important;
+  top: inherit !important;
+  width: 100% !important;
+  margin-bottom: 15px !important;
 }
 
 .item .card-content {
-	padding: 0;
+  padding: 0;
 }
 
 .item h3 {
-	display: none;
+  display: none;
 }
 
 .job-detail {
-
-	min-height: inherit !important;
+  min-height: inherit !important;
 }
 
 /* get rid of the faded text above show more */
 .card .job-detail:after {
-	content: '';
-	position: inherit !important;
-	display: inherit !important;
-	background: inherit !important;
+  content: "";
+  position: inherit !important;
+  display: inherit !important;
+  background: inherit !important;
+}
+
+#coreCompetencies .card {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: inherit;
 }
