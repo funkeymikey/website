@@ -38,9 +38,13 @@
               ><a ng-href="mailto:{{resume.about.contact.email}}"
                 ><small>{{resume.about.contact.email}}</small><br /></a
             ></span>
+			<span ng-if="resume.about.contact.phone"
+              ><i class="fa fa-phone"></i><a ng-href="tel:{{resume.about.contact.phone}}"
+                > <small>{{resume.about.contact.phone}}</small><br /></a
+            ></span>
             <div ng-if="resume.about.contact.address">
               <small>
-                <i class="fa fa-map-marker"></i>
+                <i class="fa fa-map-marker"> </i> 
                 <span ng-if="resume.about.contact.address.city"
                   >{{resume.about.contact.address.city}}, </span
                 ><span ng-if="resume.about.contact.address.state"

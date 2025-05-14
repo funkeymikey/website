@@ -54,6 +54,7 @@ resumeApp.controller("ResumeCtrl", [
             city: "Buffalo",
             state: "NY",
           },
+          phone: "585-746-4926",
         },
       },
       workHistory: [
