@@ -113,8 +113,10 @@
               class="item col-sm-6 col-xs-12"
               ng-repeat="job in resume.workHistory"
               ng-init="jobIndex = $index"
-            >
-              <div class="card card-white">
+              >
+              <div class="card card-white"
+                ng-class="{'print-hidden': !job.includeInPrint}"
+                >
                 <a
                   ng-if="job.employerWebsite"
                   ng-href="{{job.employerWebsite}}"

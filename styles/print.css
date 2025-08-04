@@ -100,3 +100,7 @@ div[masonry] {
   align-items: center;
   padding: inherit;
 }
+
+.print-hidden {
+  display: none !important;
+}
