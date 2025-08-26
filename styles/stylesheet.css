@@ -373,8 +373,16 @@ pre {
   background-color: #fff;
 }
 
+.card-title {
+  /* background-color: #196419;
+  color: white;
+  padding: 15px; */
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 .card-content {
-  padding: 15px;
+  padding: 0.5rem 1rem;
 }
 
 .card .job-detail {
@@ -393,11 +401,24 @@ pre {
   background: linear-gradient(transparent, white);
 }
 
-#coreCompetencies .card {
-  height: 175px;
+#coreCompetencies .card,
+#skills .card {
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 20px 5px;
+}
+
+#coreCompetencies .card ul,
+#skills .card ul {
+  text-transform: capitalize;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#skills .card {
+  height: 275px;
 }

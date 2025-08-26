@@ -55,6 +55,12 @@
                 >
               </small>
             </div>
+            <div ng-if="resume.about.linkedin">
+              <small>
+                <i class="fa fa-linkedin"></i>
+                <a ng-href="{{resume.about.linkedin}}" target="_blank">{{resume.about.linkedin}}</a>
+              </small>
+            </div>
           </div>
         </div>
       </div>
@@ -77,28 +83,28 @@
     </section>
 
 
-	<section id="coreCompetencies" ng-if="isPopulated(resume.coreCompetencies)">
-	  <div class="container">
-		<div class="row">
-		  <h2 class="col-md-12">
-			<i class="fa fa-lightbulb-o"></i> Core Competencies
-		  </h2>
-		</div>
-		<div class="row">
-		  <div
-			ng-repeat="competency in resume.coreCompetencies"
-			class="content col-md-2 col-sm-3 col-xs-6 text-center"
-		  >
-		  <div class="card card-white">
-			<h3 class="card-title">
-			  <i class="fa" ng-class="competency.icon"></i> 
-			  </h3>
-			<p class="card-content">{{competency.name}}</p>
-		  </div>
-		  </div>
-		</div>
-	  </div> 
-	</section>
+    <section id="coreCompetencies" ng-if="isPopulated(resume.coreCompetencies)">
+      <div class="container">
+        <div class="row">
+          <h2 class="col-md-12">
+          <i class="fa fa-lightbulb-o"></i> Core Competencies
+          </h2>
+        </div>
+        <div class="row">
+          <div
+          ng-repeat="competency in resume.coreCompetencies"
+          class="content col-md-2 col-sm-3 col-xs-6 text-center"
+          >
+            <div class="card card-white">
+              <h3 class="card-title">
+                <i class="fa" ng-class="competency.icon"></i> 
+              </h3>
+              <p class="card-content">{{competency.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="workHistory" ng-if="isPopulated(resume.workHistory)">
       <div class="container">
@@ -189,7 +195,7 @@
 
                     <div
                       ng-if="isPopulated(job.technologies)"
-                      class="technology-list"
+                      class="technology-list print-hidden"
                     >
                       Technologies used at {{job.employerName}}
                       <ul ng-repeat="technology in job.technologies | orderBy">
@@ -218,28 +224,26 @@
     </section>
 
     <section id="skills" ng-if="isPopulated(resume.skills)">
+      <!-- show each skill with the name skill.category and image skill.icon-->
       <div class="container">
         <div class="row">
           <h2 class="col-md-12"><i class="fa fa-code"></i> Skills</h2>
         </div>
         <div class="row">
           <div
-            ng-repeat="rating in resume.skills | orderBy:'-percent'"
-            class="content col-md-2 col-sm-3 col-xs-4"
+            ng-repeat="skill in resume.skills"
+            class="content col-md-3 col-sm-3 col-xs-6 text-center"
           >
-            <div class="rating">
-              <svg viewbox="0 0 150 150" width="150" height="150">
-                <path
-                  ng-attr-d="{{getArcPathData(rating.percent)}}"
-                  ng-attr-style="opacity:{{rating.percent/100}}"
-                ></path>
-                <text text-anchor="middle" x="75" y="80" font-size="30">
-                  {{rating.skill}}
-                </text>
-                <text text-anchor="middle" x="75" y="110" font-size="25">
-                  {{rating.percent}}%
-                </text>
-              </svg>
+            <div class="card card-white">
+              <h3 class="card-title">
+                <i class="fa" ng-class="skill.icon"></i>
+                <div>{{skill.category}}</div>
+              </h3>
+              <p class="card-content">
+                <ul>
+                  <li ng-repeat="subSkill in skill.skills">{{subSkill}}</li>
+                </ul>
+              </p>
             </div>
           </div>
         </div>

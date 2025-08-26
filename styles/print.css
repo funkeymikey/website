@@ -5,7 +5,7 @@ body {
 
 section,
 section h2 {
-  padding: 0;
+  padding: 0 0 5px 0;
 }
 
 h1,
@@ -38,7 +38,7 @@ h4 {
 
 /*keep these reasonable size*/
 .employer-logo > img {
-  max-height: 80px !important;
+  max-height: 60px !important;
 }
 
 /*don't print the show more toggle */
@@ -92,7 +92,8 @@ div[masonry] {
   background: inherit !important;
 }
 
-#coreCompetencies .card {
+#coreCompetencies .card,
+#skills .card {
   height: inherit;
   display: flex;
   flex-direction: column;
