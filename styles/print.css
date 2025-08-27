@@ -58,6 +58,9 @@ h4 {
   float: left;
   margin-right: 20px;
 }
+.employer-info {
+  text-align: left;
+}
 
 /*keep these reasonable size*/
 .employer-logo > img {
