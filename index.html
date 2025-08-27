@@ -7,6 +7,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="{{resume.name}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.mikekozelsky.com/" />
+    <meta property="og:image" content="{{resume.image}}" />
+    <meta property="og:description" content="{{resume.tagline}}" />
+
+    <!-- SEO and meta tags -->
+    <meta name="description" content="{{resume.tagline}}" />
+    <meta name="author" content="{{resume.name}}" />
+    <meta
+      name="keywords"
+      content="resume, {{resume.name}}, {{resume.tagline}}"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.mikekozelsky.com/" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/mike.jpg" type="image/jpeg" />
+
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{resume.name}}" />
+    <meta name="twitter:description" content="{{resume.tagline}}" />
+    <meta name="twitter:image" content="{{resume.image}}" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
