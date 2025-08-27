@@ -134,6 +134,7 @@ div[masonry] {
   /* padding: inherit; */
 }
 
-.print-hidden {
+.print-hidden,
+footer {
   display: none !important;
 }
