@@ -9,7 +9,7 @@
 
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     <link
       rel="stylesheet"
@@ -28,7 +28,7 @@
               ng-if="resume.image"
               ng-src="{{resume.image}}"
               alt="{{resume.name}}"
-              class="img-responsive"
+              class="img-responsive profile-image"
             />
           </div>
           <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
@@ -38,13 +38,14 @@
               ><a ng-href="mailto:{{resume.about.contact.email}}"
                 ><small>{{resume.about.contact.email}}</small><br /></a
             ></span>
-			<span ng-if="resume.about.contact.phone"
-              ><i class="fa fa-phone"></i><a ng-href="tel:{{resume.about.contact.phone}}"
-                > <small>{{resume.about.contact.phone}}</small><br /></a
+            <span ng-if="resume.about.contact.phone"
+              ><i class="fa fa-phone"></i
+              ><a ng-href="tel:{{resume.about.contact.phone}}">
+                <small>{{resume.about.contact.phone}}</small><br /></a
             ></span>
             <div ng-if="resume.about.contact.address">
               <small>
-                <i class="fa fa-map-marker"> </i> 
+                <i class="fa fa-map-marker"> </i>
                 <span ng-if="resume.about.contact.address.city"
                   >{{resume.about.contact.address.city}}, </span
                 ><span ng-if="resume.about.contact.address.state"
@@ -58,7 +59,9 @@
             <div ng-if="resume.about.linkedin">
               <small>
                 <i class="fa fa-linkedin"></i>
-                <a ng-href="{{resume.about.linkedin}}" target="_blank">{{resume.about.linkedin}}</a>
+                <a ng-href="{{resume.about.linkedin}}" target="_blank"
+                  >{{resume.about.linkedin}}</a
+                >
               </small>
             </div>
           </div>
@@ -79,27 +82,27 @@
               <p class="card-content" ng-bind-html="resume.about.bio"></p>
             </div>
           </div>
-        </div>        
+        </div>
+      </div>
     </section>
-
 
     <section id="coreCompetencies" ng-if="isPopulated(resume.coreCompetencies)">
       <div class="container">
         <div class="row">
           <h2 class="col-md-12">
-          <i class="fa fa-lightbulb-o"></i> Core Competencies
+            <i class="fa fa-lightbulb-o"></i> Core Competencies
           </h2>
         </div>
         <div class="row">
           <div
-          ng-repeat="competency in resume.coreCompetencies"
-          class="content col-md-2 col-sm-3 col-xs-6 text-center"
+            ng-repeat="competency in resume.coreCompetencies"
+            class="content col-md-2 col-sm-3 col-xs-6 text-center"
           >
             <div class="card card-white">
               <h3 class="card-title">
-                <i class="fa" ng-class="competency.icon"></i> 
+                <i class="fa" ng-class="competency.icon"></i>
               </h3>
-              <p class="card-content">{{competency.name}}</p>
+              <div class="card-content">{{competency.name}}</div>
             </div>
           </div>
         </div>
@@ -119,10 +122,9 @@
               class="item col-sm-6 col-xs-12"
               ng-repeat="job in resume.workHistory"
               ng-init="jobIndex = $index"
-              >
-              <div class="card card-white"
-                ng-class="{'print-hidden': !job.includeInPrint}"
-                >
+              ng-class="{'print-hidden': !job.includeInPrint}"
+            >
+              <div class="card card-white">
                 <a
                   ng-if="job.employerWebsite"
                   ng-href="{{job.employerWebsite}}"
@@ -140,8 +142,7 @@
                     alt="{{job.employerName}}"
                   />
                 </div>
-                <div class="card-content">
-                  <h3>{{job.employerName}}</h3>
+                <div class="employer-info">
                   <p>
                     <span ng-if="job.employerTagline"
                       >{{job.employerTagline}}</span
@@ -151,16 +152,18 @@
                       >{{job.endDate | date:'MMMM yyyy'}}</span
                     ><span ng-if="!job.endDate">Present</span>
                   </p>
+                </div>
+                <div class="card-content">
                   <div
                     ng-style="{'max-height': shouldShow(jobIndex) ? 'inherit' : '15rem'}"
                     ng-class="{'job-detail':!shouldShow(jobIndex)}"
                     ng-attr-id="{{'jobDetail' + jobIndex}}"
                   >
-                    <ul
-                      ng-repeat="position in job.positions"
-                      ng-init="positionIndex = $index"
+                    <div
+                      ng-if="isPopulated(job.positions)"
+                      class="job-positions"
                     >
-                      <li>
+                      <div ng-repeat="position in job.positions">
                         <h4>{{position.role}}</h4>
                         ({{position.startDate | date:'MM/yyyy'}} to
                         <span ng-if="job.endDate"
@@ -175,8 +178,12 @@
                           class="position-list"
                         >
                           Recognitions
-                          <ul ng-repeat="recognition in position.recognitions">
-                            <li>{{recognition}}</li>
+                          <ul>
+                            <li
+                              ng-repeat="recognition in position.recognitions"
+                            >
+                              {{recognition}}
+                            </li>
                           </ul>
                         </div>
 
@@ -184,22 +191,28 @@
                           ng-if="isPopulated(position.responsibilities)"
                           class="position-list"
                         >
-                          <ul
-                            ng-repeat="responsibility in position.responsibilities"
-                          >
-                            <li>{{responsibility}}</li>
+                          <ul>
+                            <li
+                              ng-repeat="responsibility in position.responsibilities"
+                            >
+                              {{responsibility}}
+                            </li>
                           </ul>
                         </div>
-                      </li>
-                    </ul>
+                      </div>
+                    </div>
 
                     <div
                       ng-if="isPopulated(job.technologies)"
                       class="technology-list print-hidden"
                     >
                       Technologies used at {{job.employerName}}
-                      <ul ng-repeat="technology in job.technologies | orderBy">
-                        <li>{{technology}}</li>
+                      <ul>
+                        <li
+                          ng-repeat="technology in job.technologies | orderBy"
+                        >
+                          {{technology}}
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -232,18 +245,18 @@
         <div class="row">
           <div
             ng-repeat="skill in resume.skills"
-            class="content col-md-3 col-sm-3 col-xs-6 text-center"
+            class="content col-md-3 col-sm-3 col-xs-12 text-center"
           >
             <div class="card card-white">
               <h3 class="card-title">
                 <i class="fa" ng-class="skill.icon"></i>
                 <div>{{skill.category}}</div>
               </h3>
-              <p class="card-content">
+              <div class="card-content">
                 <ul>
                   <li ng-repeat="subSkill in skill.skills">{{subSkill}}</li>
                 </ul>
-              </p>
+              </div>
             </div>
           </div>
         </div>
@@ -277,8 +290,8 @@
           </h2>
         </div>
         <div class="content">
-          <ul ng-repeat="award in resume.education">
-            <li>
+          <ul>
+            <li ng-repeat="award in resume.education">
               {{award.type}}<span ng-if="award.from"> from {{award.from}}</span
               >, {{award.date | date:'MMMM yyyy'}}
             </li>

@@ -14,11 +14,14 @@ resumeApp.controller("ResumeCtrl", [
         "Engineering Leader | Excellence in People, Product, Process, Platform",
       links: [],
       coreCompetencies: [
-        { icon: "fa-users", name: "Leadership & Team Management" },
+        { icon: "fa-people-group", name: "Leadership & Team Management" },
         { icon: "fa-refresh", name: "Agile Development & Process Improvement" },
-        { icon: "fa-desktop", name: "UX & Product Design Focus" },
         {
-          icon: "fa-comments",
+          icon: "fa-object-group",
+          name: "User Experience & Product Design Focus",
+        },
+        {
+          icon: "fa-handshake",
           name: "Stakeholder & Cross-Department Communication",
         },
         {
@@ -59,8 +62,18 @@ resumeApp.controller("ResumeCtrl", [
           ],
         },
         {
+          category: "Product",
+          icon: "fa-cube",
+          skills: [
+            "Roadmapping & strategy",
+            "UX collaboration",
+            "Value-based prioritization",
+            "Data-driven decisions",
+          ],
+        },
+        {
           category: "Process",
-          icon: "fa-refresh",
+          icon: "fa-tasks",
           skills: [
             "Agile & iterative delivery",
             "Metrics (DORA, scorecards)",
@@ -71,22 +84,12 @@ resumeApp.controller("ResumeCtrl", [
 
         {
           category: "Platform",
-          icon: "fa-cogs",
+          icon: "fa-cloud",
           skills: [
             "Cloud (AWS, GCP, Azure)",
             "Infrastructure as Code",
             "CI/CD automation",
             "Testing frameworks",
-          ],
-        },
-        {
-          category: "Product",
-          icon: "fa-desktop",
-          skills: [
-            "Roadmapping & strategy",
-            "UX collaboration",
-            "Value-based prioritization",
-            "Data-driven decisions",
           ],
         },
       ],
@@ -117,7 +120,7 @@ resumeApp.controller("ResumeCtrl", [
               startDate: new Date("9/05/2022"),
               responsibilities: [
                 "Built a SaaS platform for staffing and recruiting agencies across industries, aggregating jobs and candidates from multiple systems into a single workspace.",
-                "Designed and implemented cloud architecture: AWS (ECS, RDS, Lambda, App Runner), Node.js/TypeScript, Postgres, Next.js, Open Tofu.",
+                "Designed and implemented cloud architecture: AWS (ECR, RDS, Lambda, App Runner), Node.js/TypeScript, Postgres, Next.js, Open Tofu.",
                 "Developed recruiter-facing features including map-based search, saved searches, real-time alerts, and analytics dashboards, streamlining job–candidate matching.",
                 "Drove the early product roadmap, technical direction, and partnerships with agency leaders.",
               ],
@@ -138,7 +141,7 @@ resumeApp.controller("ResumeCtrl", [
             "Sequelize",
             "Postgres",
             "React",
-            "ECS, RDS, Lambda, App Runner",
+            "ECR, RDS, Lambda, App Runner",
             "Open Tofu",
           ],
         },

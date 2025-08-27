@@ -272,8 +272,8 @@ small {
 }
 
 .profile-image {
-  max-width: 400px;
-  max-height: 400px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .rating {
@@ -369,6 +369,10 @@ pre {
   margin-bottom: 30px;
 }
 
+.card {
+  padding: 0.5rem;
+}
+
 .card.card-white {
   background-color: #fff;
 }
@@ -382,7 +386,7 @@ pre {
 }
 
 .card-content {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
 }
 
 .card .job-detail {
@@ -403,12 +407,17 @@ pre {
 
 #coreCompetencies .card,
 #skills .card {
-  height: 200px;
+  height: 9.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 5px;
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+}
+
+#coreCompetencies .card-content,
+#skills .card-content {
+  padding: 0;
 }
 
 #coreCompetencies .card ul,
@@ -420,5 +429,5 @@ pre {
 }
 
 #skills .card {
-  height: 275px;
+  height: 14rem;
 }

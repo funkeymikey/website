@@ -3,6 +3,27 @@ body {
   font-size: 75%;
 }
 
+section {
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 20px !important;
+  clear: both !important;
+}
+
+#skills .row,
+#interests .row,
+#education .row {
+  display: block !important;
+  width: 100% !important;
+  page-break-inside: avoid !important;
+}
+
+#skills .card,
+#education .content {
+  display: block !important;
+  width: 100% !important;
+}
+
 section,
 section h2 {
   padding: 0 0 5px 0;
@@ -34,11 +55,13 @@ h4 {
   text-align: left;
   height: inherit !important;
   line-height: inherit !important;
+  float: left;
+  margin-right: 20px;
 }
 
 /*keep these reasonable size*/
 .employer-logo > img {
-  max-height: 60px !important;
+  max-height: 2rem !important;
 }
 
 /*don't print the show more toggle */
@@ -74,6 +97,7 @@ div[masonry] {
 
 .item .card-content {
   padding: 0;
+  clear: both;
 }
 
 .item h3 {
@@ -92,6 +116,11 @@ div[masonry] {
   background: inherit !important;
 }
 
+#coreCompetencies .card .card-title,
+#skills .card .card-title {
+  font-size: 1.5rem;
+}
+
 #coreCompetencies .card,
 #skills .card {
   height: inherit;
@@ -99,7 +128,7 @@ div[masonry] {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: inherit;
+  /* padding: inherit; */
 }
 
 .print-hidden {
