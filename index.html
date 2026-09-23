@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-
-<html ng-app="resumeApp" ng-controller="ResumeCtrl" ng-strict-di>
-  <head>
-    <title ng-bind="resume.name"></title>
+<!doctype html>
+<html lang="en"><head>
+    <title>Portfolio</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -62,49 +60,48 @@
     />
     <link rel="stylesheet" href="styles/stylesheet.css" />
     <link rel="stylesheet" href="styles/print.css" media="print" />
-  </head>
-
-  <body ng-cloak>
+  </head><body>
+<div id="app" v-cloak><div class="screen-resume">
     <header id="intro">
       <div class="container">
         <div class="row">
           <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
             <img
-              ng-if="resume.image"
-              ng-src="{{resume.image}}"
-              alt="{{resume.name}}"
+              v-if="resume.image"
+              :src="resume.image"
+              :alt="resume.name"
               class="img-responsive profile-image"
             />
           </div>
           <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
             <h1>{{resume.name}}</h1>
             <div>{{resume.tagline}}</div>
-            <span ng-if="resume.about.contact.email"
-              ><a ng-href="mailto:{{resume.about.contact.email}}"
+            <span v-if="resume.about.contact.email"
+              ><a :href="'mailto:' + resume.about.contact.email"
                 ><small>{{resume.about.contact.email}}</small><br /></a
             ></span>
-            <span ng-if="resume.about.contact.phone"
+            <span v-if="resume.about.contact.phone"
               ><i class="fa fa-phone"></i
-              ><a ng-href="tel:{{resume.about.contact.phone}}">
+              ><a :href="'tel:' + resume.about.contact.phone">
                 <small>{{resume.about.contact.phone}}</small><br /></a
             ></span>
-            <div ng-if="resume.about.contact.address">
+            <div v-if="resume.about.contact.address">
               <small>
                 <i class="fa fa-map-marker"> </i>
-                <span ng-if="resume.about.contact.address.city"
+                <span v-if="resume.about.contact.address.city"
                   >{{resume.about.contact.address.city}}, </span
-                ><span ng-if="resume.about.contact.address.state"
+                ><span v-if="resume.about.contact.address.state"
                   >{{resume.about.contact.address.state}}</span
                 >
-                <span ng-if="resume.about.contact.address.postal"
+                <span v-if="resume.about.contact.address.postal"
                   >{{resume.about.contact.address.postal}}</span
                 >
               </small>
             </div>
-            <div ng-if="resume.about.linkedin">
+            <div v-if="resume.about.linkedin">
               <small>
                 <i class="fa fa-linkedin"></i>
-                <a ng-href="{{resume.about.linkedin}}" target="_blank"
+                <a :href="resume.about.linkedin" target="_blank"
                   >{{resume.about.linkedin}}</a
                 >
               </small>
@@ -114,7 +111,7 @@
       </div>
     </header>
 
-    <section id="bio" ng-if="resume.about.bio">
+    <section id="bio" v-if="resume.about.bio">
       <div class="container">
         <div class="row">
           <h2 class="col-md-12">
@@ -124,14 +121,14 @@
         <div class="row">
           <div class="col-xs-12 hidden-md-down">
             <div class="card card-white">
-              <p class="card-content" ng-bind-html="resume.about.bio"></p>
+              <div class="card-content" v-html="resume.about.bio"></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="coreCompetencies" ng-if="isPopulated(resume.coreCompetencies)">
+    <section id="coreCompetencies" v-if="isPopulated(resume.coreCompetencies)">
       <div class="container">
         <div class="row">
           <h2 class="col-md-12">
@@ -140,12 +137,12 @@
         </div>
         <div class="row">
           <div
-            ng-repeat="competency in resume.coreCompetencies"
+            v-for="competency in resume.coreCompetencies"
             class="content col-md-2 col-sm-3 col-xs-6 text-center"
           >
             <div class="card card-white">
               <h3 class="card-title">
-                <i class="fa" ng-class="competency.icon"></i>
+                <i class="fa" :class="competency.icon"></i>
               </h3>
               <div class="card-content">{{competency.name}}</div>
             </div>
@@ -154,7 +151,7 @@
       </div>
     </section>
 
-    <section id="workHistory" ng-if="isPopulated(resume.workHistory)">
+    <section id="workHistory" v-if="isPopulated(resume.workHistory)">
       <div class="container">
         <div class="row">
           <h2 class="col-md-12">
@@ -162,70 +159,69 @@
           </h2>
         </div>
         <div class="row">
-          <div masonry>
+          <div masonry class="work-grid" ref="workGrid">
             <div
               class="item col-sm-6 col-xs-12"
-              ng-repeat="job in resume.workHistory"
-              ng-init="jobIndex = $index"
-              ng-class="{'print-hidden': !job.includeInPrint}"
+              v-for="(job, jobIndex) in resume.workHistory"
+              :class="{'print-hidden': !job.includeInPrint}"
             >
               <div class="card card-white">
                 <a
-                  ng-if="job.employerWebsite"
-                  ng-href="{{job.employerWebsite}}"
+                  v-if="job.employerWebsite"
+                  :href="job.employerWebsite"
                 >
                   <div class="employer-logo">
                     <img
-                      ng-src="{{job.employerLogo}}"
-                      alt="{{job.employerName}}"
+                      :src="job.employerLogo"
+                      :alt="job.employerName"
                     />
                   </div>
                 </a>
-                <div ng-if="!job.employerWebsite" class="employer-logo">
+                <div v-if="!job.employerWebsite" class="employer-logo">
                   <img
-                    ng-src="{{job.employerLogo}}"
-                    alt="{{job.employerName}}"
+                    :src="job.employerLogo"
+                    :alt="job.employerName"
                   />
                 </div>
                 <div class="employer-info">
                   <p>
-                    <span ng-if="job.employerTagline"
+                    <span v-if="job.employerTagline"
                       >{{job.employerTagline}}</span
                     ><br />
-                    {{job.startDate | date:'MMMM yyyy'}} &mdash;
-                    <span ng-if="job.endDate"
-                      >{{job.endDate | date:'MMMM yyyy'}}</span
-                    ><span ng-if="!job.endDate">Present</span>
+                    {{formatDate(job.startDate )}} &mdash;
+                    <span v-if="job.endDate"
+                      >{{formatDate(job.endDate )}}</span
+                    ><span v-if="!job.endDate">Present</span>
                   </p>
                 </div>
                 <div class="card-content">
                   <div
-                    ng-style="{'max-height': shouldShow(jobIndex) ? 'inherit' : '15rem'}"
-                    ng-class="{'job-detail':!shouldShow(jobIndex)}"
-                    ng-attr-id="{{'jobDetail' + jobIndex}}"
+                    :style="{'max-height': shouldShow(jobIndex) ? 'inherit' : '15rem'}"
+                    :class="{'job-detail':!shouldShow(jobIndex)}"
+                    :id="'jobDetail' + jobIndex"
                   >
                     <div
-                      ng-if="isPopulated(job.positions)"
+                      v-if="isPopulated(job.positions)"
                       class="job-positions"
                     >
-                      <div ng-repeat="position in job.positions">
+                      <div v-for="position in job.positions">
                         <h4>{{position.role}}</h4>
-                        ({{position.startDate | date:'MM/yyyy'}} to
-                        <span ng-if="job.endDate"
-                          >{{position.endDate | date:'MM/yyyy'}})</span
+                        ({{formatShortDate(position.startDate )}} to
+                        <span v-if="job.endDate"
+                          >{{formatShortDate(position.endDate )}})</span
                         >
-                        <span ng-if="!job.endDate">Present)</span>
+                        <span v-if="!position.endDate">Present)</span>
 
                         <div>{{position.team}}</div>
 
                         <div
-                          ng-if="isPopulated(position.recognitions)"
+                          v-if="isPopulated(position.recognitions)"
                           class="position-list"
                         >
                           Recognitions
                           <ul>
                             <li
-                              ng-repeat="recognition in position.recognitions"
+                              v-for="recognition in position.recognitions"
                             >
                               {{recognition}}
                             </li>
@@ -233,12 +229,12 @@
                         </div>
 
                         <div
-                          ng-if="isPopulated(position.responsibilities)"
+                          v-if="isPopulated(position.responsibilities)"
                           class="position-list"
                         >
                           <ul>
                             <li
-                              ng-repeat="responsibility in position.responsibilities"
+                              v-for="responsibility in position.responsibilities"
                             >
                               {{responsibility}}
                             </li>
@@ -248,13 +244,13 @@
                     </div>
 
                     <div
-                      ng-if="isPopulated(job.technologies)"
+                      v-if="isPopulated(job.technologies)"
                       class="technology-list print-hidden"
                     >
                       Technologies used at {{job.employerName}}
                       <ul>
                         <li
-                          ng-repeat="technology in job.technologies | orderBy"
+                          v-for="technology in [...job.technologies].sort()"
                         >
                           {{technology}}
                         </li>
@@ -263,12 +259,14 @@
                   </div>
                   <div class="show-more">
                     <a
-                      ng-show="isOverflowing(jobIndex)"
-                      href
-                      ng-click="toggleMore(jobIndex)"
+                      v-show="isOverflowing(jobIndex)"
+                      :aria-expanded="shouldShow(jobIndex)"
+                      :aria-controls="'jobDetail' + jobIndex"
+                      :href="'#jobDetail' + jobIndex"
+                      @click.prevent="toggleMore(jobIndex)"
                       ><i
                         class="fa fa-chevron-down"
-                        ng-class="{ 'fa-rotate-180' : shouldShow(jobIndex) }"
+                        :class="{ 'fa-rotate-180' : shouldShow(jobIndex) }"
                       ></i>
                       {{shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</a
                     >
@@ -281,7 +279,7 @@
       </div>
     </section>
 
-    <section id="skills" ng-if="isPopulated(resume.skills)">
+    <section id="skills" v-if="isPopulated(resume.skills)">
       <!-- show each skill with the name skill.category and image skill.icon-->
       <div class="container">
         <div class="row">
@@ -289,17 +287,17 @@
         </div>
         <div class="row">
           <div
-            ng-repeat="skill in resume.skills"
+            v-for="skill in resume.skills"
             class="content col-md-3 col-sm-3 col-xs-12 text-center"
           >
             <div class="card card-white">
               <h3 class="card-title">
-                <i class="fa" ng-class="skill.icon"></i>
+                <i class="fa" :class="skill.icon"></i>
                 <div>{{skill.category}}</div>
               </h3>
               <div class="card-content">
                 <ul>
-                  <li ng-repeat="subSkill in skill.skills">{{subSkill}}</li>
+                  <li v-for="subSkill in skill.skills">{{subSkill}}</li>
                 </ul>
               </div>
             </div>
@@ -308,18 +306,18 @@
       </div>
     </section>
 
-    <section id="interests" ng-if="isPopulated(resume.interests)">
+    <section id="interests" v-if="isPopulated(resume.interests)">
       <div class="container">
         <div class="row">
           <h2 class="col-md-12"><i class="fa fa-binoculars"></i> Interests</h2>
         </div>
         <div class="row">
           <div
-            ng-repeat="interest in resume.interests"
+            v-for="interest in resume.interests"
             class="content col-md-2 col-sm-3 col-xs-6 text-center"
           >
             <figure class="icon">
-              <img ng-src="{{interest.image}}" alt="{{interest.name}}" />
+              <img :src="interest.image" :alt="interest.name" />
             </figure>
             {{interest.name}}
           </div>
@@ -327,7 +325,7 @@
       </div>
     </section>
 
-    <section id="education" ng-if="isPopulated(resume.education)">
+    <section id="education" v-if="isPopulated(resume.education)">
       <div class="container">
         <div class="row">
           <h2 class="col-md-12">
@@ -336,9 +334,9 @@
         </div>
         <div class="content">
           <ul>
-            <li ng-repeat="award in resume.education">
-              {{award.type}}<span ng-if="award.from"> from {{award.from}}</span
-              >, {{award.date | date:'MMMM yyyy'}}
+            <li v-for="award in resume.education">
+              {{award.type}}<span v-if="award.from"> from {{award.from}}</span
+              >, {{formatDate(award.date )}}
             </li>
           </ul>
         </div>
@@ -348,40 +346,13 @@
     <footer id="footer" class="runner clearfix">
       <p class="left with-padding">&copy; {{resume.name}}</p>
       <p class="right with-padding">
-        <span ng-repeat="link in resume.links" class="link">
-          <a href ng-href="{{link.url}}">{{link.name}}</a>
+        <span v-for="link in resume.links" class="link">
+          <a :href="link.url">{{link.name}}</a>
         </span>
       </p>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-sanitize.js"></script>
-    <script src="scripts/resume.js?t=2022.07.18.2"></script>
-
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i["GoogleAnalyticsObject"] = r;
-        (i[r] =
-          i[r] ||
-          function () {
-            (i[r].q = i[r].q || []).push(arguments);
-          }),
-          (i[r].l = 1 * new Date());
-        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-      })(
-        window,
-        document,
-        "script",
-        "https://www.google-analytics.com/analytics.js",
-        "ga"
-      );
-      ga("create", "UA-48724111-1", "auto");
-      ga("send", "pageview");
-    </script>
-  </body>
-</html>
+    </div></div>
+<noscript>Please enable JavaScript to view the résumé.</noscript>
+<script type="module" src="scripts/app.js"></script>
+</body></html>

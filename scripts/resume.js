@@ -1,610 +1,473 @@
-"use strict";
+export const resume = {
+  name: "mike kozelsky",
+  firstName: "Mike",
+  image: "images/mike.jpg",
+  tagline:
+    "Engineering Leader | Excellence in People, Product, Process, Platform",
+  links: [],
+  coreCompetencies: [
+    { icon: "fa-people-group", name: "Leadership & Team Management" },
+    { icon: "fa-refresh", name: "Agile Development & Process Improvement" },
+    {
+      icon: "fa-object-group",
+      name: "User Experience & Product Design Focus",
+    },
+    {
+      icon: "fa-handshake",
+      name: "Stakeholder & Cross-Department Communication",
+    },
+    {
+      icon: "fa-cogs",
+      name: "Technical Decision-Making & Problem Solving",
+    },
+    {
+      icon: "fa-check-circle",
+      name: "Continuous Improvement & Quality Assurance",
+    },
+  ],
 
-var resumeApp = angular.module("resumeApp", ["ngSanitize"]);
-
-resumeApp.controller("ResumeCtrl", [
-  "$scope",
-  "$timeout",
-  function ($scope, $timeout) {
-    $scope.resume = {
-      name: "mike kozelsky",
-      firstName: "Mike",
-      image: "images/mike.jpg",
-      tagline:
-        "Engineering Leader | Excellence in People, Product, Process, Platform",
-      links: [],
-      coreCompetencies: [
-        { icon: "fa-people-group", name: "Leadership & Team Management" },
-        { icon: "fa-refresh", name: "Agile Development & Process Improvement" },
-        {
-          icon: "fa-object-group",
-          name: "User Experience & Product Design Focus",
-        },
-        {
-          icon: "fa-handshake",
-          name: "Stakeholder & Cross-Department Communication",
-        },
-        {
-          icon: "fa-cogs",
-          name: "Technical Decision-Making & Problem Solving",
-        },
-        {
-          icon: "fa-check-circle",
-          name: "Continuous Improvement & Quality Assurance",
-        },
-      ],
-      // skills: [
-      //   { skill: "Agile", percent: 82 },
-      //   { skill: "AWS", percent: 63 },
-      //   { skill: "Html", percent: 62 },
-      //   { skill: "C#", percent: 60 },
-      //   { skill: "Java", percent: 54 },
-      //   { skill: "Python", percent: 51 },
-      //   { skill: "Azure", percent: 48 },
-      //   { skill: "JS", percent: 46 },
-      //   { skill: "TS", percent: 46 },
-      //   { skill: "SQL", percent: 45 },
-      //   { skill: "CSS", percent: 39 },
-      //   { skill: "GCP", percent: 32 },
-      //   { skill: "Angular", percent: 26 },
-      //   { skill: "React", percent: 26 },
-      // ],
-
+  skills: [
+    {
+      category: "People",
+      icon: "fa-users",
       skills: [
-        {
-          category: "People",
-          icon: "fa-users",
-          skills: [
-            "Hiring & team growth",
-            "Coaching & mentoring",
-            "Performance management",
-            "Culture & collaboration",
-          ],
-        },
-        {
-          category: "Product",
-          icon: "fa-cube",
-          skills: [
-            "Roadmapping & strategy",
-            "UX collaboration",
-            "Value-based prioritization",
-            "Data-driven decisions",
-          ],
-        },
-        {
-          category: "Process",
-          icon: "fa-tasks",
-          skills: [
-            "Agile & iterative delivery",
-            "Metrics (DORA, scorecards)",
-            "SDLC optimization",
-            "Cross-functional alignment",
-          ],
-        },
-
-        {
-          category: "Platform",
-          icon: "fa-cloud",
-          skills: [
-            "Cloud (AWS, GCP, Azure)",
-            "Infrastructure as Code",
-            "CI/CD automation",
-            "Testing frameworks",
-          ],
-        },
+        "Hiring & team growth",
+        "Coaching & mentoring",
+        "Performance management",
+        "Culture & collaboration",
       ],
+    },
+    {
+      category: "Product",
+      icon: "fa-cube",
+      skills: [
+        "Roadmapping & strategy",
+        "UX collaboration",
+        "Value-based prioritization",
+        "Data-driven decisions",
+      ],
+    },
+    {
+      category: "Process",
+      icon: "fa-tasks",
+      skills: [
+        "Agile & iterative delivery",
+        "Metrics (DORA, scorecards)",
+        "SDLC optimization",
+        "Cross-functional alignment",
+      ],
+    },
 
-      about: {
-        bio: "<p>Technical leader with a proven record of building high-performing engineering teams, launching revenue-driving products, and guiding organizations through growth and transformation.  Experienced across startups and established SaaS platforms, with a track record of improving delivery processes, modernizing architectures, and aligning engineering with business priorities.  Skilled at scaling teams, mentoring engineers, and fostering a culture of quality and accountability.  Known for blending technical depth with product sense to deliver customer value at speed and scale.</p>",
-        contact: {
-          email: "mike.kozelsky@gmail.com",
-          address: {
-            city: "Buffalo",
-            state: "NY",
-          },
-          phone: "585-746-4926",
-        },
-        linkedin: "https://www.linkedin.com/in/mikekozelsky/",
+    {
+      category: "Platform",
+      icon: "fa-cloud",
+      skills: [
+        "Cloud (AWS, GCP, Azure)",
+        "Infrastructure as Code",
+        "CI/CD automation",
+        "Testing frameworks",
+      ],
+    },
+  ],
+
+  about: {
+    bio: "<p>Technical leader with a proven record of building high-performing engineering teams, launching revenue-driving products, and guiding organizations through growth and transformation.  Experienced across startups and established SaaS platforms, with a track record of improving delivery processes, modernizing architectures, and aligning engineering with business priorities.  Skilled at scaling teams, mentoring engineers, and fostering a culture of quality and accountability.  Known for blending technical depth with product sense to deliver customer value at speed and scale.</p>",
+    contact: {
+      email: "mike.kozelsky@gmail.com",
+      address: {
+        city: "Buffalo",
+        state: "NY",
       },
-      workHistory: [
-        {
-          employerName: "JobChemist",
-          employerWebsite: "https://www.jobchemist.com/",
-          employerLogo: "images/jobchemist.png",
-          employerTagline: "Recruiter productivity platform",
-          includeInPrint: true,
-          startDate: new Date("6/01/2025"),
-          positions: [
-            {
-              role: "CTO and Co-Founder",
-              startDate: new Date("9/05/2022"),
-              responsibilities: [
-                "Built a SaaS platform for staffing and recruiting agencies across industries, aggregating jobs and candidates from multiple systems into a single workspace.",
-                "Designed and implemented cloud architecture: AWS (ECR, RDS, Lambda, App Runner), Node.js/TypeScript, Postgres, Next.js, Open Tofu.",
-                "Developed recruiter-facing features including map-based search, saved searches, real-time alerts, and analytics dashboards, streamlining job–candidate matching.",
-                "Drove the early product roadmap, technical direction, and partnerships with agency leaders.",
-              ],
-              recognitions: [],
-            },
-          ],
-          technologies: [
-            "AWS",
-            "GitHub",
-            "GitHub Actions",
-            "Chat GPT / Codex",
-            "GitHub Copilot",
-            "Python",
-            "Javascript",
-            "Typescript",
-            "Node.js",
-            "Express",
-            "Sequelize",
-            "Postgres",
-            "React",
-            "ECR, RDS, Lambda, App Runner",
-            "Open Tofu",
-          ],
-        },
-        {
-          employerName: "Trusted Talent",
-          employerWebsite: "https://www.trustedtalent.com/",
-          employerLogo: "images/trusted.png",
-          employerTagline: "Nurse and Healthcare Staffing",
-          includeInPrint: true,
-          startDate: new Date("9/05/2022"),
-          endDate: new Date("6/01/2025"),
-          positions: [
-            {
-              role: "Engineering Manager",
-              startDate: new Date("9/05/2022"),
-              endDate: new Date("6/01/2025"),
-              responsibilities: [
-                "Spearheaded a product launch within 9 weeks of joining that scaled to 1,000+ monthly users and generated $2M in incremental revenue.",
-                "Increased recruiter productivity 3× by bringing technical rigor to a jobs platform processing 500,000+ jobs; delivered tooling praised by experienced recruiters as best-in-class.",
-                "Reoriented an over-scoped product to a focused MVP through outcome-driven prioritization and a product-first mindset.",
-                "Created a lightweight, goal-aligned agile SDLC tailored to the team and fostered a culture of iterative improvement.",
-                "Introduced wireframing-first and just-in-time design practices, reducing design rework and accelerating delivery.",
-                "Implemented a weekly usage/adoption scorecard, enabling data-informed product decisions and clearer cross-functional communication.",
-                "Integrated AI-driven data cleansing via the ChatGPT API to normalize and validate recruiter and job data, eliminating manual cleanup and improving data quality.",
-                "Recruited, coached, and performance-managed a cross-functional team with clear goals and career development plans, leading to improved team performance.",
-                "Practiced vertical slicing and incremental delivery, which demonstrated continuous progress and built executive trust by consistently meeting project milestones.",
-                "Established cloud-native infrastructure on AWS (ECS, Lambda, S3, RDS, SNS/SQS, AppFlow) and implemented CD pipelines with GitHub Actions for frequent, low-risk deployments.",
-                "Built robust automated testing frameworks across repositories, increasing release confidence and developer velocity.",
-              ],
-              recognitions: [],
-            },
-          ],
-          technologies: [
-            "Jira",
-            "GitHub",
-            "GitHub Actions",
-            "Chat GPT",
-            "GitHub Copilot",
-            "Python",
-            "Javascript",
-            "Typescript",
-            "Node.js",
-            "Express",
-            "Sequelize",
-            "MySQL",
-            "React",
-            "AWS ECS, Lambdas, S3, RDS, SNS, SQS, AppFlow, CloudBuild",
-            "Jest",
-            "Terraform",
-          ],
-        },
-        {
-          employerName: "FanAI",
-          employerWebsite: "https://www.fan.ai/",
-          employerLogo: "images/fanai.png",
-          employerTagline: "Sports sponsorship analysis",
-          includeInPrint: true,
-          startDate: new Date("6/14/2021"),
-          endDate: new Date("8/01/2022"),
-          positions: [
-            {
-              role: "Principal Engineer",
-              startDate: new Date("6/14/2021"),
-              endDate: new Date("8/01/2022"),
-              responsibilities: [
-                "Served as principal technical leader at a sponsorship analytics startup, focused on scaling backend architecture and productizing data science models.",
-                "Architected a data ingestion pipeline using message queues and serverless functions, enabling efficient processing of high-volume sponsorship and engagement data.",
-                "Delivered a flagship sponsorship analytics product that secured partnerships with Pepsi and Liquid Death.",
-                "Built and maintained APIs in Python/FastAPI with automated testing (Tox) and CI/CD via Google Cloud Build.",
-                "Managed infrastructure-as-code with Terraform (GCP), Postgres with SQLAlchemy/Alembic, and analytics workflows in BigQuery and Pandas.",
-                "Facilitated standups, retros, and leadership meetings; mentored developers on design patterns, vertical slicing, and agile practices to improve efficiency.",
-              ],
-              recognitions: [],
-            },
-          ],
-          technologies: [
-            "Python",
-            "SQLAlchemy",
-            "BigQuery",
-            "Alembic",
-            "FastAPI",
-            "Tox",
-            "Terraform",
-            "Google Cloud Platform (GCP)",
-            "Google Cloud Functions",
-            "Google Pub/Sub",
-            "Google Cloud Build",
-            "Shortcut.com",
-          ],
-        },
-        {
-          employerName: "Campus Labs",
-          employerWebsite: "https://www.campuslabs.com/",
-          employerLogo: "images/campuslabs.png",
-          employerTagline: "Software for Higher Education",
-          includeInPrint: true,
-          startDate: new Date("5/7/2017"),
-          endDate: new Date("06/01/2021"),
-          positions: [
-            {
-              role: "Staff Developer",
-              startDate: new Date("3/1/2020"),
-              endDate: new Date("06/01/2021"),
-              responsibilities: [
-                "Standardized DORA metric collection, established patterns to address common challenges, and created reusable services, enhancing cross-organizational technical consistency and collaboration.",
-                "Participated in user experience feedback interviews to gather insights for improving product design and functionality.",
-                "Presented new features to account executives, implementation team, and customer success members.",
-                "Used feedback from the business to prioritize and define upcoming work, aligning projects with strategic goals.",
-                "Proposed new features based on department OKRs and corporate strategic goals.",
-                "Implemented processes to communicate priorities, short-term tasks, and long-term goals, resulting in improved team alignment and project efficiency.",
-                "Architected a solution to expand on the legacy codebase and bring in modern benefits such as separate deployable services, quicker releases, automated testing, etc.",
-              ],
-              recognitions: [],
-              technologies: [],
-            },
-            {
-              role: "Senior Developer",
-              startDate: new Date("5/7/2017"),
-              endDate: new Date("02/29/2020"),
-              responsibilities: [
-                "Strategized the goals and purpose of the new Student Assessment team.",
-                "Added features and functionality to the products in the Student Assessment product line aligning with business goals.",
-                "Participated in interviews, made hiring recommendations, and mentored new hires, contributing to a stronger and more skilled development team.",
-                "Set up continuous deployment and release management workflows, resulting in more efficient and reliable software releases.",
-                "Deployed and monitored cloud-hosted Software As A Service applications using DevOps practices, ensuring high availability and performance.",
-                "Reviewed costs and assets on cloud provider, reducing expenses by eliminating unnecessary resources and optimizing usage.",
-                "Resolved critical issues in the existing code base, ensuring timely delivery of high-quality products in challenging periods.",
-                "Solved complex problems and troubleshot issues in a 15 year old product, improving system reliability and creating a pattern for future enhancements.",
-                "Coordinated involvement with the student shadow program through InfoTech Niagara, boosting the company's reputation and supporting higher education students.",
-              ],
-              recognitions: [],
-            },
-          ],
-          technologies: [
-            ".NET Framework",
-            ".NET Core",
-            "Sql Server",
-            "Entity Framework",
-            "Entity Framework Migrations",
-            "Asp .NET Core",
-            "Automated Testing",
-            "Azure RM Powershell",
-            "Azure",
-            "Azure Functions",
-            "Blob Storage",
-            "Azure Service Bus",
-            "Azure Dev Ops",
-          ],
-        },
-        {
-          employerName: "Fanbassador",
-          employerLogo: "images/fanbassador.jpg",
-          employerTagline: "Fan Demanded Touring Decisions",
-          includeInPrint: true,
-          startDate: new Date("2/1/2016"),
-          endDate: new Date("12/31/2017"),
-          positions: [
-            {
-              role: "CTO and Co-Founder",
-              startDate: new Date("2/1/2016"),
-              endDate: new Date("12/31/2017"),
-              responsibilities: [
-                "Launched a platform that allowed fans to pre-order tickets to shows, indicating their desire for a band to come to their city.",
-                "Proposed, built, tested, and maintained full technology stack from concept to production.",
-                "Owned all technology and architecture decisions behind the product, which successfully handled a tour announcement from a popular band using our platform.",
-                "Interviewed and hired a cross-functional team to support the development and maintenance of the platform.",
-                "Managed and collaborated with the design team to create a professional product from scratch, ensuring an elegant user experience.",
-                "Implemented Stripe integration for pre-orders and refunds, which enabled automated payment processing.",
-                "Created annual budgets, managed asset inventory, and handled technology purchasing to effectively track and control the organization's burn rate.",
-                "Followed best development practices including continual refactoring and testing with over 90% coverage on automated back-end tests, allowing for rapid iteration and deployment.",
-                "Collaborated with marketing team and co-founders to craft branding and messaging, enhancing brand recognition and alignment with company values.",
-                "Facilitated conversations with the team to manage expectations, aligning desires with realistic goals and timelines, which improved project delivery efficiency.",
-                "Developed company vision and explored product diversification opportunities, consistently seeking improvements to enhance business growth.",
-              ],
-              recognitions: [],
-            },
-          ],
-        },
-        {
-          employerName: "Doolli",
-          employerLogo: "images/doolli.png",
-          employerTagline: "Cloud based data management service",
-          includeInPrint: false,
-          startDate: new Date("7/1/2013"),
-          endDate: new Date("1/1/2016"),
-          positions: [
-            {
-              role: "Senior Engineer",
-              startDate: new Date("7/1/2013"),
-              endDate: new Date("1/1/2016"),
-              responsibilities: [
-                "Added new functionality and bug fixes to the existing business logic built in Java and MySql.",
-                "Refactored and improved the architecture of the code base including achieving over 90% automated back-end test coverage.",
-                "Participate in developer interviews and make hiring recommendations.",
-                "Implemented an external facing RESTful API to be used by third party developers via OAuth.",
-                "Served in a ScrumMaster capacity and led the team to adopt a relatively strict adherence to SCRUM.",
-                "Wore many hats as needed including Business Analyst, Quality Assurance, and Sales Engineer.",
-              ],
-              recognitions: [],
-            },
-          ],
-        },
-        {
-          employerName: "Harris Local Government",
-          employerWebsite: "http://www.harrislocalgov.com/",
-          employerLogo: "images/harris-local-gov.png",
-          employerTagline: "Software for small municipal governments",
-          includeInPrint: false,
-          startDate: new Date("8/1/2012"),
-          endDate: new Date("6/1/2013"),
-          positions: [
-            {
-              role: "Product Architect",
-              startDate: new Date("8/1/2012"),
-              endDate: new Date("6/1/2013"),
-              responsibilities: [
-                "Led the implementation of feature based / Agile development, highly influenced by the Scrum methodology.  Served in a ScrumMaster role.",
-                "Inspected and recommend various technologies and frameworks for use - for example, decided AngularJS was a JavaScript framework that fit well with our team's skills and roles, as well as being able to solve the business needs.",
-                "Started the groundwork for an Operational Data Store, to manage the environment of diverse transactional systems that front end applications need to integrate with.",
-                "Mentored, code reviewed, and instructed new developers - as well as experienced developers new to .NET and SQL.",
-                "Implemented git as a pilot for use as a source control system.",
-                "Was a heads-down developer about half the time.",
-              ],
-              recognitions: [],
-            },
-          ],
-        },
-        {
-          employerName: "Meritain Health",
-          employerWebsite: "http://www.meritain.com/",
-          employerLogo: "images/meritain-health.jpg",
-          employerTagline: "A third party health insurance administrator",
-          includeInPrint: false,
-          startDate: new Date("1/1/2007"),
-          endDate: new Date("8/1/2012"),
-          positions: [
-            {
-              role: "Architect/Team Lead",
-              team: "Product Development",
-              startDate: new Date("6/1/2011"),
-              endDate: new Date("8/1/2012"),
-              responsibilities: [
-                "Software Development Management of a team of developers.  Was responsible for assigning responsibilities to align with business priorities.",
-                "Had to mentor junior-level developers, while delegate challenging work to senior level developers.",
-                "Continued the expansion of internal frameworks for use throughout the department, including streamlining the WCF service infrastructure.",
-                "Developed policies for code review and unit testing.",
-                "Was part of a team that developed an application architecture pattern to be used by all new software development - setting the software design up in such a way to be easily integrated into a future enterprise service bus.",
-              ],
-              recognitions: [],
-            },
-            {
-              role: "Architect",
-              team: "Applications Architecture",
-              startDate: new Date("5/1/2010"),
-              endDate: new Date("5/1/2011"),
-              responsibilities: [
-                "Led the effort to remove the SharePoint 2007 backend from our external portal.  Created frameworks to allow for the replacement of functionality provided by SharePoint.",
-                "Designed and developed solutions for developers across the enterprise to use.  These were made in collaboration with the other members of the architecture team - for example, a comprehensive, unified way of handling logging and application configuration.  Also decided best practices for tasks such as unit testing and application installation",
-                "Implemented Microsoft Team Foundation Server as the source control system for the enterprise",
-              ],
-              recognitions: ["2010 Meritain Health MVP award"],
-            },
-            {
-              role: "Senior Developer",
-              team: "Strategic Development",
-              startDate: new Date("1/1/2008"),
-              endDate: new Date("4/1/2010"),
-              responsibilities: [
-                "Worked on a portal consolidation project.  We folded existing lines of business onto the product, while continually adding and expanding on functionality.  During this period, the application grew from a member-only portal, with a single back end system, to a multiple constituent portal which provides a consistent look and feel across multiple back end systems.  The portal currently services over 25 thousand subscriber, dependent, employer, participant, and provider users allowing them to perform data transactions with our claims systems.",
-                "Worked in a lead capacity for a team of 3-5 developers on the project.  Responsibilities included assigning work  among the developers, as well as creating level of effort estimates back to the project management team.  Also was responsible for filtering all production support requests coming in from our ticketing system then would create and assign work items to other developers if necessary.",
-              ],
-              recognitions: [],
-            },
-            {
-              role: "Intermediate Developer",
-              team: "Portal Applications",
-              startDate: new Date("6/1/2007"),
-              endDate: new Date("1/1/2008"),
-              responsibilities: [
-                "Began development of an external-facing member portal using SharePoint 2007 as the portal engine.",
-                "Responsible for production support and discretionary maintenance for our many internal and external web sites.",
-              ],
-              recognitions: [],
-            },
-            {
-              role: "Intern",
-              team: "Reported to IT Enterprise Architect",
-              startDate: new Date("1/1/2007"),
-              endDate: new Date("5/1/2007"),
-              responsibilities: [
-                "Researched different Java open source solutions for web portals and application servers.",
-                "Developed a tool (JSR-186 compliant portlet) to maintain an inventory of IT resources.",
-              ],
-              recognitions: [],
-            },
-          ],
-        },
-        {
-          employerName:
-            "University at Buffalo, Department of Computer Science and Engineering",
-          employerWebsite: "http://www.cse.buffalo.edu/",
-          employerLogo: "images/ub.jpg",
-          includeInPrint: false,
-          startDate: new Date("8/1/2005"),
-          endDate: new Date("5/1/2007"),
-          positions: [
-            {
-              role: "Teaching Assistant for Introduction to Computer Science For Majors(I)",
-              startDate: new Date("8/1/2005"),
-              endDate: new Date("5/1/2007"),
-              responsibilities: [
-                "Held weekly lab sections. This involved an instructional period to cover information required for the students to finish the weekly lab.  After instruction, assisted the students as needed.",
-                "Held office hours for students to come and get one-on-one help with any class material or lab project.",
-                "Graded exams and student essays as required.",
-                "Attended weekly status and coordination meetings between the instructor and teaching assistants.",
-              ],
-              recognitions: [],
-            },
-            {
-              role: "Freelance",
-              startDate: new Date("5/1/2006"),
-              endDate: new Date("8/1/2006"),
-              responsibilities: [
-                "Assisted instructors of the Introduction to Computer Science for Majors (I) class to write an introductory textbook for computer science.  The textbook put object oriented design and modeling on the forefront rather than syntax and specific programming language issues.  The book is currently in use in the course.",
-                "Developed a 2D graphics package in Java for use in the Introduction to Computer Science (I) class.  Extending on the provided Swing and AWT libraries, it allows for development of simple graphics which simulate the Swing interfaces, design patterns, and object model.  This is still in use by the course.",
-              ],
-              recognitions: [],
-            },
-          ],
-        },
-      ],
-      interests: [
-        { name: "Buffalo, NY", image: "images/buffalo.svg" },
-        { name: "WRXs", image: "images/subaru.svg" },
-        { name: "Jeeps", image: "images/jeep.svg" },
-        { name: "Adirondacks", image: "images/mountains.svg" },
-        { name: "Yoga", image: "images/yoga.svg" },
-        { name: "Snowboarding", image: "images/snowboard.svg" },
-      ],
-      education: [
-        { type: "Certified ScrumMaster", date: new Date("12/1/2014") },
-        {
-          type: "Master of Science",
-          from: "University at Buffalo, Department of Computer Science and Engineering",
-          date: new Date("6/1/2007"),
-        },
-        {
-          type: "Bachelor of Science",
-          from: "University at Buffalo, Department of Computer Science and Engineering",
-          date: new Date("6/1/2007"),
-        },
-      ],
-    };
-
-    var showMoreIds = [];
-
-    $scope.toggleMore = function (someId) {
-      var index = showMoreIds.indexOf(someId);
-      if (index === -1) showMoreIds.push(someId);
-      else showMoreIds.splice(index, 1);
-
-      $timeout(function () {
-        $("[masonry]").masonry("reloadItems");
-        $("[masonry").masonry();
-      }, 100);
-    };
-
-    $scope.shouldShow = function (someId) {
-      return showMoreIds.indexOf(someId) !== -1;
-    };
-
-    $scope.isPopulated = function (testArray) {
-      if (testArray && testArray.length > 0) return true;
-      return false;
-    };
-
-    $scope.isOverflowing = function (jobIndex) {
-      var el = document.getElementById("jobDetail" + jobIndex);
-
-      var isOverflowing = el.clientHeight <= el.scrollHeight;
-
-      return isOverflowing;
-    };
-
-    $scope.getArcPathData = function (rating) {
-      return getArcPathDataByDegrees(75, 75, 70, (rating / 100) * 360);
-    };
-
-    function getArcPathDataByDegrees(startX, startY, radius, degrees) {
-      //adapted from http://perlgeek.de/blog-en/perl-6/plot-segment-of-a-circle-with-svg.html
-
-      //figure out starting point in radians
-      var start = 0;
-      var end = degrees * (Math.PI / 180);
-
-      //instead of starting at 3:00, i want to start at 12:00, so rotate everything back by half a PI
-      start = start - Math.PI / 2;
-      end = end - Math.PI / 2;
-
-      //maths
-      var startArcX = radius * Math.cos(start);
-      var startArcY = radius * Math.sin(start);
-      var rotation = 0;
-      var largeArcFlag = end - start > Math.PI ? 1 : 0;
-      var sweepFlag = 1;
-      var endArcX = startX + radius * Math.cos(end);
-      var endArcY = startY + radius * Math.sin(end);
-
-      //Move to the center of the circle. move to the start of the arc.  Arc to the endpoint
-      var pathData =
-        "M " +
-        startX +
-        " " +
-        startY +
-        " m " +
-        startArcX +
-        " " +
-        startArcY +
-        " A " +
-        radius +
-        " " +
-        radius +
-        " " +
-        rotation +
-        " " +
-        largeArcFlag +
-        " " +
-        sweepFlag +
-        " " +
-        endArcX +
-        " " +
-        endArcY;
-
-      return pathData;
-    }
+      phone: "585-746-4926",
+    },
+    linkedin: "https://www.linkedin.com/in/mikekozelsky/",
   },
-]);
-
-resumeApp.directive("masonry", [
-  "$timeout",
-  function ($timeout) {
-    return {
-      restrict: "AC",
-      link: function (scope, elem, attrs) {
-        scope.$watch(
-          function () {
-            return elem[0].children.length;
-          },
-          function (newVal) {
-            $timeout(function () {
-              elem.masonry("reloadItems");
-              elem.masonry();
-            }, 100);
-          }
-        );
-
-        elem.masonry({
-          columnSize: ".grid-sizer",
-          itemSelector: ".item",
-        });
-
-        scope.masonry = elem.data("masonry");
-      },
-    };
-  },
-]);
+  workHistory: [
+    {
+      employerName: "JobChemist",
+      employerWebsite: "https://www.jobchemist.com/",
+      employerLogo: "images/jobchemist.png",
+      employerTagline: "Recruiter productivity platform",
+      includeInPrint: true,
+      startDate: "2025-06-01",
+      positions: [
+        {
+          role: "CTO and Co-Founder",
+          startDate: "2022-09-05",
+          responsibilities: [
+            "Built a SaaS platform for staffing and recruiting agencies across industries, aggregating jobs and candidates from multiple systems into a single workspace.",
+            "Designed and implemented cloud architecture: AWS (ECR, RDS, Lambda, App Runner), Node.js/TypeScript, Postgres, Next.js, Open Tofu.",
+            "Developed recruiter-facing features including map-based search, saved searches, real-time alerts, and analytics dashboards, streamlining job–candidate matching.",
+            "Drove the early product roadmap, technical direction, and partnerships with agency leaders.",
+          ],
+          recognitions: [],
+        },
+      ],
+      technologies: [
+        "AWS",
+        "GitHub",
+        "GitHub Actions",
+        "Chat GPT / Codex",
+        "GitHub Copilot",
+        "Python",
+        "Javascript",
+        "Typescript",
+        "Node.js",
+        "Express",
+        "Sequelize",
+        "Postgres",
+        "React",
+        "ECR, RDS, Lambda, App Runner",
+        "Open Tofu",
+      ],
+    },
+    {
+      employerName: "Trusted Talent",
+      employerWebsite: "https://www.trustedtalent.com/",
+      employerLogo: "images/trusted.png",
+      employerTagline: "Nurse and Healthcare Staffing",
+      includeInPrint: true,
+      startDate: "2022-09-05",
+      endDate: "2025-06-01",
+      positions: [
+        {
+          role: "Engineering Manager",
+          startDate: "2022-09-05",
+          endDate: "2025-06-01",
+          responsibilities: [
+            "Spearheaded a product launch within 9 weeks of joining that scaled to 1,000+ monthly users and generated $2M in incremental revenue.",
+            "Increased recruiter productivity 3× by bringing technical rigor to a jobs platform processing 500,000+ jobs; delivered tooling praised by experienced recruiters as best-in-class.",
+            "Reoriented an over-scoped product to a focused MVP through outcome-driven prioritization and a product-first mindset.",
+            "Created a lightweight, goal-aligned agile SDLC tailored to the team and fostered a culture of iterative improvement.",
+            "Introduced wireframing-first and just-in-time design practices, reducing design rework and accelerating delivery.",
+            "Implemented a weekly usage/adoption scorecard, enabling data-informed product decisions and clearer cross-functional communication.",
+            "Integrated AI-driven data cleansing via the ChatGPT API to normalize and validate recruiter and job data, eliminating manual cleanup and improving data quality.",
+            "Recruited, coached, and performance-managed a cross-functional team with clear goals and career development plans, leading to improved team performance.",
+            "Practiced vertical slicing and incremental delivery, which demonstrated continuous progress and built executive trust by consistently meeting project milestones.",
+            "Established cloud-native infrastructure on AWS (ECS, Lambda, S3, RDS, SNS/SQS, AppFlow) and implemented CD pipelines with GitHub Actions for frequent, low-risk deployments.",
+            "Built robust automated testing frameworks across repositories, increasing release confidence and developer velocity.",
+          ],
+          recognitions: [],
+        },
+      ],
+      technologies: [
+        "Jira",
+        "GitHub",
+        "GitHub Actions",
+        "Chat GPT",
+        "GitHub Copilot",
+        "Python",
+        "Javascript",
+        "Typescript",
+        "Node.js",
+        "Express",
+        "Sequelize",
+        "MySQL",
+        "React",
+        "AWS ECS, Lambdas, S3, RDS, SNS, SQS, AppFlow, CloudBuild",
+        "Jest",
+        "Terraform",
+      ],
+    },
+    {
+      employerName: "FanAI",
+      employerWebsite: "https://www.fan.ai/",
+      employerLogo: "images/fanai.png",
+      employerTagline: "Sports sponsorship analysis",
+      includeInPrint: true,
+      startDate: "2021-06-14",
+      endDate: "2022-08-01",
+      positions: [
+        {
+          role: "Principal Engineer",
+          startDate: "2021-06-14",
+          endDate: "2022-08-01",
+          responsibilities: [
+            "Served as principal technical leader at a sponsorship analytics startup, focused on scaling backend architecture and productizing data science models.",
+            "Architected a data ingestion pipeline using message queues and serverless functions, enabling efficient processing of high-volume sponsorship and engagement data.",
+            "Delivered a flagship sponsorship analytics product that secured partnerships with Pepsi and Liquid Death.",
+            "Built and maintained APIs in Python/FastAPI with automated testing (Tox) and CI/CD via Google Cloud Build.",
+            "Managed infrastructure-as-code with Terraform (GCP), Postgres with SQLAlchemy/Alembic, and analytics workflows in BigQuery and Pandas.",
+            "Facilitated standups, retros, and leadership meetings; mentored developers on design patterns, vertical slicing, and agile practices to improve efficiency.",
+          ],
+          recognitions: [],
+        },
+      ],
+      technologies: [
+        "Python",
+        "SQLAlchemy",
+        "BigQuery",
+        "Alembic",
+        "FastAPI",
+        "Tox",
+        "Terraform",
+        "Google Cloud Platform (GCP)",
+        "Google Cloud Functions",
+        "Google Pub/Sub",
+        "Google Cloud Build",
+        "Shortcut.com",
+      ],
+    },
+    {
+      employerName: "Campus Labs",
+      employerWebsite: "https://www.campuslabs.com/",
+      employerLogo: "images/campuslabs.png",
+      employerTagline: "Software for Higher Education",
+      includeInPrint: true,
+      startDate: "2017-05-07",
+      endDate: "2021-06-01",
+      positions: [
+        {
+          role: "Staff Developer",
+          startDate: "2020-03-01",
+          endDate: "2021-06-01",
+          responsibilities: [
+            "Standardized DORA metric collection, established patterns to address common challenges, and created reusable services, enhancing cross-organizational technical consistency and collaboration.",
+            "Participated in user experience feedback interviews to gather insights for improving product design and functionality.",
+            "Presented new features to account executives, implementation team, and customer success members.",
+            "Used feedback from the business to prioritize and define upcoming work, aligning projects with strategic goals.",
+            "Proposed new features based on department OKRs and corporate strategic goals.",
+            "Implemented processes to communicate priorities, short-term tasks, and long-term goals, resulting in improved team alignment and project efficiency.",
+            "Architected a solution to expand on the legacy codebase and bring in modern benefits such as separate deployable services, quicker releases, automated testing, etc.",
+          ],
+          recognitions: [],
+          technologies: [],
+        },
+        {
+          role: "Senior Developer",
+          startDate: "2017-05-07",
+          endDate: "2020-02-29",
+          responsibilities: [
+            "Strategized the goals and purpose of the new Student Assessment team.",
+            "Added features and functionality to the products in the Student Assessment product line aligning with business goals.",
+            "Participated in interviews, made hiring recommendations, and mentored new hires, contributing to a stronger and more skilled development team.",
+            "Set up continuous deployment and release management workflows, resulting in more efficient and reliable software releases.",
+            "Deployed and monitored cloud-hosted Software As A Service applications using DevOps practices, ensuring high availability and performance.",
+            "Reviewed costs and assets on cloud provider, reducing expenses by eliminating unnecessary resources and optimizing usage.",
+            "Resolved critical issues in the existing code base, ensuring timely delivery of high-quality products in challenging periods.",
+            "Solved complex problems and troubleshot issues in a 15 year old product, improving system reliability and creating a pattern for future enhancements.",
+            "Coordinated involvement with the student shadow program through InfoTech Niagara, boosting the company's reputation and supporting higher education students.",
+          ],
+          recognitions: [],
+        },
+      ],
+      technologies: [
+        ".NET Framework",
+        ".NET Core",
+        "Sql Server",
+        "Entity Framework",
+        "Entity Framework Migrations",
+        "Asp .NET Core",
+        "Automated Testing",
+        "Azure RM Powershell",
+        "Azure",
+        "Azure Functions",
+        "Blob Storage",
+        "Azure Service Bus",
+        "Azure Dev Ops",
+      ],
+    },
+    {
+      employerName: "Fanbassador",
+      employerLogo: "images/fanbassador.jpg",
+      employerTagline: "Fan Demanded Touring Decisions",
+      includeInPrint: true,
+      startDate: "2016-02-01",
+      endDate: "2017-12-31",
+      positions: [
+        {
+          role: "CTO and Co-Founder",
+          startDate: "2016-02-01",
+          endDate: "2017-12-31",
+          responsibilities: [
+            "Launched a platform that allowed fans to pre-order tickets to shows, indicating their desire for a band to come to their city.",
+            "Proposed, built, tested, and maintained full technology stack from concept to production.",
+            "Owned all technology and architecture decisions behind the product, which successfully handled a tour announcement from a popular band using our platform.",
+            "Interviewed and hired a cross-functional team to support the development and maintenance of the platform.",
+            "Managed and collaborated with the design team to create a professional product from scratch, ensuring an elegant user experience.",
+            "Implemented Stripe integration for pre-orders and refunds, which enabled automated payment processing.",
+            "Created annual budgets, managed asset inventory, and handled technology purchasing to effectively track and control the organization's burn rate.",
+            "Followed best development practices including continual refactoring and testing with over 90% coverage on automated back-end tests, allowing for rapid iteration and deployment.",
+            "Collaborated with marketing team and co-founders to craft branding and messaging, enhancing brand recognition and alignment with company values.",
+            "Facilitated conversations with the team to manage expectations, aligning desires with realistic goals and timelines, which improved project delivery efficiency.",
+            "Developed company vision and explored product diversification opportunities, consistently seeking improvements to enhance business growth.",
+          ],
+          recognitions: [],
+        },
+      ],
+    },
+    {
+      employerName: "Doolli",
+      employerLogo: "images/doolli.png",
+      employerTagline: "Cloud based data management service",
+      includeInPrint: false,
+      startDate: "2013-07-01",
+      endDate: "2016-01-01",
+      positions: [
+        {
+          role: "Senior Engineer",
+          startDate: "2013-07-01",
+          endDate: "2016-01-01",
+          responsibilities: [
+            "Added new functionality and bug fixes to the existing business logic built in Java and MySql.",
+            "Refactored and improved the architecture of the code base including achieving over 90% automated back-end test coverage.",
+            "Participate in developer interviews and make hiring recommendations.",
+            "Implemented an external facing RESTful API to be used by third party developers via OAuth.",
+            "Served in a ScrumMaster capacity and led the team to adopt a relatively strict adherence to SCRUM.",
+            "Wore many hats as needed including Business Analyst, Quality Assurance, and Sales Engineer.",
+          ],
+          recognitions: [],
+        },
+      ],
+    },
+    {
+      employerName: "Harris Local Government",
+      employerWebsite: "http://www.harrislocalgov.com/",
+      employerLogo: "images/harris-local-gov.png",
+      employerTagline: "Software for small municipal governments",
+      includeInPrint: false,
+      startDate: "2012-08-01",
+      endDate: "2013-06-01",
+      positions: [
+        {
+          role: "Product Architect",
+          startDate: "2012-08-01",
+          endDate: "2013-06-01",
+          responsibilities: [
+            "Led the implementation of feature based / Agile development, highly influenced by the Scrum methodology.  Served in a ScrumMaster role.",
+            "Inspected and recommend various technologies and frameworks for use - for example, decided AngularJS was a JavaScript framework that fit well with our team's skills and roles, as well as being able to solve the business needs.",
+            "Started the groundwork for an Operational Data Store, to manage the environment of diverse transactional systems that front end applications need to integrate with.",
+            "Mentored, code reviewed, and instructed new developers - as well as experienced developers new to .NET and SQL.",
+            "Implemented git as a pilot for use as a source control system.",
+            "Was a heads-down developer about half the time.",
+          ],
+          recognitions: [],
+        },
+      ],
+    },
+    {
+      employerName: "Meritain Health",
+      employerWebsite: "http://www.meritain.com/",
+      employerLogo: "images/meritain-health.jpg",
+      employerTagline: "A third party health insurance administrator",
+      includeInPrint: false,
+      startDate: "2007-01-01",
+      endDate: "2012-08-01",
+      positions: [
+        {
+          role: "Architect/Team Lead",
+          team: "Product Development",
+          startDate: "2011-06-01",
+          endDate: "2012-08-01",
+          responsibilities: [
+            "Software Development Management of a team of developers.  Was responsible for assigning responsibilities to align with business priorities.",
+            "Had to mentor junior-level developers, while delegate challenging work to senior level developers.",
+            "Continued the expansion of internal frameworks for use throughout the department, including streamlining the WCF service infrastructure.",
+            "Developed policies for code review and unit testing.",
+            "Was part of a team that developed an application architecture pattern to be used by all new software development - setting the software design up in such a way to be easily integrated into a future enterprise service bus.",
+          ],
+          recognitions: [],
+        },
+        {
+          role: "Architect",
+          team: "Applications Architecture",
+          startDate: "2010-05-01",
+          endDate: "2011-05-01",
+          responsibilities: [
+            "Led the effort to remove the SharePoint 2007 backend from our external portal.  Created frameworks to allow for the replacement of functionality provided by SharePoint.",
+            "Designed and developed solutions for developers across the enterprise to use.  These were made in collaboration with the other members of the architecture team - for example, a comprehensive, unified way of handling logging and application configuration.  Also decided best practices for tasks such as unit testing and application installation",
+            "Implemented Microsoft Team Foundation Server as the source control system for the enterprise",
+          ],
+          recognitions: ["2010 Meritain Health MVP award"],
+        },
+        {
+          role: "Senior Developer",
+          team: "Strategic Development",
+          startDate: "2008-01-01",
+          endDate: "2010-04-01",
+          responsibilities: [
+            "Worked on a portal consolidation project.  We folded existing lines of business onto the product, while continually adding and expanding on functionality.  During this period, the application grew from a member-only portal, with a single back end system, to a multiple constituent portal which provides a consistent look and feel across multiple back end systems.  The portal currently services over 25 thousand subscriber, dependent, employer, participant, and provider users allowing them to perform data transactions with our claims systems.",
+            "Worked in a lead capacity for a team of 3-5 developers on the project.  Responsibilities included assigning work  among the developers, as well as creating level of effort estimates back to the project management team.  Also was responsible for filtering all production support requests coming in from our ticketing system then would create and assign work items to other developers if necessary.",
+          ],
+          recognitions: [],
+        },
+        {
+          role: "Intermediate Developer",
+          team: "Portal Applications",
+          startDate: "2007-06-01",
+          endDate: "2008-01-01",
+          responsibilities: [
+            "Began development of an external-facing member portal using SharePoint 2007 as the portal engine.",
+            "Responsible for production support and discretionary maintenance for our many internal and external web sites.",
+          ],
+          recognitions: [],
+        },
+        {
+          role: "Intern",
+          team: "Reported to IT Enterprise Architect",
+          startDate: "2007-01-01",
+          endDate: "2007-05-01",
+          responsibilities: [
+            "Researched different Java open source solutions for web portals and application servers.",
+            "Developed a tool (JSR-186 compliant portlet) to maintain an inventory of IT resources.",
+          ],
+          recognitions: [],
+        },
+      ],
+    },
+    {
+      employerName:
+        "University at Buffalo, Department of Computer Science and Engineering",
+      employerWebsite: "http://www.cse.buffalo.edu/",
+      employerLogo: "images/ub.jpg",
+      includeInPrint: false,
+      startDate: "2005-08-01",
+      endDate: "2007-05-01",
+      positions: [
+        {
+          role: "Teaching Assistant for Introduction to Computer Science For Majors(I)",
+          startDate: "2005-08-01",
+          endDate: "2007-05-01",
+          responsibilities: [
+            "Held weekly lab sections. This involved an instructional period to cover information required for the students to finish the weekly lab.  After instruction, assisted the students as needed.",
+            "Held office hours for students to come and get one-on-one help with any class material or lab project.",
+            "Graded exams and student essays as required.",
+            "Attended weekly status and coordination meetings between the instructor and teaching assistants.",
+          ],
+          recognitions: [],
+        },
+        {
+          role: "Freelance",
+          startDate: "2006-05-01",
+          endDate: "2006-08-01",
+          responsibilities: [
+            "Assisted instructors of the Introduction to Computer Science for Majors (I) class to write an introductory textbook for computer science.  The textbook put object oriented design and modeling on the forefront rather than syntax and specific programming language issues.  The book is currently in use in the course.",
+            "Developed a 2D graphics package in Java for use in the Introduction to Computer Science (I) class.  Extending on the provided Swing and AWT libraries, it allows for development of simple graphics which simulate the Swing interfaces, design patterns, and object model.  This is still in use by the course.",
+          ],
+          recognitions: [],
+        },
+      ],
+    },
+  ],
+  interests: [
+    { name: "Buffalo, NY", image: "images/buffalo.svg" },
+    { name: "WRXs", image: "images/subaru.svg" },
+    { name: "Jeeps", image: "images/jeep.svg" },
+    { name: "Adirondacks", image: "images/mountains.svg" },
+    { name: "Yoga", image: "images/yoga.svg" },
+    { name: "Snowboarding", image: "images/snowboard.svg" },
+  ],
+  education: [
+    { type: "Certified ScrumMaster", date: "2014-12-01" },
+    {
+      type: "Master of Science",
+      from: "University at Buffalo, Department of Computer Science and Engineering",
+      date: "2007-06-01",
+    },
+    {
+      type: "Bachelor of Science",
+      from: "University at Buffalo, Department of Computer Science and Engineering",
+      date: "2007-06-01",
+    },
+  ],
+};

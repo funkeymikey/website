@@ -408,3 +408,14 @@ pre {
 #skills .card {
   height: 14rem;
 }
+
+/* Vue and the original masonry layout, without jQuery. */
+[v-cloak] { display:none; }
+.work-grid { position:relative; }
+.work-grid .item { position:absolute; top:0; left:0; }
+.show-more a { cursor:pointer; }
+
+/* Vue condenses whitespace between elements; preserve the original icon gap. */
+#intro .fa {
+  margin-inline-end: 0.25em;
+}
