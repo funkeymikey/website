@@ -82,8 +82,8 @@ a[href]:after {
   display: none;
 }
 
-/* undo masonry magic */
-div[masonry] {
+/* Restore normal document flow when printing. */
+.work-grid {
   position: inherit !important;
   height: inherit !important;
 }

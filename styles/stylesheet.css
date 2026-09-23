@@ -409,7 +409,7 @@ pre {
   height: 14rem;
 }
 
-/* Vue and the original masonry layout, without jQuery. */
+/* Vue rendering and work-history card positioning. */
 [v-cloak] { display:none; }
 .work-grid { position:relative; }
 .work-grid .item { position:absolute; top:0; left:0; }

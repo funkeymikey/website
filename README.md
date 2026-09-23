@@ -19,7 +19,7 @@ Open http://127.0.0.1:4175/. Any static HTTP server works. Serve the files over 
 - `scripts/app.js`: Vue initialization, reactive page title, Show More/Less behavior, short date formatting, and card positioning.
 - `scripts/date.js`: long date formatting through `Intl.DateTimeFormat`, using UTC to avoid timezone-related date shifts.
 - `styles/stylesheet.css`: original screen styling plus the small Vue/layout additions described below.
-- `styles/print.css`: original print stylesheet, unchanged.
+- `styles/print.css`: print styling for the shared page markup.
 - `styles/OpenSans-*-webfont.woff`: locally hosted Open Sans fonts.
 - `images/`: photos, employer logos, and illustrations.
 - `buffalo.html`: standalone static Buffalo page with historical content; it does not load Vue.
@@ -32,7 +32,7 @@ Vue updates `document.title` from `resume.name`. The initial HTML title and othe
 
 The résumé loads Vue **3.5.43** from jsDelivr through the version-pinned import in `scripts/app.js`. It uses `vue.esm-browser.prod.js`, the production browser build with the template compiler. To upgrade Vue, update that import URL and check the site. There is no local `vendor/` directory.
 
-The original appearance uses Bootstrap **3.2.0** CSS from MaxCDN and Font Awesome **6.4.2** CSS from cdnjs. The Buffalo page retains its original Font Awesome **4.2.0** CSS link. These CDN assets require a network connection. AngularJS, jQuery, Bootstrap JavaScript, and the Masonry library are not loaded.
+The original appearance uses Bootstrap **3.2.0** CSS from MaxCDN and Font Awesome **6.4.2** CSS from cdnjs. The Buffalo page retains its original Font Awesome **4.2.0** CSS link. These CDN assets require a network connection. AngularJS, jQuery, and Bootstrap JavaScript are not loaded.
 
 The résumé requires JavaScript. Readers that do not execute it will not receive the full résumé, and there is no pre-rendering. PDFs saved from the rendered page contain the printed content. No Google Analytics tracking is currently configured.
 
@@ -43,7 +43,7 @@ A small JavaScript routine positions work-history cards in the shortest availabl
 The additions to the original screen stylesheet are:
 
 - `[v-cloak]`: hides unrendered Vue expressions until the app mounts.
-- `.work-grid` and `.work-grid .item`: provide the positioning previously supplied by Masonry.
+- `.work-grid` and `.work-grid .item`: provide the positioning used by the work-history layout routine.
 - `.show-more a`: supplies the hand cursor for expansion links.
 - `#intro .fa`: restores spacing after contact icons that Vue’s whitespace handling removes.
 
@@ -51,7 +51,7 @@ The additions to the original screen stylesheet are:
 
 Use the browser’s Print command (Cmd+P / Ctrl+P). Screen and print use the same markup.
 
-The original `print.css` preserves its existing typography, spacing, logos, icons, interests, and page-break rules. It expands collapsed roles, hides Show More/Less controls and technology lists, excludes jobs with `includeInPrint: false`, and hides the footer. The `masonry` attribute remains on the work grid so the original print selectors can undo screen positioning; it does not load the Masonry library.
+The print stylesheet preserves the original typography, spacing, logos, icons, interests, and page-break rules. It expands collapsed roles, hides Show More/Less controls and technology lists, excludes jobs with `includeInPrint: false`, and hides the footer. The `.work-grid` print rule removes the grid’s screen positioning and fixed height so cards flow normally on the printed page.
 
 Use the same paper size, scale, margins, and browser header/footer settings as before when comparing PDFs. 
 
