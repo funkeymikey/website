@@ -132,7 +132,7 @@
       <div class="container">
         <div class="row">
           <h2 class="col-md-12">
-            <i class="fa fa-lightbulb-o"></i> Core Competencies
+            <i class="fa-regular fa-lightbulb"></i> Core Competencies
           </h2>
         </div>
         <div class="row">
@@ -166,6 +166,7 @@
               :class="{'print-hidden': !job.includeInPrint}"
             >
               <div class="card card-white">
+                <div class="job-heading">
                 <a
                   v-if="job.employerWebsite"
                   :href="job.employerWebsite"
@@ -184,6 +185,7 @@
                   />
                 </div>
                 <div class="employer-info">
+                  <h3 class="print-employer-name">{{job.employerName}}</h3>
                   <p>
                     <span v-if="job.employerTagline"
                       >{{job.employerTagline}}</span
@@ -193,6 +195,7 @@
                       >{{formatDate(job.endDate )}}</span
                     ><span v-if="!job.endDate">Present</span>
                   </p>
+                </div>
                 </div>
                 <div class="card-content">
                   <div
@@ -205,14 +208,18 @@
                       class="job-positions"
                     >
                       <div v-for="position in job.positions">
+                        <div class="position-heading">
                         <h4>{{position.role}}</h4>
+                        <span class="position-dates">
                         ({{formatShortDate(position.startDate )}} to
-                        <span v-if="job.endDate"
+                        <span v-if="position.endDate"
                           >{{formatShortDate(position.endDate )}})</span
                         >
                         <span v-if="!position.endDate">Present)</span>
 
+                        </span>
                         <div>{{position.team}}</div>
+                        </div>
 
                         <div
                           v-if="isPopulated(position.recognitions)"

@@ -45,15 +45,18 @@ The additions to the original screen stylesheet are:
 - `[v-cloak]`: hides unrendered Vue expressions until the app mounts.
 - `.work-grid` and `.work-grid .item`: provide the positioning used by the work-history layout routine.
 - `.show-more a`: supplies the hand cursor for expansion links.
+- `.print-employer-name`: hides the PDF employer heading on screen.
 - `#intro .fa`: restores spacing after contact icons that Vue’s whitespace handling removes.
 
 ## Print / Save as PDF
 
 Use the browser’s Print command (Cmd+P / Ctrl+P). Screen and print use the same markup.
 
-The print stylesheet preserves the original typography, spacing, logos, icons, interests, and page-break rules. It expands collapsed roles, hides Show More/Less controls and technology lists, excludes jobs with `includeInPrint: false`, and hides the footer. The `.work-grid` print rule removes the grid’s screen positioning and fixed height so cards flow normally on the printed page.
+The print stylesheet uses Letter paper with 0.65-inch margins and 10.5-point Open Sans text. It uses a single-column reading order, real text employer names in place of logos, one competency per line, and one skills category per row. The profile photo and decorative contact/interest images are hidden; interest text is retained. Education stays together. Job and role headings are grouped with their following content; individual bullets avoid splitting across pages, while long roles can continue onto the next page. Employer names use a small print-only heading within the shared markup; the screen retains its logos.
 
-Use the same paper size, scale, margins, and browser header/footer settings as before when comparing PDFs. 
+Print CSS expands collapsed roles, hides Show More/Less controls and technology lists, excludes jobs with `includeInPrint: false`, and hides the footer. The `.work-grid` print rule removes screen positioning and fixed height so cards flow normally. Screen and print still share the same content and markup.
+
+For PDF export, select Letter paper, 100% scale, and disable browser headers/footers to remove the date, URL, and browser page labels. Final pagination varies with content and print settings. Check preview and copy text from the saved PDF to verify employer names, roles, dates, and reading order.
 
 ## GitHub Pages
 

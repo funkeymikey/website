@@ -1,0 +1,10 @@
+{
+  "overrides": [
+    {
+      "files": "index.html",
+      "options": {
+        "parser": "vue"
+      }
+    }
+  ]
+}

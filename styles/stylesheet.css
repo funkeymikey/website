@@ -419,3 +419,6 @@ pre {
 #intro .fa {
   margin-inline-end: 0.25em;
 }
+
+/* Employer names are text in the PDF; the screen retains its logos. */
+.print-employer-name { display: none; }

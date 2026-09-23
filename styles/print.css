@@ -1,140 +1,113 @@
+/* Print the same résumé markup in a single-column, text-first document flow. */
+@page {
+  size: letter;
+  margin: 0.65in;
+}
+html { font-size: 10.5pt; }
 body {
-  line-height: 1.2;
-  font-size: 75%;
+  font-size: 10.5pt;
+  line-height: 1.35;
+  background: white;
+  font-variant-ligatures: none;
 }
-
+.container, .row {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+[class*="col-"] { padding: 0 !important; }
+header, footer, .card {
+  background: none !important;
+  box-shadow: none !important;
+}
+header { padding: 0 0 9pt; }
+#intro .row { display: block; }
+#intro .row > div:first-child { display: none; }
+#intro .row > div:last-child { width: 100%; float: none; }
+#intro small { font-size: 10pt; }
+/* Contact text remains selectable; decorative glyphs do not enter extraction. */
+#intro i { display: none; }
+h1 { font-size: 21pt; line-height: 1.15; margin: 0 0 3pt; }
+h2 { font-size: 12pt; line-height: 1.2; }
+h3, h4 { font-size: 10.5pt; line-height: 1.35; }
+h1, h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
 section {
-  display: block !important;
-  width: 100% !important;
-  margin-bottom: 20px !important;
-  clear: both !important;
-}
-
-#skills .row,
-#interests .row,
-#education .row {
-  display: block !important;
-  width: 100% !important;
-  page-break-inside: avoid !important;
-}
-
-#skills .card,
-#education .content {
-  display: block !important;
-  width: 100% !important;
-}
-
-section,
-section h2 {
-  padding: 0 0 5px 0;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-size: 1.5rem;
-  margin: 5px 0;
-}
-
-/* resize some medium content to look like it does on large screen */
-.col-md-2 {
-  width: 16.66666667%;
-}
-
-.col-md-4 {
-  width: 25%;
-}
-
-.col-md-8 {
-  width: 75%;
-}
-
-/*logo looks weird centered, put it back on left*/
-.employer-logo {
-  text-align: left;
-  height: inherit !important;
-  line-height: inherit !important;
-  float: left;
-  margin-right: 20px;
-}
-.employer-info {
-  text-align: left;
-}
-
-/*keep these reasonable size*/
-.employer-logo > img {
-  max-height: 2rem !important;
-}
-
-/*don't print the show more toggle */
-.show-more {
-  display: none;
-}
-
-/*always expand every job */
-.job-detail {
-  max-height: inherit !important;
-}
-
-/* hide the url */
-a[href]:after {
-  display: none;
-}
-
-/* Restore normal document flow when printing. */
-.work-grid {
-  position: inherit !important;
-  height: inherit !important;
-}
-
-.item {
-  display: inherit !important;
-  float: inherit !important;
-  position: inherit !important;
-  left: inherit !important;
-  top: inherit !important;
-  width: 100% !important;
-  margin-bottom: 15px !important;
-}
-
-.item .card-content {
-  padding: 0;
+  display: block;
+  width: 100%;
+  padding: 7pt 0 0;
+  margin: 0 0 7pt;
   clear: both;
 }
-
-.item h3 {
-  display: none;
+section h2 { display: block; padding: 5pt 0; margin: 0 0 3pt; }
+section + section .container { border-top: 0.5pt solid #aaa; }
+/* Keep a section heading with its content, not an entire long content row. */
+section > .container > .row:first-child { break-after: avoid; page-break-after: avoid; }
+p, li { orphans: 3; widows: 3; }
+ul { margin: 3pt 0 5pt 14pt; padding: 0; }
+li { margin-bottom: 3pt; break-inside: avoid; page-break-inside: avoid; }
+a[href]::after { display: none; }
+.card, .card-content { padding: 0; border: 0; overflow: visible; }
+.content { margin-top: 3pt; }
+#bio .row > div { width: 100%; float: none; }
+/* Preserve DOM reading order with one competency per line. */
+#coreCompetencies .row:last-child { display: block; }
+#coreCompetencies .content { float: none; width: 100%; margin: 0 0 3pt; text-align: left; }
+#coreCompetencies .card { display: block; height: auto; padding: 0; }
+#coreCompetencies .card-title { display: none; }
+/* Reset all screen positioning, including inline offsets and collapsed heights. */
+.work-grid { position: static !important; height: auto !important; }
+.work-grid .item {
+  display: block !important;
+  float: none !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  width: 100% !important;
+  margin: 0 0 16pt;
 }
-
-.job-detail {
-  min-height: inherit !important;
+.job-heading { display: flow-root; margin-bottom: 3pt; break-inside: avoid; break-after: avoid; }
+.employer-logo { display: none; }
+.employer-info { text-align: left; font-size: 10pt; }
+.employer-info p { margin: 0 0 5pt; }
+.print-employer-name { display: block; font-size: 13pt; font-weight: bold; margin: 0 0 3pt; }
+.item .card-content { clear: both; }
+[id^="jobDetail"], .card .job-detail {
+  max-height: none !important;
+  min-height: 0 !important;
+  height: auto !important;
+  overflow: visible !important;
 }
-
-/* get rid of the faded text above show more */
-.card .job-detail:after {
-  content: "";
-  position: inherit !important;
-  display: inherit !important;
-  background: inherit !important;
-}
-
-#coreCompetencies .card .card-title,
-#skills .card .card-title {
-  font-size: 1.5rem;
-}
-
-#coreCompetencies .card,
-#skills .card {
-  height: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  /* padding: inherit; */
-}
-
-.print-hidden,
-footer {
-  display: none !important;
-}
+.card .job-detail::after { display: none; }
+.position-heading { break-inside: avoid; break-after: avoid; page-break-after: avoid; }
+.position-heading h4 { margin: 0; }
+.position-dates { white-space: nowrap; }
+.job-positions > div + div { margin-top: 6pt; }
+.position-list, .position-list + .position-list { margin-top: 3pt; }
+/* One category per row, with its skills following in source order. */
+#skills .row:last-child { display: block; }
+#skills .content { float: none; width: 100%; margin: 0 0 7pt; text-align: left; break-inside: avoid; }
+#skills .card { display: block; height: auto; padding: 0; }
+#skills .card-title { display: block; font-size: 10.5pt; margin: 0 0 2pt; }
+#skills .card-title .fa { display: none; }
+#skills .card ul { text-transform: none; }
+#skills .card li { display: inline; font-size: 10.5pt; line-height: 1.35; margin: 0; }
+#skills .card li + li::before { content: "; "; }
+/* Keep interest text, without decorative images or a multi-column layout. */
+#interests .row:last-child { display: block; }
+#interests .content { display: inline; width: auto; float: none; margin: 0; font-size: 10pt; }
+#interests .content + .content::before { content: "; "; }
+#interests .icon { display: none; }
+#education { break-inside: avoid; page-break-inside: avoid; }
+#education .content { margin-top: 0; }
+.print-hidden, .show-more, footer { display: none !important; }
+/* Bootstrap's clearfix pseudo-elements must not become empty grid cells. */
+#coreCompetencies .row:last-child::before,
+#coreCompetencies .row:last-child::after,
+#skills .row:last-child::before,
+#skills .row:last-child::after,
+#interests .row:last-child::before,
+#interests .row:last-child::after { display: none; }
+/* Match the positioning rule's specificity when excluding older jobs. */
+.work-grid .item.print-hidden { display: none !important; }
+.position-dates { display: inline-block; margin-left: 0.3em; }
+#intro .fa { margin-right: 0.25em; }
