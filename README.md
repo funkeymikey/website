@@ -52,7 +52,7 @@ The additions to the original screen stylesheet are:
 
 Use the browser’s Print command (Cmd+P / Ctrl+P). Screen and print use the same markup.
 
-The print stylesheet uses Letter paper with 0.65-inch margins and 10.5-point Open Sans text. It uses a single-column reading order, real text employer names in place of logos, one competency per line, and one skills category per row. The profile photo and decorative contact/interest images are hidden; interest text is retained. Education stays together. Job and role headings are grouped with their following content; individual bullets avoid splitting across pages, while long roles can continue onto the next page. Employer names use a small print-only heading within the shared markup; the screen retains its logos.
+The print stylesheet uses Letter paper with 0.65-inch margins and 10.5-point Open Sans text. It uses a single-column reading order, real text employer names in place of logos, one competency per line, and one skills category per row. Contact icons remain visible beside selectable contact text. The profile photo is hidden; interest images print above centered text labels in six columns. Education stays together. Job and role headings are grouped with their following content; individual bullets avoid splitting across pages, while long roles can continue onto the next page. Employer names use a small print-only heading within the shared markup; the screen retains its logos.
 
 Print CSS expands collapsed roles, hides Show More/Less controls and technology lists, excludes jobs with `includeInPrint: false`, and hides the footer. The `.work-grid` print rule removes screen positioning and fixed height so cards flow normally. Screen and print still share the same content and markup.
 

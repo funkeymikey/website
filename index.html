@@ -79,11 +79,22 @@
               <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
                 <h1>{{ resume.name }}</h1>
                 <div>{{ resume.tagline }}</div>
-                <span v-if="resume.about.contact.email"
-                  ><a :href="'mailto:' + resume.about.contact.email"
-                    ><small>{{ resume.about.contact.email }}</small
-                    ><br /></a
-                ></span>
+                <div v-if="resume.website" class="print-only">
+                  <small>
+                    <i class="fa fa-globe"></i>
+                    <a :href="resume.website" target="_blank">{{
+                      resume.website
+                    }}</a>
+                  </small>
+                </div>
+                <span v-if="resume.about.contact.email">
+                  <small
+                    ><i class="fa fa-envelope"></i>
+                    <a :href="'mailto:' + resume.about.contact.email"
+                      >{{ resume.about.contact.email }}<br
+                    /></a>
+                  </small>
+                </span>
                 <span v-if="resume.about.contact.phone"
                   ><i class="fa fa-phone"></i
                   ><a :href="'tel:' + resume.about.contact.phone">
@@ -105,7 +116,7 @@
                 </div>
                 <div v-if="resume.about.linkedin">
                   <small>
-                    <i class="fa fa-linkedin"></i>
+                    <i class="fa fa-brands fa-linkedin"></i>
                     <a :href="resume.about.linkedin" target="_blank">{{
                       resume.about.linkedin
                     }}</a>
@@ -336,7 +347,7 @@
             <div class="row">
               <div
                 v-for="interest in resume.interests"
-                class="content col-md-2 col-sm-3 col-xs-6 text-center"
+                class="content col-md-2 col-sm-4 col-xs-6 text-center"
               >
                 <figure class="icon">
                   <img :src="interest.image" :alt="interest.name" />

@@ -405,20 +405,56 @@ pre {
   margin: 0;
 }
 
-#skills .card {
-  height: 14rem;
+/* Equal-height skill cards that grow when text wraps. */
+@media screen {
+  #skills .row:last-child {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #skills .row:last-child::before,
+  #skills .row:last-child::after {
+    display: none;
+  }
+
+  #skills .content {
+    display: flex;
+  }
+
+  #skills .card {
+    width: 100%;
+    height: auto;
+    min-height: 14rem;
+  }
+
+  #skills .card-title,
+  #skills .card-content {
+    flex-shrink: 0;
+  }
 }
 
 /* Vue rendering and work-history card positioning. */
-[v-cloak] { display:none; }
-.work-grid { position:relative; }
-.work-grid .item { position:absolute; top:0; left:0; }
-.show-more a { cursor:pointer; }
+[v-cloak] {
+  display: none;
+}
+.work-grid {
+  position: relative;
+}
+.work-grid .item {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.show-more a {
+  cursor: pointer;
+}
 
 /* Vue condenses whitespace between elements; preserve the original icon gap. */
 #intro .fa {
   margin-inline-end: 0.25em;
 }
 
-/* Employer names are text in the PDF; the screen retains its logos. */
-.print-employer-name { display: none; }
+.print-employer-name,
+.print-only {
+  display: none;
+}

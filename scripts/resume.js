@@ -2,6 +2,7 @@ export const resume = {
   name: "mike kozelsky",
   firstName: "Mike",
   image: "images/mike.jpg",
+  website: "https://mikekozelsky.com",
   tagline:
     "Engineering Leader | Excellence in People, Product, Process, Platform",
   links: [],
