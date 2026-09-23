@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+  <head>
     <title>Portfolio</title>
 
     <meta charset="UTF-8" />
@@ -60,306 +61,322 @@
     />
     <link rel="stylesheet" href="styles/stylesheet.css" />
     <link rel="stylesheet" href="styles/print.css" media="print" />
-  </head><body>
-<div id="app" v-cloak><div class="screen-resume">
-    <header id="intro">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img
-              v-if="resume.image"
-              :src="resume.image"
-              :alt="resume.name"
-              class="img-responsive profile-image"
-            />
-          </div>
-          <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
-            <h1>{{resume.name}}</h1>
-            <div>{{resume.tagline}}</div>
-            <span v-if="resume.about.contact.email"
-              ><a :href="'mailto:' + resume.about.contact.email"
-                ><small>{{resume.about.contact.email}}</small><br /></a
-            ></span>
-            <span v-if="resume.about.contact.phone"
-              ><i class="fa fa-phone"></i
-              ><a :href="'tel:' + resume.about.contact.phone">
-                <small>{{resume.about.contact.phone}}</small><br /></a
-            ></span>
-            <div v-if="resume.about.contact.address">
-              <small>
-                <i class="fa fa-map-marker"> </i>
-                <span v-if="resume.about.contact.address.city"
-                  >{{resume.about.contact.address.city}}, </span
-                ><span v-if="resume.about.contact.address.state"
-                  >{{resume.about.contact.address.state}}</span
-                >
-                <span v-if="resume.about.contact.address.postal"
-                  >{{resume.about.contact.address.postal}}</span
-                >
-              </small>
-            </div>
-            <div v-if="resume.about.linkedin">
-              <small>
-                <i class="fa fa-linkedin"></i>
-                <a :href="resume.about.linkedin" target="_blank"
-                  >{{resume.about.linkedin}}</a
-                >
-              </small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <section id="bio" v-if="resume.about.bio">
-      <div class="container">
-        <div class="row">
-          <h2 class="col-md-12">
-            <i class="fa fa-user"></i> About {{resume.firstName}}
-          </h2>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 hidden-md-down">
-            <div class="card card-white">
-              <div class="card-content" v-html="resume.about.bio"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="coreCompetencies" v-if="isPopulated(resume.coreCompetencies)">
-      <div class="container">
-        <div class="row">
-          <h2 class="col-md-12">
-            <i class="fa-regular fa-lightbulb"></i> Core Competencies
-          </h2>
-        </div>
-        <div class="row">
-          <div
-            v-for="competency in resume.coreCompetencies"
-            class="content col-md-2 col-sm-3 col-xs-6 text-center"
-          >
-            <div class="card card-white">
-              <h3 class="card-title">
-                <i class="fa" :class="competency.icon"></i>
-              </h3>
-              <div class="card-content">{{competency.name}}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="workHistory" v-if="isPopulated(resume.workHistory)">
-      <div class="container">
-        <div class="row">
-          <h2 class="col-md-12">
-            <i class="fa fa-briefcase"></i> Work History
-          </h2>
-        </div>
-        <div class="row">
-          <div class="work-grid" ref="workGrid">
-            <div
-              class="item col-sm-6 col-xs-12"
-              v-for="(job, jobIndex) in resume.workHistory"
-              :class="{'print-hidden': !job.includeInPrint}"
-            >
-              <div class="card card-white">
-                <div class="job-heading">
-                <a
-                  v-if="job.employerWebsite"
-                  :href="job.employerWebsite"
-                >
-                  <div class="employer-logo">
-                    <img
-                      :src="job.employerLogo"
-                      :alt="job.employerName"
-                    />
-                  </div>
-                </a>
-                <div v-if="!job.employerWebsite" class="employer-logo">
-                  <img
-                    :src="job.employerLogo"
-                    :alt="job.employerName"
-                  />
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <div class="screen-resume">
+        <header id="intro">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <img
+                  v-if="resume.image"
+                  :src="resume.image"
+                  :alt="resume.name"
+                  class="img-responsive profile-image"
+                />
+              </div>
+              <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+                <h1>{{ resume.name }}</h1>
+                <div>{{ resume.tagline }}</div>
+                <span v-if="resume.about.contact.email"
+                  ><a :href="'mailto:' + resume.about.contact.email"
+                    ><small>{{ resume.about.contact.email }}</small
+                    ><br /></a
+                ></span>
+                <span v-if="resume.about.contact.phone"
+                  ><i class="fa fa-phone"></i
+                  ><a :href="'tel:' + resume.about.contact.phone">
+                    <small>{{ resume.about.contact.phone }}</small
+                    ><br /></a
+                ></span>
+                <div v-if="resume.about.contact.address">
+                  <small>
+                    <i class="fa fa-map-marker"> </i>
+                    <span v-if="resume.about.contact.address.city"
+                      >{{ resume.about.contact.address.city }}, </span
+                    ><span v-if="resume.about.contact.address.state">{{
+                      resume.about.contact.address.state
+                    }}</span>
+                    <span v-if="resume.about.contact.address.postal">{{
+                      resume.about.contact.address.postal
+                    }}</span>
+                  </small>
                 </div>
-                <div class="employer-info">
-                  <h3 class="print-employer-name">{{job.employerName}}</h3>
-                  <p>
-                    <span v-if="job.employerTagline"
-                      >{{job.employerTagline}}</span
-                    ><br />
-                    {{formatDate(job.startDate )}} &mdash;
-                    <span v-if="job.endDate"
-                      >{{formatDate(job.endDate )}}</span
-                    ><span v-if="!job.endDate">Present</span>
-                  </p>
+                <div v-if="resume.about.linkedin">
+                  <small>
+                    <i class="fa fa-linkedin"></i>
+                    <a :href="resume.about.linkedin" target="_blank">{{
+                      resume.about.linkedin
+                    }}</a>
+                  </small>
                 </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section id="bio" v-if="resume.about.bio">
+          <div class="container">
+            <div class="row">
+              <h2 class="col-md-12">
+                <i class="fa fa-user"></i> About {{ resume.firstName }}
+              </h2>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 hidden-md-down">
+                <div class="card card-white">
+                  <div class="card-content" v-html="resume.about.bio"></div>
                 </div>
-                <div class="card-content">
-                  <div
-                    :style="{'max-height': shouldShow(jobIndex) ? 'inherit' : '15rem'}"
-                    :class="{'job-detail':!shouldShow(jobIndex)}"
-                    :id="'jobDetail' + jobIndex"
-                  >
-                    <div
-                      v-if="isPopulated(job.positions)"
-                      class="job-positions"
-                    >
-                      <div v-for="position in job.positions">
-                        <div class="position-heading">
-                        <h4>{{position.role}}</h4>
-                        <span class="position-dates">
-                        ({{formatShortDate(position.startDate )}} to
-                        <span v-if="position.endDate"
-                          >{{formatShortDate(position.endDate )}})</span
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="coreCompetencies"
+          v-if="isPopulated(resume.coreCompetencies)"
+        >
+          <div class="container">
+            <div class="row">
+              <h2 class="col-md-12">
+                <i class="fa-regular fa-lightbulb"></i> Core Competencies
+              </h2>
+            </div>
+            <div class="row">
+              <div
+                v-for="competency in resume.coreCompetencies"
+                class="content col-md-2 col-sm-3 col-xs-6 text-center"
+              >
+                <div class="card card-white">
+                  <h3 class="card-title">
+                    <i class="fa" :class="competency.icon"></i>
+                  </h3>
+                  <div class="card-content">{{ competency.name }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="workHistory" v-if="isPopulated(resume.workHistory)">
+          <div class="container">
+            <div class="row">
+              <h2 class="col-md-12">
+                <i class="fa fa-briefcase"></i> Work History
+              </h2>
+            </div>
+            <div class="row">
+              <div class="work-grid" ref="workGrid">
+                <div
+                  class="item col-sm-6 col-xs-12"
+                  v-for="(job, jobIndex) in resume.workHistory"
+                  :class="{ 'print-hidden': !job.includeInPrint }"
+                >
+                  <div class="card card-white">
+                    <div class="job-heading">
+                      <a v-if="job.employerWebsite" :href="job.employerWebsite">
+                        <div class="employer-logo">
+                          <img
+                            :src="job.employerLogo"
+                            :alt="job.employerName"
+                          />
+                        </div>
+                      </a>
+                      <div v-if="!job.employerWebsite" class="employer-logo">
+                        <img :src="job.employerLogo" :alt="job.employerName" />
+                      </div>
+                      <div class="employer-info">
+                        <h3 class="print-employer-name">
+                          {{ job.employerName }}
+                        </h3>
+                        <p>
+                          <span v-if="job.employerTagline">{{
+                            job.employerTagline
+                          }}</span
+                          ><br />
+                          {{ formatDate(job.startDate) }} &mdash;
+                          <span v-if="job.endDate">{{
+                            formatDate(job.endDate)
+                          }}</span
+                          ><span v-if="!job.endDate">Present</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="card-content">
+                      <div
+                        :style="{
+                          'max-height': shouldShow(jobIndex)
+                            ? 'inherit'
+                            : '15rem',
+                        }"
+                        :class="{ 'job-detail': !shouldShow(jobIndex) }"
+                        :id="'jobDetail' + jobIndex"
+                      >
+                        <div
+                          v-if="isPopulated(job.positions)"
+                          class="job-positions"
                         >
-                        <span v-if="!position.endDate">Present)</span>
+                          <div v-for="position in job.positions">
+                            <div class="position-heading">
+                              <h4>{{ position.role }}</h4>
+                              <span class="position-dates">
+                                ({{ formatShortDate(position.startDate) }} to
+                                <span v-if="position.endDate"
+                                  >{{
+                                    formatShortDate(position.endDate)
+                                  }})</span
+                                >
+                                <span v-if="!position.endDate">Present)</span>
+                              </span>
+                              <div>{{ position.team }}</div>
+                            </div>
 
-                        </span>
-                        <div>{{position.team}}</div>
+                            <div
+                              v-if="isPopulated(position.recognitions)"
+                              class="position-list"
+                            >
+                              Recognitions
+                              <ul>
+                                <li
+                                  v-for="recognition in position.recognitions"
+                                >
+                                  {{ recognition }}
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div
+                              v-if="isPopulated(position.responsibilities)"
+                              class="position-list"
+                            >
+                              <ul>
+                                <li
+                                  v-for="responsibility in position.responsibilities"
+                                >
+                                  {{ responsibility }}
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
 
                         <div
-                          v-if="isPopulated(position.recognitions)"
-                          class="position-list"
+                          v-if="isPopulated(job.technologies)"
+                          class="technology-list print-hidden"
                         >
-                          Recognitions
+                          Technologies used at {{ job.employerName }}
                           <ul>
                             <li
-                              v-for="recognition in position.recognitions"
+                              v-for="technology in [...job.technologies].sort()"
                             >
-                              {{recognition}}
-                            </li>
-                          </ul>
-                        </div>
-
-                        <div
-                          v-if="isPopulated(position.responsibilities)"
-                          class="position-list"
-                        >
-                          <ul>
-                            <li
-                              v-for="responsibility in position.responsibilities"
-                            >
-                              {{responsibility}}
+                              {{ technology }}
                             </li>
                           </ul>
                         </div>
                       </div>
-                    </div>
-
-                    <div
-                      v-if="isPopulated(job.technologies)"
-                      class="technology-list print-hidden"
-                    >
-                      Technologies used at {{job.employerName}}
-                      <ul>
-                        <li
-                          v-for="technology in [...job.technologies].sort()"
+                      <div class="show-more">
+                        <a
+                          v-show="isOverflowing(jobIndex)"
+                          :aria-expanded="shouldShow(jobIndex)"
+                          :aria-controls="'jobDetail' + jobIndex"
+                          :href="'#jobDetail' + jobIndex"
+                          @click.prevent="toggleMore(jobIndex)"
+                          ><i
+                            class="fa fa-chevron-down"
+                            :class="{ 'fa-rotate-180': shouldShow(jobIndex) }"
+                          ></i>
+                          {{
+                            shouldShow(jobIndex) ? "Show Less" : "Show More"
+                          }}</a
                         >
-                          {{technology}}
-                        </li>
-                      </ul>
+                      </div>
                     </div>
-                  </div>
-                  <div class="show-more">
-                    <a
-                      v-show="isOverflowing(jobIndex)"
-                      :aria-expanded="shouldShow(jobIndex)"
-                      :aria-controls="'jobDetail' + jobIndex"
-                      :href="'#jobDetail' + jobIndex"
-                      @click.prevent="toggleMore(jobIndex)"
-                      ><i
-                        class="fa fa-chevron-down"
-                        :class="{ 'fa-rotate-180' : shouldShow(jobIndex) }"
-                      ></i>
-                      {{shouldShow(jobIndex) ? 'Show Less' : 'Show More'}}</a
-                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="skills" v-if="isPopulated(resume.skills)">
-      <!-- show each skill with the name skill.category and image skill.icon-->
-      <div class="container">
-        <div class="row">
-          <h2 class="col-md-12"><i class="fa fa-code"></i> Skills</h2>
-        </div>
-        <div class="row">
-          <div
-            v-for="skill in resume.skills"
-            class="content col-md-3 col-sm-3 col-xs-12 text-center"
-          >
-            <div class="card card-white">
-              <h3 class="card-title">
-                <i class="fa" :class="skill.icon"></i>
-                <div>{{skill.category}}</div>
-              </h3>
-              <div class="card-content">
-                <ul>
-                  <li v-for="subSkill in skill.skills">{{subSkill}}</li>
-                </ul>
+        <section id="skills" v-if="isPopulated(resume.skills)">
+          <!-- show each skill with the name skill.category and image skill.icon-->
+          <div class="container">
+            <div class="row">
+              <h2 class="col-md-12"><i class="fa fa-code"></i> Skills</h2>
+            </div>
+            <div class="row">
+              <div
+                v-for="skill in resume.skills"
+                class="content col-md-3 col-sm-3 col-xs-12 text-center"
+              >
+                <div class="card card-white">
+                  <h3 class="card-title">
+                    <i class="fa" :class="skill.icon"></i>
+                    <div>{{ skill.category }}</div>
+                  </h3>
+                  <div class="card-content">
+                    <ul>
+                      <li v-for="subSkill in skill.skills">{{ subSkill }}</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="interests" v-if="isPopulated(resume.interests)">
-      <div class="container">
-        <div class="row">
-          <h2 class="col-md-12"><i class="fa fa-binoculars"></i> Interests</h2>
-        </div>
-        <div class="row">
-          <div
-            v-for="interest in resume.interests"
-            class="content col-md-2 col-sm-3 col-xs-6 text-center"
-          >
-            <figure class="icon">
-              <img :src="interest.image" :alt="interest.name" />
-            </figure>
-            {{interest.name}}
+        <section id="interests" v-if="isPopulated(resume.interests)">
+          <div class="container">
+            <div class="row">
+              <h2 class="col-md-12">
+                <i class="fa fa-binoculars"></i> Interests
+              </h2>
+            </div>
+            <div class="row">
+              <div
+                v-for="interest in resume.interests"
+                class="content col-md-2 col-sm-3 col-xs-6 text-center"
+              >
+                <figure class="icon">
+                  <img :src="interest.image" :alt="interest.name" />
+                </figure>
+                {{ interest.name }}
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
+
+        <section id="education" v-if="isPopulated(resume.education)">
+          <div class="container">
+            <div class="row">
+              <h2 class="col-md-12">
+                <i class="fa fa-graduation-cap"></i> Education
+              </h2>
+            </div>
+            <div class="content">
+              <ul>
+                <li v-for="award in resume.education">
+                  {{ award.type
+                  }}<span v-if="award.from"> from {{ award.from }}</span
+                  >, {{ formatDate(award.date) }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <footer id="footer" class="runner clearfix">
+          <p class="left with-padding">&copy; {{ resume.name }}</p>
+          <p class="right with-padding">
+            <span v-for="link in resume.links" class="link">
+              <a :href="link.url">{{ link.name }}</a>
+            </span>
+          </p>
+        </footer>
       </div>
-    </section>
-
-    <section id="education" v-if="isPopulated(resume.education)">
-      <div class="container">
-        <div class="row">
-          <h2 class="col-md-12">
-            <i class="fa fa-graduation-cap"></i> Education
-          </h2>
-        </div>
-        <div class="content">
-          <ul>
-            <li v-for="award in resume.education">
-              {{award.type}}<span v-if="award.from"> from {{award.from}}</span
-              >, {{formatDate(award.date )}}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <footer id="footer" class="runner clearfix">
-      <p class="left with-padding">&copy; {{resume.name}}</p>
-      <p class="right with-padding">
-        <span v-for="link in resume.links" class="link">
-          <a :href="link.url">{{link.name}}</a>
-        </span>
-      </p>
-    </footer>
-
-    </div></div>
-<noscript>Please enable JavaScript to view the résumé.</noscript>
-<script type="module" src="scripts/app.js"></script>
-</body></html>
+    </div>
+    <noscript>Please enable JavaScript to view the résumé.</noscript>
+    <script type="module" src="scripts/app.js"></script>
+  </body>
+</html>
