@@ -254,7 +254,7 @@ export const resume = {
       employerWebsite: "https://www.fan.ai/",
       employerLogo: "images/fanai.png",
       employerTagline: "Sports sponsorship analysis",
-      includeInPrint: true,
+      includeInPrint: false,
       startDate: "2021-06-14",
       endDate: "2022-08-01",
       positions: [
@@ -351,7 +351,7 @@ export const resume = {
       employerName: "Fanbassador",
       employerLogo: "images/fanbassador.jpg",
       employerTagline: "Fan Demanded Touring Decisions",
-      includeInPrint: false,
+      includeInPrint: true,
       startDate: "2016-02-01",
       endDate: "2017-12-31",
       positions: [
